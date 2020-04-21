@@ -17,11 +17,13 @@ import NewProject from './start-new-project';
 import Projects from './projects';
 import SignIn from './sign-in';
 import SignUp from './sign-up';
+import Main from '../App';
 
 const App: React.FC = () => {
   return (
     <Layout>
       <Router>
+        <Main path="/" />
         <SignIn path="/sign-in" />
         <SignUp path="/sign-up" />
         <JoinProject path="/join-to-project" />
