@@ -27,7 +27,6 @@ yarn-error.log*
 # =========================
 
 # Build directory
-public/
 
 # Gatsby cache
 .cache/
