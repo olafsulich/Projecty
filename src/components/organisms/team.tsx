@@ -6,18 +6,6 @@ import Category from '../molecules/Category';
 import useTeam from '../../hooks/useTeam';
 import { Member } from '../../types';
 
-interface User {
-  user: {
-    type: string;
-    name: string;
-    photoURL: string;
-  };
-}
-
-interface Team {
-  team: User[];
-}
-
 type Props = RouteComponentProps;
 
 const Team: React.FC<Props> = () => {

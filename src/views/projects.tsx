@@ -113,24 +113,24 @@ const StyledButtonSecondary = styled(Link)<{ type: string }>`
   height: 4.3rem;
   width: 13rem;
   margin: 1rem;
-  background-color: ${({ type }) => {
+  background-color: ${({ type, theme }) => {
     switch (type) {
       case 'yellow':
-        return '#fff5da';
+        return theme.yellowSecondary;
       case 'green':
-        return '#eafcee';
+        return theme.greenSecondary;
       default:
-        return '#fff5da';
+        return theme.yellowSecondary;
     }
   }};
-  color: ${({ type }) => {
+  color: ${({ type, theme }) => {
     switch (type) {
       case 'yellow':
-        return '#f7b801';
+        return theme.yellowPrimary;
       case 'green':
-        return '#1fc844';
+        return theme.greenPrimary;
       default:
-        return '#f7b801';
+        return theme.yellowPrimary;
     }
   }};
   font-size: 1.6rem;
@@ -141,8 +141,8 @@ const StyledButtonSecondary = styled(Link)<{ type: string }>`
 type Props = RouteComponentProps;
 
 const Projects: React.FC<Props> = () => {
-  const projects: any = useProjects();
-  const setId: any = useDispatch();
+  const projects = useProjects();
+  const setId = useDispatch();
 
   const handlePick = (projectKey: string) => {
     setId(getProjectID(projects, projectKey));

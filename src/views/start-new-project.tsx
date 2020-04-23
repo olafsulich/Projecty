@@ -9,7 +9,6 @@ import StyledHeading from '../components/atoms/Heading';
 import StyledLabel from '../components/atoms/Label';
 import StyledInput from '../components/atoms/Input';
 import StyledLogo from '../components/atoms/Logo';
-// import usePageWidth from '../hooks/usePageWidth';
 import { setProjectKey } from '../state/actions/index';
 import useUser from '../hooks/useUser';
 
@@ -209,9 +208,8 @@ const StyledInfoButton = styled(Link)`
 type Props = RouteComponentProps;
 
 const NewProject: React.FC<Props> = () => {
-  // const pageWidth = usePageWidth();
-  const currentUser: any = useUser();
-  const setKey: any = useDispatch();
+  const currentUser = useUser();
+  const setKey = useDispatch();
 
   const handleCreate = (projectName: string, key: string) => {
     if (currentUser !== null) {
@@ -301,8 +299,3 @@ const NewProject: React.FC<Props> = () => {
 };
 
 export default NewProject;
-
-// import React from 'react';
-
-// const NewProject = () => <div>sss</div>;
-// export default NewProject;

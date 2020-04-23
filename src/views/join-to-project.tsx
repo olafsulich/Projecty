@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 import { Link, navigate, RouteComponentProps } from '@reach/router';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import Layout from '../Layout/Layout';
 import StyledHeading from '../components/atoms/Heading';
 import StyledLabel from '../components/atoms/Label';
@@ -10,6 +10,8 @@ import StyledLogo from '../components/atoms/Logo';
 import { setProjectKey, fetchFactory, getProjectID } from '../state/actions/index';
 import useUser from '../hooks/useUser';
 import useProjects from '../hooks/useProjects';
+import { useTypedSelector } from '../utils/utils';
+import { Project, Member } from '../types';
 
 const StyledFormWrapper = styled.main`
   width: 100%;
@@ -207,24 +209,24 @@ const StyledInfoButton = styled(Link)`
 type Props = RouteComponentProps;
 
 const JoinProject: React.FC<Props> = () => {
-  const [filteredProject, setFilteredProject] = useState<any | null>(null);
-  const currentUser: any = useUser();
-  const setKey: any = useDispatch();
-  const projects: any = useProjects();
+  const [filteredProject, setFilteredProject] = useState<Project[]>();
+  const currentUser = useUser();
+  const setKey = useDispatch();
+  const projects = useProjects();
   const setTeam = useDispatch();
-  const team: any = useSelector<any>(state => state.team);
-  const setProjectID: any = useDispatch();
+  const team = useTypedSelector(state => state.team);
+  const setProjectID = useDispatch();
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setFilteredProject(projects.filter((doc: any) => doc.key === e.target.value));
-    setTeam(fetchFactory(projects.filter((doc: any) => doc.key === e.target.value)[0].id, 'FETCH_TEAM', 'team', 'TEAM'));
+    setFilteredProject(projects.filter((doc: Project) => doc.key === e.target.value));
+    setTeam(fetchFactory(projects.filter((doc: Project) => doc.key === e.target.value)[0].id, 'FETCH_TEAM', 'team', 'TEAM'));
   };
 
   const handleJoin = (e: React.MouseEvent<HTMLButtonElement, MouseEvent> | React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    if (projects && currentUser && team) {
+    if (projects && currentUser && team && filteredProject) {
       const projectKey = filteredProject[0].key;
-      const projectMember = team.filter((doc: any) => doc.user.uid === currentUser.uid);
+      const projectMember = team.filter((doc: Member) => doc.user.uid === currentUser.uid);
       setKey(setProjectKey(projectKey));
       setProjectID(getProjectID(projects, projectKey));
       if (Array.isArray(projectMember) && projectMember.length > 0) {
