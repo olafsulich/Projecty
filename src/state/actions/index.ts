@@ -1,10 +1,11 @@
+import { Dispatch } from 'redux';
 import { auth, firestore } from '../../firebase/index';
 import { createUserDoc } from '../../firebase/utils';
 import { documentsCollection } from '../../utils/utils';
 import { SET_USER, CURRENT_USER, SET_PROJECT_ID, PROJECT_ID, PROJECT_KEY, FETCH_PROJECTS, PROJECTS } from '../constants';
 import { Projects, ProjectKey } from '../../types/index';
 
-export const setCurrentUser = () => (dispatch: any) => {
+export const setCurrentUser = () => (dispatch: Dispatch) => {
   dispatch({ type: SET_USER });
   if (auth) {
     return auth.onAuthStateChanged(async user => {
@@ -15,7 +16,7 @@ export const setCurrentUser = () => (dispatch: any) => {
   return null;
 };
 
-export const getProjectID = (projects: Projects, key: ProjectKey) => (dispatch: any) => {
+export const getProjectID = (projects: Projects, key: ProjectKey) => (dispatch: Dispatch) => {
   dispatch({ type: SET_PROJECT_ID });
 
   const setProjectID = () => {
@@ -29,12 +30,12 @@ export const getProjectID = (projects: Projects, key: ProjectKey) => (dispatch: 
   return setProjectID();
 };
 
-export const setProjectKey = (key: ProjectKey) => (dispatch: any) => {
+export const setProjectKey = (key: string) => (dispatch: Dispatch) => {
   dispatch({ type: PROJECT_KEY, payload: key });
   localStorage.setItem(PROJECT_KEY, key);
 };
 
-export const fetchProjects = () => (dispatch: any) => {
+export const fetchProjects = () => (dispatch: Dispatch) => {
   dispatch({ type: FETCH_PROJECTS });
   return firestore.collection('projects').onSnapshot((snapshot: firebase.firestore.QuerySnapshot) => {
     const dataFromSnapshot = snapshot.docs.map(documentsCollection);
@@ -42,7 +43,7 @@ export const fetchProjects = () => (dispatch: any) => {
   });
 };
 
-export const fetchFactory = (key: ProjectKey, fetch: string, collection: string, state: string) => (dispatch: any) => {
+export const fetchFactory = (key: ProjectKey, fetch: string, collection: string, state: string) => (dispatch: Dispatch) => {
   dispatch({ type: fetch });
   const fetchFunc = async () => {
     await fetchProjects();

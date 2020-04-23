@@ -54,7 +54,16 @@ export type Team = Member[] | null;
 export type Announcements = Announcement[] | null;
 export type Backlogs = Backlog[] | null;
 export type Sprints = Sprint[] | null;
-export type ProjectKey = string;
-export type ProjectId = string;
+export type ProjectKey = string | null;
+export type ProjectId = string | null;
 export type CurrentUser = User | null;
 export type Projects = Project[] | null;
+
+interface Dispatch {
+  type: string;
+  payload?: [];
+}
+
+export interface DispatchSetUser {
+  dispatch: () => void;
+}
