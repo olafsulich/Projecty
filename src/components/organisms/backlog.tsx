@@ -4,18 +4,19 @@ import PageTemplate from '../../templates/PageTemplate';
 import Card from '../atoms/Card';
 import Category from '../molecules/Category';
 import useBacklog from '../../hooks/useBacklog';
+import { Backlog } from '../../types';
 
 type Props = RouteComponentProps;
 
 const Backlog: React.FC<Props> = () => {
-  const backlog: any = useBacklog();
+  const backlog = useBacklog();
   const projectKey = localStorage.getItem('PROJECT_KEY');
 
   const cardFuncCreator = (cardType: string) => {
     if (backlog) {
       return backlog
-        .filter((doc: { type: string }) => doc.type === cardType)
-        .map(({ type, content, id, user: { name, photoURL } }: any) => (
+        .filter((doc: Backlog) => doc.type === cardType)
+        .map(({ type, content, id, user: { name, photoURL } }: Backlog) => (
           <Link key={id} to={`/project/${projectKey}/backlog/${id}`}>
             <Card photoURL={photoURL} heading={name} content={content} type={type} />
           </Link>

@@ -27,10 +27,7 @@ export interface Backlog {
   name: string;
   type: string;
   content: string;
-  user: {
-    name: string;
-    uid?: string;
-  };
+  user: User;
 }
 
 export interface Sprint {
@@ -39,10 +36,7 @@ export interface Sprint {
   type: string;
   content: string;
   days: string;
-  user: {
-    name: string;
-    uid?: string;
-  };
+  user: User;
 }
 
 export interface Project {
@@ -52,14 +46,14 @@ export interface Project {
   projectName: string;
 }
 
-export type Team = Member[] | null;
-export type Announcements = Announcement[] | null;
-export type Backlogs = Backlog[] | null;
-export type Sprints = Sprint[] | null;
+export type Team = Member[];
+export type Announcements = Announcement[];
+export type Backlogs = Backlog[];
+export type Sprints = Sprint[];
 export type ProjectKey = string | null;
 export type ProjectId = string | null;
 export type CurrentUser = User;
-export type Projects = Project[] | null;
+export type Projects = Project[];
 export type DocumentFromCollection = Backlog | Sprint | Member | Announcement;
 export type Image = Blob | Uint8Array | ArrayBuffer | null;
 export type Collection = Backlogs | Sprints | Team | Announcements;

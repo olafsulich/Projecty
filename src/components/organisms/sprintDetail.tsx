@@ -6,6 +6,7 @@ import useSprints from '../../hooks/useSprints';
 import StyledSelect from '../atoms/Select';
 import StyledOption from '../atoms/Option';
 import { firestore } from '../../firebase/index';
+import { Sprint } from '../../types';
 
 const StyledFigure = styled.figure`
   width: 100%;
@@ -48,33 +49,17 @@ const StyledRole = styled.p<{ heading?: boolean }>`
 
 type Props = RouteComponentProps;
 
-interface User {
-  user: {
-    email: string;
-    type: string;
-    photoURL: string;
-    name: string;
-    uid: string;
-  };
-  email: string;
-  type: string;
-  photoURL: string;
-  name: string;
-  uid: string;
-  id: string;
-}
-
 const SprintDetail: React.FC<Props> = () => {
-  const [sprint, setSprint] = useState<any>();
+  const [sprint, setSprint] = useState<Sprint>();
   const { id } = useParams();
-  const sprints: any = useSprints();
+  const sprints = useSprints();
   const projectID = localStorage.getItem('PROJECT_ID');
   const projectKey = localStorage.getItem('PROJECT_KEY');
 
-  const matchedSprint = sprints.find((doc: User) => doc.id === id);
+  const matchedSprint = sprints.find((doc: Sprint) => doc.id === id);
 
   const onSelect = (e: React.ChangeEvent<HTMLSelectElement>) => {
-    const docRef = firestore.doc(`projects/${projectID}/sprints/${matchedSprint.id}`);
+    const docRef = firestore.doc(`projects/${projectID}/sprints/${matchedSprint ? matchedSprint.id : ''}`);
     docRef.update({ type: e.target.value });
     navigate(`/project/${projectKey}/sprints`);
   };
@@ -84,51 +69,54 @@ const SprintDetail: React.FC<Props> = () => {
   }, []);
 
   const cardDetail = () => {
-    const {
-      user: { photoURL, name },
-      content,
-      type,
-      days,
-    } = sprint;
-    return (
-      <>
-        <StyledFigure>
-          <img src={photoURL} alt={name} />
-          <figcaption>{name}</figcaption>
-        </StyledFigure>
-        <StyledRoleWrapper>
-          <StyledRole heading>Content:</StyledRole>
-          <StyledRole>{content}</StyledRole>
-        </StyledRoleWrapper>
-        <StyledRoleWrapper>
-          <StyledRole heading>Type:</StyledRole>
-          <StyledRole>{type}</StyledRole>
-        </StyledRoleWrapper>
-        <StyledRoleWrapper>
-          <StyledRole heading>Change type:</StyledRole>
-          <StyledSelect
-            details
-            id="selected"
-            name="selected"
-            onChange={onSelect}
-            aria-label="selected"
-            aria-required="true"
-            autoComplete="new-password"
-          >
-            <StyledOption value="" selected disabled hidden>
-              Select type
-            </StyledOption>
-            <StyledOption>To do</StyledOption>
-            <StyledOption>In progress</StyledOption>
-            <StyledOption>Finished</StyledOption>
-          </StyledSelect>
-        </StyledRoleWrapper>
-        <StyledRoleWrapper>
-          <StyledRole heading>Duration:</StyledRole>
-          <StyledRole>{days} days</StyledRole>
-        </StyledRoleWrapper>
-      </>
-    );
+    if (sprint) {
+      const {
+        user: { photoURL, name },
+        content,
+        type,
+        days,
+      } = sprint;
+      return (
+        <>
+          <StyledFigure>
+            <img src={photoURL} alt={name} />
+            <figcaption>{name}</figcaption>
+          </StyledFigure>
+          <StyledRoleWrapper>
+            <StyledRole heading>Content:</StyledRole>
+            <StyledRole>{content}</StyledRole>
+          </StyledRoleWrapper>
+          <StyledRoleWrapper>
+            <StyledRole heading>Type:</StyledRole>
+            <StyledRole>{type}</StyledRole>
+          </StyledRoleWrapper>
+          <StyledRoleWrapper>
+            <StyledRole heading>Change type:</StyledRole>
+            <StyledSelect
+              details
+              id="selected"
+              name="selected"
+              onChange={onSelect}
+              aria-label="selected"
+              aria-required="true"
+              autoComplete="new-password"
+            >
+              <StyledOption value="" selected disabled hidden>
+                Select type
+              </StyledOption>
+              <StyledOption>To do</StyledOption>
+              <StyledOption>In progress</StyledOption>
+              <StyledOption>Finished</StyledOption>
+            </StyledSelect>
+          </StyledRoleWrapper>
+          <StyledRoleWrapper>
+            <StyledRole heading>Duration:</StyledRole>
+            <StyledRole>{days} days</StyledRole>
+          </StyledRoleWrapper>
+        </>
+      );
+    }
+    return null;
   };
 
   return <CardDetailsTemplate>{sprint ? cardDetail() : null}</CardDetailsTemplate>;

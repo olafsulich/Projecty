@@ -6,6 +6,7 @@ import CardDetailsTemplate from '../../templates/CardDetailsTemplate';
 import StyledSelect from '../atoms/Select';
 import StyledOption from '../atoms/Option';
 import { firestore } from '../../firebase/index';
+import { Backlog } from '../../types';
 
 const StyledFigure = styled.figure`
   width: 100%;
@@ -49,16 +50,16 @@ const StyledRole = styled.p<{ heading?: boolean }>`
 type Props = RouteComponentProps;
 
 const BacklogDetail: React.FC<Props> = () => {
-  const [backlog, setBacklog] = useState<any>();
+  const [backlog, setBacklog] = useState<Backlog>();
   const { id } = useParams();
-  const backlogs: any = useBacklog();
+  const backlogs = useBacklog();
   const projectID = localStorage.getItem('PROJECT_ID');
   const projectKey = localStorage.getItem('PROJECT_KEY');
 
-  const matchedBacklog = backlogs.find((doc: any) => doc.id === id);
+  const matchedBacklog = backlogs.find((doc: Backlog) => doc.id === id);
 
   const onSelect = (e: React.ChangeEvent<HTMLSelectElement>) => {
-    const docRef = firestore.doc(`projects/${projectID}/backlog/${matchedBacklog.id}`);
+    const docRef = firestore.doc(`projects/${projectID}/backlog/${matchedBacklog ? matchedBacklog.id : ''}`);
     docRef.update({ type: e.target.value });
     navigate(`/project/${projectKey}/backlog`);
   };
@@ -68,46 +69,49 @@ const BacklogDetail: React.FC<Props> = () => {
   }, []);
 
   const cardDetail = () => {
-    const {
-      user: { photoURL, name },
-      content,
-      type,
-    } = backlog;
-    return (
-      <>
-        <StyledFigure>
-          <img src={photoURL} alt={name} />
-          <figcaption>{name}</figcaption>
-        </StyledFigure>
-        <StyledRoleWrapper>
-          <StyledRole heading>Content:</StyledRole>
-          <StyledRole>{content}</StyledRole>
-        </StyledRoleWrapper>
-        <StyledRoleWrapper>
-          <StyledRole heading>Type:</StyledRole>
-          <StyledRole>{type}</StyledRole>
-        </StyledRoleWrapper>
-        <StyledRoleWrapper>
-          <StyledRole heading>Change type:</StyledRole>
-          <StyledSelect
-            details
-            id="selected"
-            name="selected"
-            onChange={onSelect}
-            aria-label="selected"
-            aria-required="true"
-            autoComplete="new-password"
-          >
-            <StyledOption value="" selected disabled hidden>
-              Select type
-            </StyledOption>
-            <StyledOption>To do</StyledOption>
-            <StyledOption>In progress</StyledOption>
-            <StyledOption>Finished</StyledOption>
-          </StyledSelect>
-        </StyledRoleWrapper>
-      </>
-    );
+    if (backlog) {
+      const {
+        user: { photoURL, name },
+        content,
+        type,
+      } = backlog;
+      return (
+        <>
+          <StyledFigure>
+            <img src={photoURL} alt={name} />
+            <figcaption>{name}</figcaption>
+          </StyledFigure>
+          <StyledRoleWrapper>
+            <StyledRole heading>Content:</StyledRole>
+            <StyledRole>{content}</StyledRole>
+          </StyledRoleWrapper>
+          <StyledRoleWrapper>
+            <StyledRole heading>Type:</StyledRole>
+            <StyledRole>{type}</StyledRole>
+          </StyledRoleWrapper>
+          <StyledRoleWrapper>
+            <StyledRole heading>Change type:</StyledRole>
+            <StyledSelect
+              details
+              id="selected"
+              name="selected"
+              onChange={onSelect}
+              aria-label="selected"
+              aria-required="true"
+              autoComplete="new-password"
+            >
+              <StyledOption value="" selected disabled hidden>
+                Select type
+              </StyledOption>
+              <StyledOption>To do</StyledOption>
+              <StyledOption>In progress</StyledOption>
+              <StyledOption>Finished</StyledOption>
+            </StyledSelect>
+          </StyledRoleWrapper>
+        </>
+      );
+    }
+    return null;
   };
 
   return <CardDetailsTemplate>{backlog ? cardDetail() : null}</CardDetailsTemplate>;

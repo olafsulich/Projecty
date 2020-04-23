@@ -3,6 +3,7 @@ import styled, { css } from 'styled-components';
 import { RouteComponentProps, useParams } from '@reach/router';
 import CardDetailsTemplate from '../../templates/CardDetailsTemplate';
 import useAnnouncements from '../../hooks/useAnnouncements';
+import { Announcement } from '../../types';
 
 const StyledFigure = styled.figure`
   width: 100%;
@@ -47,38 +48,41 @@ const StyledRole = styled.p<{ heading?: boolean }>`
 type Props = RouteComponentProps;
 
 const AnnouncementsDetails: React.FC<Props> = () => {
-  const [announcement, setAnnouncement] = useState<any>();
+  const [announcement, setAnnouncement] = useState<Announcement>();
   const { id } = useParams();
-  const announcements: any = useAnnouncements();
+  const announcements = useAnnouncements();
 
-  const matchedAnnouncements = announcements.find((doc: any) => doc.id === id);
+  const matchedAnnouncements = announcements.find((doc: Announcement) => doc.id === id);
 
   useEffect(() => {
     setAnnouncement(matchedAnnouncements);
   }, []);
 
   const cardDetail = () => {
-    const {
-      user: { photoURL, name },
-      content,
-      type,
-    } = announcement;
-    return (
-      <>
-        <StyledFigure>
-          <img src={photoURL} alt={name} />
-          <figcaption>{name}</figcaption>
-        </StyledFigure>
-        <StyledRoleWrapper>
-          <StyledRole heading>Content:</StyledRole>
-          <StyledRole>{content}</StyledRole>
-        </StyledRoleWrapper>
-        <StyledRoleWrapper>
-          <StyledRole heading>Type:</StyledRole>
-          <StyledRole>{type}</StyledRole>
-        </StyledRoleWrapper>
-      </>
-    );
+    if (announcement) {
+      const {
+        user: { photoURL, name },
+        content,
+        type,
+      } = announcement;
+      return (
+        <>
+          <StyledFigure>
+            <img src={photoURL} alt={name} />
+            <figcaption>{name}</figcaption>
+          </StyledFigure>
+          <StyledRoleWrapper>
+            <StyledRole heading>Content:</StyledRole>
+            <StyledRole>{content}</StyledRole>
+          </StyledRoleWrapper>
+          <StyledRoleWrapper>
+            <StyledRole heading>Type:</StyledRole>
+            <StyledRole>{type}</StyledRole>
+          </StyledRoleWrapper>
+        </>
+      );
+    }
+    return null;
   };
 
   return <CardDetailsTemplate>{announcement ? cardDetail() : null}</CardDetailsTemplate>;

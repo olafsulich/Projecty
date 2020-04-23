@@ -3,6 +3,7 @@ import styled, { css } from 'styled-components';
 import { RouteComponentProps, useParams } from '@reach/router';
 import useTeam from '../../hooks/useTeam';
 import CardDetailsTemplate from '../../templates/CardDetailsTemplate';
+import { Member } from '../../types';
 
 const StyledFigure = styled.figure`
   width: 100%;
@@ -46,36 +47,39 @@ const StyledRole = styled.p<{ heading?: boolean }>`
 type Props = RouteComponentProps;
 
 const MemberDetails: React.FC<Props> = () => {
-  const [member, setMember] = useState<any>();
+  const [member, setMember] = useState<Member>();
   const { id } = useParams();
-  const team: any = useTeam();
+  const team = useTeam();
 
-  const matchedUser = team.find((doc: any) => doc.user.uid === id);
+  const matchedUser = team.find((doc: Member) => doc.user.uid === id);
 
   useEffect(() => {
     setMember(matchedUser);
   }, []);
 
   const cardDetail = () => {
-    const {
-      user: { photoURL, name, type, email },
-    } = member;
-    return (
-      <>
-        <StyledFigure>
-          <img src={photoURL} alt={name} />
-          <figcaption>{name}</figcaption>
-        </StyledFigure>
-        <StyledRoleWrapper>
-          <StyledRole heading>Type:</StyledRole>
-          <StyledRole>{type}</StyledRole>
-        </StyledRoleWrapper>
-        <StyledRoleWrapper>
-          <StyledRole heading>Email:</StyledRole>
-          <StyledRole>{email}</StyledRole>
-        </StyledRoleWrapper>
-      </>
-    );
+    if (member) {
+      const {
+        user: { photoURL, name, type, email },
+      } = member;
+      return (
+        <>
+          <StyledFigure>
+            <img src={photoURL} alt={name} />
+            <figcaption>{name}</figcaption>
+          </StyledFigure>
+          <StyledRoleWrapper>
+            <StyledRole heading>Type:</StyledRole>
+            <StyledRole>{type}</StyledRole>
+          </StyledRoleWrapper>
+          <StyledRoleWrapper>
+            <StyledRole heading>Email:</StyledRole>
+            <StyledRole>{email}</StyledRole>
+          </StyledRoleWrapper>
+        </>
+      );
+    }
+    return null;
   };
 
   return <CardDetailsTemplate>{member ? cardDetail() : null}</CardDetailsTemplate>;
