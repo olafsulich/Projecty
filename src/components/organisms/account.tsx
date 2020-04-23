@@ -5,6 +5,7 @@ import { auth } from '../../firebase/index';
 import useUser from '../../hooks/useUser';
 import PageTemplate from '../../templates/PageTemplate';
 import StyledButton from '../atoms/Button';
+import { User } from '../../types';
 
 const StyledFigure = styled.figure`
   width: 100%;
@@ -60,13 +61,14 @@ const StyledCard = styled.article`
 type Props = RouteComponentProps;
 
 const Account: React.FC<Props> = () => {
-  const { photoURL, name, email }: any = useUser();
+  const { photoURL, email, name } = useUser();
 
   const handleSignOut = () => {
     auth.signOut();
     localStorage.clear();
     navigate('/sign-in');
   };
+
   return (
     <>
       <PageTemplate pageHeading="Account">

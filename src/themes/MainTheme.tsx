@@ -3,6 +3,7 @@ export const theme = {
   textPrimary: '#2e384d',
   textSecondary: '#b0bac9',
   yellowPrimary: '#F7B801',
+  headingYellow: '#c79607',
   yellowSecondary: '#fff5da',
   greenPrimary: '#1FC844',
   greenSecondary: '#EAFCEE',

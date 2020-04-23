@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import Card from '../atoms/Card';
 import { auth } from '../../firebase';
+import { Projects, Project } from '../../types/index';
 
 const StyledList = styled.div`
   width: 100%;
@@ -16,18 +17,13 @@ const StyledCardWrapper = styled.div`
   cursor: pointer;
 `;
 
-interface Project {
-  projectName: string;
-  key: string;
-}
-
 interface Props {
-  projects: Project[];
+  projects: Projects;
   handlePick: (key: string) => void;
 }
 
 const FoundersProjectsList: React.FC<Props> = ({ projects, handlePick }) => {
-  const filterDocument = (doc: any) => (auth.currentUser ? doc.user.uid === auth.currentUser.uid : null);
+  const filterDocument = (doc: Project) => (auth.currentUser ? doc.user.uid === auth.currentUser.uid : null);
 
   return (
     <>

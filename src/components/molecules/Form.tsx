@@ -81,7 +81,7 @@ const StyledInfoButton = styled(Link)<Props>`
     position: absolute;
     width: 100%;
     height: 50%;
-    background-color: ${({ signup }) => (signup ? '#EAFCEE' : '#fff5da')};
+    background-color: ${({ signup, theme }) => (signup ? theme.greenSecondary : theme.yellowSecondary)};
     z-index: -1;
     top: 60%;
     left: 15%;

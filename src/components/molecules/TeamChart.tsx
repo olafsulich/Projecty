@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import { PieChart, Pie, Cell, Tooltip, Legend } from 'recharts';
 import usePageWidth from '../../hooks/usePageWidth';
 import useTeam from '../../hooks/useTeam';
+import { Member } from '../../types/index';
 
 const StyledTeamWrapper = styled.div`
   display: flex;
@@ -37,10 +38,11 @@ const StyledHeading = styled.p`
 
 const TeamChart: React.FC = () => {
   const pageWidth = usePageWidth();
-  const team: any = useTeam();
+  const team = useTeam();
+
   const filterRole = (role: string) => {
     if (team) {
-      return team.filter((doc: { user: { type: string } }) => doc.user.type === role).length;
+      return team.filter((doc: Member) => doc.user.type === role).length;
     }
     return null;
   };
@@ -59,7 +61,7 @@ const TeamChart: React.FC = () => {
 
   return (
     <StyledTeamWrapper>
-      {teamData.length < 1 ? (
+      {!teamData.length ? (
         <StyledHeading>Add members</StyledHeading>
       ) : (
         <>
@@ -75,7 +77,7 @@ const TeamChart: React.FC = () => {
               <Legend />
             </Pie>
             <Tooltip />
-          </StyledPie>{' '}
+          </StyledPie>
         </>
       )}
     </StyledTeamWrapper>

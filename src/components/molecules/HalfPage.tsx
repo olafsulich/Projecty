@@ -11,7 +11,7 @@ const StyledWrapper = styled.section<Props>`
   align-items: center;
   justify-content: space-around;
   flex-direction: column;
-  background-color: ${({ signUp }) => (signUp ? '#EAFCEE' : '#fff5da')};
+  background-color: ${({ signUp, theme }) => (signUp ? theme.greenSecondary : theme.yellowSecondary)};
   position: relative;
   padding: 8rem 0 15rem 0;
   display: none;
@@ -41,14 +41,14 @@ const StyledLogoWrapper = styled(Link)`
 const StyledLogo = styled.h1<Props>`
   font-size: 2rem;
   font-weight: regular;
-  color: ${({ signUp }) => (signUp ? '#1FC844' : '#f7b801')};
+  color: ${({ signUp, theme }) => (signUp ? theme.greenPrimary : theme.yellowSecondary)};
 `;
 
 const StyledHeading = styled.h2<Props>`
   width: 100%;
   padding: 0 15%;
   font-size: 3rem;
-  color: ${({ signUp }) => (signUp ? '#1FC844' : '#c79607')};
+  color: ${({ signUp, theme }) => (signUp ? theme.greenPrimary : theme.headingYellow)};
   line-height: 4.4rem;
   margin-bottom: 3rem;
 `;
