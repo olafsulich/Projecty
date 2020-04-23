@@ -5,7 +5,7 @@ import { useDispatch } from 'react-redux';
 import Layout from '../Layout/Layout';
 import StyledHeading from '../components/atoms/Heading';
 import StyledLogo from '../components/atoms/Logo';
-import { getProjectID } from '../actions';
+import { getProjectID } from '../state/actions';
 import FoundersProjectsList from '../components/molecules/FoundersProjectsList';
 import useProjects from '../hooks/useProjects';
 

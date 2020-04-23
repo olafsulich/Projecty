@@ -10,7 +10,7 @@ import StyledLabel from '../components/atoms/Label';
 import StyledInput from '../components/atoms/Input';
 import StyledLogo from '../components/atoms/Logo';
 // import usePageWidth from '../hooks/usePageWidth';
-import { setProjectKey } from '../actions/index';
+import { setProjectKey } from '../state/actions/index';
 import useUser from '../hooks/useUser';
 
 const StyledFormWrapper = styled.main`

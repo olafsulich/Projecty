@@ -7,7 +7,7 @@ import StyledHeading from '../components/atoms/Heading';
 import StyledLabel from '../components/atoms/Label';
 import StyledInput from '../components/atoms/Input';
 import StyledLogo from '../components/atoms/Logo';
-import { setProjectKey, fetchFactory, getProjectID } from '../actions/index';
+import { setProjectKey, fetchFactory, getProjectID } from '../state/actions/index';
 import useUser from '../hooks/useUser';
 import useProjects from '../hooks/useProjects';
 

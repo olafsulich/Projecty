@@ -7,7 +7,7 @@ import Layout from '../../Layout/Layout';
 import Heading from '../atoms/Heading';
 import StyledLogo from '../atoms/Logo';
 import TypeCard from '../atoms/TypeCard';
-import { getProjectID } from '../../actions';
+import { getProjectID } from '../../state/actions';
 import useUser from '../../hooks/useUser';
 import useProjects from '../../hooks/useProjects';
 

@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { fetchProjects } from '../actions';
+import { fetchProjects } from '../state/actions';
 
 interface Projects {
   projects: [];

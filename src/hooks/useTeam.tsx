@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { fetchFactory } from '../actions';
+import { fetchFactory } from '../state/actions';
 
 interface User {
   user: {

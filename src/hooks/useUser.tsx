@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { setCurrentUser } from '../actions';
+import { setCurrentUser } from '../state/actions';
 
 interface User {
   currentUser: {

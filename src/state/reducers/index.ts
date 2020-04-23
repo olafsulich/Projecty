@@ -14,32 +14,29 @@ import {
   SPRINTS,
   PROJECT_ID,
   SET_PROJECT_ID,
-} from '../actions/index';
+} from '../constants';
+import { Team, Announcements, Backlogs, Sprints, ProjectId, ProjectKey, CurrentUser, Projects } from '../../types/index';
 
 interface InitState {
-  projectKey: string;
-  projectId: string;
-  currentUser: {};
-  projects: null | any;
-  team: any;
-  announcements: any;
-  statistics: any;
-  backlog: any;
-  sprints: any;
+  projectKey: ProjectKey;
+  projectId: ProjectId;
+  currentUser: CurrentUser;
+  team: Team;
+  announcements: Announcements;
+  backlog: Backlogs;
+  sprints: Sprints;
+  projects: Projects;
 }
 
 const initialState: InitState = {
-  projectKey: '2',
-  projectId: '2',
-  currentUser: {
-    data: 1,
-  },
-  projects: null,
+  projectKey: '',
+  projectId: '',
+  currentUser: null,
   team: null,
-  announcements: [1],
-  statistics: [1],
-  backlog: [1],
-  sprints: [1],
+  announcements: null,
+  backlog: null,
+  sprints: null,
+  projects: null,
 };
 
 interface Action {
