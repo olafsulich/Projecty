@@ -1,18 +1,10 @@
 import { useEffect } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { setCurrentUser } from '../state/actions';
-
-interface User {
-  currentUser: {
-    uid: string;
-    photoURL: string;
-    email: string;
-    name: string;
-  };
-}
+import { useTypedSelector } from '../utils/utils';
 
 const useUser = () => {
-  const currentUser: any = useSelector<User>(state => state.currentUser);
+  const currentUser = useTypedSelector(state => state.currentUser);
   const fetchUser = useDispatch();
 
   useEffect(() => {

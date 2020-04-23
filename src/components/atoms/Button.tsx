@@ -5,16 +5,16 @@ const StyledButton = styled.button<{ color: string }>`
   height: 4rem;
   font-size: 1.4rem;
   font-weight: 700;
-  background-color: ${({ color }) => {
+  background-color: ${({ color, theme }) => {
     switch (color) {
       case 'yellow':
-        return '#f7b801';
+        return theme.yellowPrimary;
       case 'green':
-        return '#1FC844';
+        return theme.greenPrimary;
       case 'pink':
-        return '#ea4c89';
+        return theme.pinkPrimary;
       default:
-        return '#f7b801';
+        return theme.yellowPrimary;
     }
   }};
   color: #fff;
@@ -23,28 +23,28 @@ const StyledButton = styled.button<{ color: string }>`
   margin-bottom: 2rem;
 
   :focus {
-    background-color: ${({ color }) => {
+    background-color: ${({ color, theme }) => {
       switch (color) {
         case 'yellow':
-          return '#fff5da';
+          return theme.yellowSecondary;
         case 'green':
-          return '#EAFCEE';
+          return theme.greenSecondary;
         case 'pink':
-          return '#f082ac';
+          return theme.pinkSecondary;
         default:
-          return '#fff5da';
+          return theme.yellowSecondary;
       }
     }};
-    color: ${({ color }) => {
+    color: ${({ color, theme }) => {
       switch (color) {
         case 'yellow':
-          return '#f7b801';
+          return theme.yellowPrimary;
         case 'green':
-          return '#1FC844';
+          return theme.greenPrimary;
         case 'pink':
-          return '#ea4c89';
+          return theme.pinkPrimary;
         default:
-          return '#f7b801';
+          return theme.yellowPrimary;
       }
     }};
   }

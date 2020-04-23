@@ -1,9 +1,10 @@
 import { useEffect } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { fetchFactory } from '../state/actions';
+import { useTypedSelector } from '../utils/utils';
 
 const useSprints = () => {
-  const sprints = useSelector<any>(state => state.sprints);
+  const sprints = useTypedSelector(state => state.sprints);
   const setSprints = useDispatch();
   const projectId = localStorage.getItem('PROJECT_ID');
 

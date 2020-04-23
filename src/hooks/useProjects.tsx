@@ -1,13 +1,10 @@
 import { useEffect } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { fetchProjects } from '../state/actions';
-
-interface Projects {
-  projects: [];
-}
+import { useTypedSelector } from '../utils/utils';
 
 const useProjects = () => {
-  const projects: any = useSelector<Projects>(state => state.projects);
+  const projects = useTypedSelector(state => state.projects);
   const setProjects = useDispatch();
 
   useEffect(() => {

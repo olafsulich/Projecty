@@ -1,9 +1,10 @@
 import { useEffect } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { fetchFactory } from '../state/actions';
+import { useTypedSelector } from '../utils/utils';
 
 const useBacklog = () => {
-  const backlog = useSelector<any>(state => state.backlog);
+  const backlog = useTypedSelector(state => state.backlog);
   const setBacklog = useDispatch();
   const projectId = localStorage.getItem('PROJECT_ID');
 

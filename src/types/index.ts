@@ -29,6 +29,7 @@ export interface Backlog {
   content: string;
   user: {
     name: string;
+    uid?: string;
   };
 }
 
@@ -40,6 +41,7 @@ export interface Sprint {
   days: string;
   user: {
     name: string;
+    uid?: string;
   };
 }
 
@@ -58,12 +60,7 @@ export type ProjectKey = string | null;
 export type ProjectId = string | null;
 export type CurrentUser = User | null;
 export type Projects = Project[] | null;
-
-interface Dispatch {
-  type: string;
-  payload?: [];
-}
-
-export interface DispatchSetUser {
-  dispatch: () => void;
-}
+export type DocumentFromCollection = Backlog | Sprint | Member | Announcement;
+export type Image = Blob | Uint8Array | ArrayBuffer | null;
+export type Collection = Backlogs | Sprints | Team | Announcements;
+export type InputEvent = React.ChangeEvent<HTMLInputElement>;

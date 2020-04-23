@@ -21,10 +21,10 @@ const StyledSelect = styled.select<{ signup?: boolean; details?: boolean }>`
   :focus,
   :hover {
     background-color: #fff;
-    box-shadow: ${({ signup }) => (signup ? '#EAFCEE' : '#fff5da')} 0 0 0 4px;
+    box-shadow: ${({ signup, theme }) => (signup ? theme.greenSecondary : theme.yellowSecondary)} 0 0 0 4px;
   }
   :focus {
-    border: 1px solid ${({ signup }) => (signup ? '#1fc844 ' : '#f7b801')};
+    border: 1px solid ${({ signup, theme }) => (signup ? theme.greenPrimary : theme.yellowPrimary)};
   }
   ::placeholder {
     color: ${({ theme }) => theme.textSecondary};

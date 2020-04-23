@@ -25,18 +25,18 @@ const StyledCategoryHeading = styled.h2<{ type: string }>`
     width: 5px;
     height: 110%;
     background-color: ${({ theme }) => theme.yellowPrimary};
-    background-color: ${({ type }) => {
+    background-color: ${({ type, theme }) => {
       switch (type) {
         case 'yellow':
-          return '#f7b801';
+          return theme.yellowPrimary;
         case 'green':
-          return '#1FC844';
+          return theme.greenPrimary;
         case 'blue':
-          return '#2E5BFF';
+          return theme.bluePrimary;
         case 'red':
-          return '#EA4C89';
+          return theme.pinkPrimary;
         default:
-          return '#f7b801';
+          return theme.yellowPrimary;
       }
     }};
     border-radius: 7px;

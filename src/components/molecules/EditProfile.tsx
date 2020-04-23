@@ -12,6 +12,7 @@ import useTeam from '../../hooks/useTeam';
 import useBacklog from '../../hooks/useBacklog';
 import useSprints from '../../hooks/useSprints';
 import useAnnouncements from '../../hooks/useAnnouncements';
+import { DocumentFromCollection, Image, Collection, InputEvent } from '../../types/index';
 
 const StyledForm = styled.form`
   width: 100%;
@@ -40,32 +41,39 @@ interface Props {
 
 const EditProfile: React.FC<Props> = ({ toggleVisibility }) => {
   const currentUser = useUser();
-  const team: any = useTeam();
-  const backlog: any = useBacklog();
-  const sprints: any = useSprints();
-  const announcements: any = useAnnouncements();
+  const team = useTeam();
+  const backlog = useBacklog();
+  const sprints = useSprints();
+  const announcements = useAnnouncements();
   const [name, setName] = useState<string>('');
-  const [image, setImage] = useState<Blob | Uint8Array | ArrayBuffer | null>(null);
+  const [image, setImage] = useState<Image>(null);
   const projectID = localStorage.getItem('PROJECT_ID');
 
-  const filterCollection = (doc: any) => doc.user.uid === currentUser.uid;
-
-  const updateDocuments = (array: [], collection: string, photo?: string) => {
-    array.forEach((document: any) => {
-      const filtredMemberId = team.filter(filterCollection);
-      const docId = document.id;
-      const docRef = firestore.doc(`projects/${projectID}/${collection}/${docId}`);
-      const { email, photoURL, uid } = currentUser;
-      const userName = currentUser.name;
-      const userRole = filtredMemberId[0].user.type;
-      if (name) docRef.update({ user: { name, email, photoURL, type: userRole, uid } });
-      if (image && photo) docRef.update({ user: { name: userName, email, photoURL: photo, type: userRole, uid } });
-    });
+  const filterCollection = (doc: DocumentFromCollection) => {
+    if (currentUser) {
+      return doc.user.uid === currentUser.uid;
+    }
+    return null;
   };
 
-  const handleUserNameChange = (e: React.ChangeEvent<HTMLInputElement>) => setName(e.target.value);
+  const updateDocuments = (array: Collection, collection: string, photo?: string) => {
+    if (array && team && currentUser) {
+      array.forEach((document: DocumentFromCollection) => {
+        const filtredMemberId = team.filter(filterCollection);
+        const docId = document.id;
+        const docRef = firestore.doc(`projects/${projectID}/${collection}/${docId}`);
+        const { email, photoURL, uid } = currentUser;
+        const userName = currentUser.name;
+        const userRole = filtredMemberId[0].user.type;
+        if (name) docRef.update({ user: { name, email, photoURL, type: userRole, uid } });
+        if (image && photo) docRef.update({ user: { name: userName, email, photoURL: photo, type: userRole, uid } });
+      });
+    }
+  };
 
-  const handlePhotoChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleUserNameChange = (e: InputEvent) => setName(e.target.value);
+
+  const handlePhotoChange = (e: InputEvent) => {
     if (e.target.files !== null) {
       const files = e.target.files[0];
       setImage(files);
@@ -73,7 +81,7 @@ const EditProfile: React.FC<Props> = ({ toggleVisibility }) => {
   };
 
   const handleUpdate = (e: React.MouseEvent<HTMLButtonElement, MouseEvent> | React.FormEvent<HTMLFormElement>) => {
-    if (currentUser) {
+    if (currentUser && team && backlog && sprints && announcements) {
       e.preventDefault();
       const userUid = currentUser.uid;
       const docRef = firestore.doc(`users/${userUid}`);
@@ -144,7 +152,7 @@ const EditProfile: React.FC<Props> = ({ toggleVisibility }) => {
             aria-label="userName"
             aria-required="true"
             autoComplete="new-password"
-            placeholder={currentUser.name}
+            placeholder={currentUser ? currentUser.name : ''}
             signup
           />
         </StyledLabelInputWrapper>

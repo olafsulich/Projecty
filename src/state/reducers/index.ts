@@ -17,7 +17,7 @@ import {
 } from '../constants';
 import { Team, Announcements, Backlogs, Sprints, ProjectId, ProjectKey, CurrentUser, Projects } from '../../types/index';
 
-interface InitState {
+export interface InitState {
   projectKey: ProjectKey;
   projectId: ProjectId;
   currentUser: CurrentUser;

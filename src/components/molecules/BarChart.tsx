@@ -4,6 +4,7 @@ import { BarChart, Bar, XAxis, YAxis, Legend } from 'recharts';
 import useBacklog from '../../hooks/useBacklog';
 import useSprints from '../../hooks/useSprints';
 import usePageWidth from '../../hooks/usePageWidth';
+import { Backlogs, Sprints, Backlog, Sprint } from '../../types/index';
 
 const StyledBarChart = styled(BarChart)`
   background-color: #fff;
@@ -23,20 +24,13 @@ interface Props {
   barType: string;
 }
 
-interface Backlog {
-  type?: string;
-}
-interface Sprint {
-  type?: string;
-}
-
 const BarDataChart: React.FC<Props> = ({ barType }) => {
   const pageWidth = usePageWidth();
   const backlog = useBacklog();
   const sprints = useSprints();
 
-  const filterCollection = (type: string, collection: any) => {
-    if (backlog && sprints) {
+  const filterCollection = (type: string, collection: Backlogs | Sprints) => {
+    if (backlog && sprints && collection) {
       return collection.filter((doc: Backlog | Sprint) => doc.type === type).length;
     }
     return null;
@@ -45,7 +39,7 @@ const BarDataChart: React.FC<Props> = ({ barType }) => {
   const cardWidth = () => (pageWidth <= 450 ? 300 : 400);
   const cardHeight = () => (pageWidth <= 450 ? 300 : 300);
 
-  const collectionData = (collection: any) => [
+  const collectionData = (collection: Backlogs | Sprints) => [
     {
       name: 'To do',
       backlog: filterCollection('To do', collection),

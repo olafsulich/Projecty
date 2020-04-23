@@ -1,9 +1,10 @@
 import { useEffect } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { fetchFactory } from '../state/actions';
+import { useTypedSelector } from '../utils/utils';
 
 const useAnnouncements = () => {
-  const announcements = useSelector<any>(state => state.announcements);
+  const announcements = useTypedSelector(state => state.announcements);
   const setAnnouncements = useDispatch();
   const projectId = localStorage.getItem('PROJECT_ID');
 

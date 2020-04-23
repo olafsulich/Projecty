@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import ProjectMenagerSVG from '../../assets/board.svg';
+import ProjectManagerSVG from '../../assets/board.svg';
 import DeveloperSVG from '../../assets/rocket.svg';
 import DesignerSVG from '../../assets/paint.svg';
 import QASVG from '../../assets/checked.svg';
@@ -29,18 +29,18 @@ const StyledCircularIcon = styled.div<{ type: string }>`
   height: 6rem;
   border-radius: 50%;
   pointer-events: none;
-  background-color: ${({ type }) => {
+  background-color: ${({ type, theme }) => {
     switch (type) {
       case 'project-manager':
-        return '#FFF5DA';
+        return theme.yellowSecondary;
       case 'developer':
-        return '#eafcee';
+        return theme.greenSecondary;
       case 'designer':
         return 'hsla(337, 79%, 73%,0.35)';
       case 'quality-assurance':
-        return '#F2F2FF';
+        return theme.greenSecondary;
       default:
-        return '#fff5da';
+        return theme.yellowSecondary;
     }
   }};
   display: flex;
@@ -73,7 +73,7 @@ const TypeCard: React.FC<Props> = ({ type, handlePick }) => {
         return (
           <>
             <StyledCircularIcon type="project-menager">
-              <ProjectMenagerSVG />
+              <ProjectManagerSVG />
             </StyledCircularIcon>
             <StyledHeading>Project Manager</StyledHeading>
             <StyledText>Manage your project</StyledText>
@@ -113,7 +113,7 @@ const TypeCard: React.FC<Props> = ({ type, handlePick }) => {
         return (
           <>
             <StyledCircularIcon type="project-manager">
-              <ProjectMenagerSVG />
+              <ProjectManagerSVG />
             </StyledCircularIcon>
             <StyledHeading>Project Manager</StyledHeading>
             <StyledText>Manage your project</StyledText>

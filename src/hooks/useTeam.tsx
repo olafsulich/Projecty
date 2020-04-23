@@ -1,21 +1,10 @@
 import { useEffect } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { fetchFactory } from '../state/actions';
-
-interface User {
-  user: {
-    type: string;
-    name: string;
-    photoURL: string;
-  };
-}
-
-interface Team {
-  team: User[];
-}
+import { useTypedSelector } from '../utils/utils';
 
 const useTeam = () => {
-  const team = useSelector<Team>(state => state.team);
+  const team = useTypedSelector(state => state.team);
   const setTeam = useDispatch();
   const projectId = localStorage.getItem('PROJECT_ID');
 
