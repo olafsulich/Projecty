@@ -5,7 +5,6 @@ import { auth } from '../../firebase/index';
 import useUser from '../../hooks/useUser';
 import PageTemplate from '../../templates/PageTemplate';
 import StyledButton from '../atoms/Button';
-import { User } from '../../types';
 
 const StyledFigure = styled.figure`
   width: 100%;

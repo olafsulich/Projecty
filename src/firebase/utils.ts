@@ -1,5 +1,5 @@
+import { User } from 'firebase/app';
 import { firestore } from './index';
-import { User } from '../types';
 
 /* eslint-disable */
 export const getUserDoc = async (uid: string | undefined) => {
@@ -15,7 +15,7 @@ export const getUserDoc = async (uid: string | undefined) => {
   }
 };
 
-export const createUserDoc = async (user: User, name?: string) => {
+export const createUserDoc = async (user: User | null, name?: string) => {
   if (!user) return;
   const userRef = await firestore.doc(`users/${user.uid}`);
   const snapshot = await userRef.get();

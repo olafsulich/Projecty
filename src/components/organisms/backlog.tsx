@@ -4,7 +4,7 @@ import PageTemplate from '../../templates/PageTemplate';
 import Card from '../atoms/Card';
 import Category from '../molecules/Category';
 import useBacklog from '../../hooks/useBacklog';
-import { Backlog } from '../../types';
+import { Backlog as BacklogTypes } from '../../types';
 
 type Props = RouteComponentProps;
 
@@ -15,8 +15,8 @@ const Backlog: React.FC<Props> = () => {
   const cardFuncCreator = (cardType: string) => {
     if (backlog) {
       return backlog
-        .filter((doc: Backlog) => doc.type === cardType)
-        .map(({ type, content, id, user: { name, photoURL } }: Backlog) => (
+        .filter((doc: BacklogTypes) => doc.type === cardType)
+        .map(({ type, content, id, user: { name, photoURL } }: BacklogTypes) => (
           <Link key={id} to={`/project/${projectKey}/backlog/${id}`}>
             <Card photoURL={photoURL} heading={name} content={content} type={type} />
           </Link>

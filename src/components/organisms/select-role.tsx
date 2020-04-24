@@ -139,7 +139,7 @@ const SelectRole: React.FC<Props> = () => {
       teamCollectionRef.add(dataToAdd);
       setId(getProjectID(projects, projectKey));
 
-      navigate(`project/${projectKey}/team`);
+      navigate(`/project/${projectKey}/team`);
     }
   };
 

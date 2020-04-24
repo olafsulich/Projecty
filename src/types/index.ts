@@ -15,33 +15,21 @@ export interface Member {
   user: User;
 }
 
-export interface Announcement {
-  id: string;
-  user: User;
+export interface Announcement extends Member {
   type: string;
   content: string;
 }
 
-export interface Backlog {
-  id: string;
+export interface Backlog extends Announcement {
   name: string;
-  type: string;
-  content: string;
-  user: User;
 }
 
-export interface Sprint {
-  id: string;
+export interface Sprint extends Announcement {
   name: string;
-  type: string;
-  content: string;
   days: string;
-  user: User;
 }
 
-export interface Project {
-  id: string;
-  user: User;
+export interface Project extends Member {
   key: string;
   projectName: string;
 }

@@ -1,9 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
-import ProjectManagerSVG from '../../assets/board.svg';
-import DeveloperSVG from '../../assets/rocket.svg';
-import DesignerSVG from '../../assets/paint.svg';
-import QASVG from '../../assets/checked.svg';
+import { ReactComponent as ProjectManagerSVG } from '../../assets/board.svg';
+import { ReactComponent as DeveloperSVG } from '../../assets/rocket.svg';
+import { ReactComponent as DesignerSVG } from '../../assets/paint.svg';
+import { ReactComponent as QASVG } from '../../assets/checked.svg';
 
 const StyledWrapper = styled.div`
   width: 15rem;
@@ -38,7 +38,7 @@ const StyledCircularIcon = styled.div<{ type: string }>`
       case 'designer':
         return 'hsla(337, 79%, 73%,0.35)';
       case 'quality-assurance':
-        return theme.greenSecondary;
+        return theme.typeCardSecondary;
       default:
         return theme.yellowSecondary;
     }
@@ -59,6 +59,7 @@ const StyledText = styled.p`
   color: ${({ theme }) => theme.textSecondary};
   font-weight: 400;
   pointer-events: none;
+  text-align: center;
 `;
 
 interface Props {
@@ -76,7 +77,7 @@ const TypeCard: React.FC<Props> = ({ type, handlePick }) => {
               <ProjectManagerSVG />
             </StyledCircularIcon>
             <StyledHeading>Project Manager</StyledHeading>
-            <StyledText>Manage your project</StyledText>
+            <StyledText>Look after the project</StyledText>
           </>
         );
       case 'developer':
@@ -86,7 +87,7 @@ const TypeCard: React.FC<Props> = ({ type, handlePick }) => {
               <DeveloperSVG />
             </StyledCircularIcon>
             <StyledHeading>Developer</StyledHeading>
-            <StyledText>Develop your project</StyledText>
+            <StyledText>Build creative projects</StyledText>
           </>
         );
       case 'designer':
@@ -96,17 +97,17 @@ const TypeCard: React.FC<Props> = ({ type, handlePick }) => {
               <DesignerSVG />
             </StyledCircularIcon>
             <StyledHeading>Designer</StyledHeading>
-            <StyledText>Check your design</StyledText>
+            <StyledText>Create amazing experience</StyledText>
           </>
         );
-      case 'quality-ansurance':
+      case 'quality-assurance':
         return (
           <>
             <StyledCircularIcon type="quality-assurance">
               <QASVG />
             </StyledCircularIcon>
             <StyledHeading>Quality Assurance</StyledHeading>
-            <StyledText>Make sure of quality </StyledText>
+            <StyledText>Deliver quality solutions</StyledText>
           </>
         );
       default:

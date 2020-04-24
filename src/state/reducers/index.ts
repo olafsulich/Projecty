@@ -31,12 +31,18 @@ export interface InitState {
 const initialState: InitState = {
   projectKey: '',
   projectId: '',
-  currentUser: null,
-  team: null,
-  announcements: null,
-  backlog: null,
-  sprints: null,
-  projects: null,
+  currentUser: {
+    email: '',
+    type: '',
+    name: '',
+    uid: '',
+    photoURL: '',
+  },
+  team: [],
+  announcements: [],
+  backlog: [],
+  sprints: [],
+  projects: [],
 };
 
 interface Action {
