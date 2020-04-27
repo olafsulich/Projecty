@@ -18,7 +18,7 @@ const StyledFormWrapper = styled.main`
   margin-bottom: 3rem;
 `;
 
-const StyledFormHeadingWrapper = styled.div`
+const StyledFormHeadingWrapper = styled.section`
   width: 100%;
   height: 100%;
   display: flex;
@@ -44,7 +44,7 @@ const StyledFormHeadingWrapper = styled.div`
   }
 `;
 
-const StyledContainer = styled.div`
+const StyledContainer = styled.section`
   width: 100%;
   height: 100vh;
   padding: 3rem 2rem;
@@ -59,7 +59,7 @@ const StyledContainer = styled.div`
   }
 `;
 
-const StyledWrapper = styled.section`
+const StyledWrapper = styled.div`
   width: 100%;
   max-width: 40rem;
   height: 100%;
@@ -163,7 +163,6 @@ const Projects: React.FC<Props> = () => {
             </StyledFormHeadingWrapper>
           </StyledFormWrapper>
         </StyledWrapper>
-
         <StyledButtonsWrapper>
           <StyledButtonSecondary type="yellow" to="/join-to-project">
             join to project
@@ -178,8 +177,3 @@ const Projects: React.FC<Props> = () => {
 };
 
 export default Projects;
-
-// import React from 'react';
-
-// const Projects = () => <div>sss</div>;
-// export default Projects;

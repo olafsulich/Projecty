@@ -10,6 +10,7 @@ export const theme = {
   pinkPrimary: '#ea4c89',
   pinkSecondary: '#f082ac',
   bluePrimary: '#2E5BFF',
+  redPrimary: '#e0245e',
   cardShadow: '#eaeef7',
   typeCardPrimary: 'hsla(226, 100%, 94%, 0.1)',
   typeCardSecondary: '#e0e7ff',

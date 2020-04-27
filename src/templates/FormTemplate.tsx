@@ -18,7 +18,7 @@ const StyledContainer = styled.div`
   }
 `;
 
-const StyledWrapper = styled.section`
+const StyledWrapper = styled.div`
   width: 100%;
   max-width: 40rem;
   height: 100%;

@@ -30,9 +30,10 @@ const StyledButtonWrapper = styled.div`
 
 interface Props {
   toggleVisibility: () => void;
+  isVisible: boolean;
 }
 
-const AddAnnouncement: React.FC<Props> = ({ toggleVisibility }) => {
+const AddAnnouncement: React.FC<Props> = ({ toggleVisibility, isVisible }) => {
   const currentUser = useUser();
 
   const handleCreate = (content: string, selected: string) => {
@@ -57,7 +58,7 @@ const AddAnnouncement: React.FC<Props> = ({ toggleVisibility }) => {
   };
 
   return (
-    <ModalTemplate toggleVisibility={toggleVisibility} title="Add Announcement">
+    <ModalTemplate isVisible={isVisible} toggleVisibility={toggleVisibility} title="Add Announcement">
       <Formik
         initialValues={{ content: '', selected: 'Information' }}
         onSubmit={({ content, selected }) => handleCreate(content, selected)}

@@ -10,7 +10,7 @@ import AddBacklog from '../components/molecules/AddBacklog';
 import AddSprint from '../components/molecules/AddSprint';
 import EditProfile from '../components/molecules/EditProfile';
 
-const StyledWrapper = styled.div`
+const StyledWrapper = styled.main`
   width: 100%;
   height: 100%;
   display: flex;
@@ -85,7 +85,7 @@ const StyledButtonSecondary = styled.button<{ pageHeading: string }>`
   }
 `;
 
-const StyledContainer = styled.section`
+const StyledContainer = styled.div`
   width: 100%;
   height: 100vh;
   background-color: #fbfbfb;
@@ -125,13 +125,13 @@ const PageTemplate: React.FC<Props> = ({ pageHeading, children }) => {
   const chooseModal = () => {
     switch (pageHeading) {
       case 'Announcements':
-        return <>{isVisible && <AddAnnouncement toggleVisibility={toggleVisibility} />} </>;
+        return <>{isVisible && <AddAnnouncement isVisible={isVisible} toggleVisibility={toggleVisibility} />} </>;
       case 'Backlog':
-        return <>{isVisible && <AddBacklog toggleVisibility={toggleVisibility} />} </>;
+        return <>{isVisible && <AddBacklog isVisible={isVisible} toggleVisibility={toggleVisibility} />} </>;
       case 'Sprints':
-        return <>{isVisible && <AddSprint toggleVisibility={toggleVisibility} />} </>;
+        return <>{isVisible && <AddSprint isVisible={isVisible} toggleVisibility={toggleVisibility} />} </>;
       case 'Account':
-        return <>{isVisible && <EditProfile toggleVisibility={toggleVisibility} />} </>;
+        return <>{isVisible && <EditProfile isVisible={isVisible} toggleVisibility={toggleVisibility} />} </>;
       default:
         return null;
     }

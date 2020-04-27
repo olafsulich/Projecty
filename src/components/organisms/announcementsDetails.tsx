@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import styled, { css } from 'styled-components';
-import { RouteComponentProps, useParams } from '@reach/router';
+import { RouteComponentProps, useParams, navigate } from '@reach/router';
 import CardDetailsTemplate from '../../templates/CardDetailsTemplate';
 import useAnnouncements from '../../hooks/useAnnouncements';
 import { Announcement } from '../../types';
+import StyledButton from '../atoms/Button';
+import { firestore } from '../../firebase/index';
 
 const StyledFigure = styled.figure`
   width: 100%;
@@ -51,12 +53,19 @@ const AnnouncementsDetails: React.FC<Props> = () => {
   const [announcement, setAnnouncement] = useState<Announcement>();
   const { id } = useParams();
   const announcements = useAnnouncements();
-
+  const projectID = localStorage.getItem('PROJECT_ID');
+  const projectKey = localStorage.getItem('PROJECT_KEY');
+  const announcementRef = firestore.doc(`projects/${projectID}`).collection('announcements');
   const matchedAnnouncements = announcements.find((doc: Announcement) => doc.id === id);
 
   useEffect(() => {
     setAnnouncement(matchedAnnouncements);
   }, []);
+
+  const handleRemove = (docId: string) => {
+    announcementRef.doc(docId).delete();
+    navigate(`/project/${projectKey}/announcements`);
+  };
 
   const cardDetail = () => {
     if (announcement) {
@@ -79,6 +88,9 @@ const AnnouncementsDetails: React.FC<Props> = () => {
             <StyledRole heading>Type:</StyledRole>
             <StyledRole>{type}</StyledRole>
           </StyledRoleWrapper>
+          <StyledButton color="red" onClick={() => handleRemove(announcement.id)}>
+            Delete
+          </StyledButton>
         </>
       );
     }

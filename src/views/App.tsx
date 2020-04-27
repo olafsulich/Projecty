@@ -12,12 +12,12 @@ import AnnouncementsDetails from '../components/organisms/announcementsDetails';
 import BacklogDetail from '../components/organisms/backlogDetail';
 import SprintDetail from '../components/organisms/sprintDetail';
 import Account from '../components/organisms/account';
-import JoinProject from './join-to-project';
-import NewProject from './start-new-project';
-import Projects from './projects';
-import SignIn from './sign-in';
-import SignUp from './sign-up';
-import Main from '../App';
+import JoinProject from './JoinToProject';
+import NewProject from './StartNewProject';
+import Projects from './Projects';
+import SignIn from './SignIn';
+import SignUp from './SignUp';
+import Main from './Home';
 import { routes } from '../routes/index';
 
 const App: React.FC = () => {

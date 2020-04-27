@@ -13,6 +13,8 @@ const StyledButton = styled.button<{ color: string }>`
         return theme.greenPrimary;
       case 'pink':
         return theme.pinkPrimary;
+      case 'red':
+        return theme.redPrimary;
       default:
         return theme.yellowPrimary;
     }
@@ -31,6 +33,8 @@ const StyledButton = styled.button<{ color: string }>`
           return theme.greenSecondary;
         case 'pink':
           return theme.pinkSecondary;
+        case 'red':
+          return theme.typeCardSecondary;
         default:
           return theme.yellowSecondary;
       }
@@ -43,6 +47,8 @@ const StyledButton = styled.button<{ color: string }>`
           return theme.greenPrimary;
         case 'pink':
           return theme.pinkPrimary;
+        case 'red':
+          return theme.redPrimary;
         default:
           return theme.yellowPrimary;
       }

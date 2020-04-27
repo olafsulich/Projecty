@@ -37,9 +37,10 @@ const StyledInputFile = styled(StyledInput)`
 
 interface Props {
   toggleVisibility: () => void;
+  isVisible: boolean;
 }
 
-const EditProfile: React.FC<Props> = ({ toggleVisibility }) => {
+const EditProfile: React.FC<Props> = ({ toggleVisibility, isVisible }) => {
   const currentUser = useUser();
   const team = useTeam();
   const backlog = useBacklog();
@@ -126,7 +127,7 @@ const EditProfile: React.FC<Props> = ({ toggleVisibility }) => {
   };
 
   return (
-    <ModalTemplate toggleVisibility={toggleVisibility} title="Edit profile" modalTheme="green">
+    <ModalTemplate isVisible={isVisible} toggleVisibility={toggleVisibility} title="Edit profile" modalTheme="green">
       <StyledForm onSubmit={handleUpdate}>
         <StyledLabelInputWrapper>
           <StyledLabel htmlFor="file">Photo</StyledLabel>

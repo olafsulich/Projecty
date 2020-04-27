@@ -30,9 +30,10 @@ const StyledButtonWrapper = styled.div`
 
 interface Props {
   toggleVisibility: () => void;
+  isVisible: boolean;
 }
 
-const AddBacklog: React.FC<Props> = ({ toggleVisibility }) => {
+const AddBacklog: React.FC<Props> = ({ toggleVisibility, isVisible }) => {
   const currentUser = useUser();
 
   const handleCreate = (content: string, selected: string) => {
@@ -57,7 +58,7 @@ const AddBacklog: React.FC<Props> = ({ toggleVisibility }) => {
   };
 
   return (
-    <ModalTemplate toggleVisibility={toggleVisibility} title="Add Backlog">
+    <ModalTemplate isVisible={isVisible} toggleVisibility={toggleVisibility} title="Add Backlog">
       <Formik initialValues={{ content: '', selected: 'To do' }} onSubmit={({ content, selected }) => handleCreate(content, selected)}>
         {({ values: { content, selected }, handleChange, handleBlur, handleSubmit }) => {
           return (

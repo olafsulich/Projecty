@@ -7,6 +7,7 @@ import StyledSelect from '../atoms/Select';
 import StyledOption from '../atoms/Option';
 import { firestore } from '../../firebase/index';
 import { Backlog } from '../../types';
+import StyledButton from '../atoms/Button';
 
 const StyledFigure = styled.figure`
   width: 100%;
@@ -55,7 +56,7 @@ const BacklogDetail: React.FC<Props> = () => {
   const backlogs = useBacklog();
   const projectID = localStorage.getItem('PROJECT_ID');
   const projectKey = localStorage.getItem('PROJECT_KEY');
-
+  const backlogsRef = firestore.doc(`projects/${projectID}`).collection('backlog');
   const matchedBacklog = backlogs.find((doc: Backlog) => doc.id === id);
 
   const onSelect = (e: React.ChangeEvent<HTMLSelectElement>) => {
@@ -67,6 +68,11 @@ const BacklogDetail: React.FC<Props> = () => {
   useEffect(() => {
     setBacklog(matchedBacklog);
   }, []);
+
+  const handleRemove = (docId: string) => {
+    backlogsRef.doc(docId).delete();
+    navigate(`/project/${projectKey}/backlog`);
+  };
 
   const cardDetail = () => {
     if (backlog) {
@@ -108,6 +114,9 @@ const BacklogDetail: React.FC<Props> = () => {
               <StyledOption>Finished</StyledOption>
             </StyledSelect>
           </StyledRoleWrapper>
+          <StyledButton color="red" onClick={() => handleRemove(backlog.id)}>
+            Delete
+          </StyledButton>
         </>
       );
     }

@@ -7,8 +7,6 @@ import FormTemplate from '../templates/FormTemplate';
 import StyledHeading from '../components/atoms/Heading';
 import StyledLabel from '../components/atoms/Label';
 import StyledInput from '../components/atoms/Input';
-import { createUserDoc } from '../firebase/utils';
-// import usePageWidth from '../hooks/usePageWidth';
 import StyledButton from '../components/atoms/Button';
 import StyledLabelInputWrapper from '../components/atoms/LabelInputWrapper';
 
@@ -20,7 +18,7 @@ const StyledFormWrapper = styled.main`
   justify-content: center;
 `;
 
-const StyledFormHeadingWrapper = styled.div`
+const StyledFormHeadingWrapper = styled.section`
   width: 100%;
   height: 100%;
   display: flex;
@@ -71,6 +69,7 @@ const StyledInfo = styled.p`
   width: 100%;
   text-align: center;
   font-size: 1.4rem;
+
   @media only screen and (min-width: 950px) {
     display: none;
   }
@@ -85,59 +84,32 @@ const StyledInfoButton = styled(Link)`
     position: absolute;
     width: 100%;
     height: 50%;
-    background-color: ${({ theme }) => theme.greenSecondary};
+    background-color: ${({ theme }) => theme.yellowSecondary};
     z-index: -1;
     top: 60%;
     left: 15%;
   }
 `;
+
 type Props = RouteComponentProps;
 
-const SignUp: React.FC<Props> = () => {
-  // const pageWidth = usePageWidth();
-
-  const handleSignUp = async (email: string, password: string, name: string) => {
-    if (auth) {
-      await auth.createUserWithEmailAndPassword(email, password).then(() => {
-        const user = auth.currentUser;
-        createUserDoc(user, name);
-        navigate('/start-new-project');
-      });
-    }
+const SignIn: React.FC<Props> = () => {
+  const handleSignIn = async (email: string, password: string) => {
+    if (auth) await auth.signInWithEmailAndPassword(email, password).then(() => navigate(`/projects`));
   };
 
   return (
-    <Formik
-      initialValues={{ email: '', password: '', name: '' }}
-      onSubmit={({ email, password, name }) => handleSignUp(email, password, name)}
-    >
-      {({ values: { email, password, name }, handleChange, handleBlur, handleSubmit }) => {
+    <Formik initialValues={{ email: '', password: '' }} onSubmit={({ email, password }) => handleSignIn(email, password)}>
+      {({ values: { email, password }, handleChange, handleBlur, handleSubmit }) => {
         return (
-          <FormTemplate signUp>
+          <FormTemplate>
             <StyledFormWrapper>
               <StyledFormHeadingWrapper>
-                <StyledHeading form>Sign up to Projecty</StyledHeading>
+                <StyledHeading form>Sign in to Projecty</StyledHeading>
                 <StyledForm onSubmit={handleSubmit}>
-                  <StyledLabelInputWrapper>
-                    <StyledLabel htmlFor="name">Full Name</StyledLabel>
-                    <StyledInput
-                      signup
-                      id="name"
-                      type="text"
-                      onChange={handleChange}
-                      onBlur={handleBlur}
-                      name="name"
-                      value={name}
-                      aria-label="name"
-                      aria-required="true"
-                      autoComplete="new-password"
-                    />
-                  </StyledLabelInputWrapper>
-
                   <StyledLabelInputWrapper>
                     <StyledLabel htmlFor="email">Email Adress</StyledLabel>
                     <StyledInput
-                      signup
                       id="email"
                       type="email"
                       onChange={handleChange}
@@ -153,8 +125,6 @@ const SignUp: React.FC<Props> = () => {
                     <StyledLabel htmlFor="password">Password</StyledLabel>
                     <StyledInput
                       type="password"
-                      placeholder="6+ characters"
-                      signup
                       id="password"
                       onChange={handleChange}
                       onBlur={handleBlur}
@@ -167,12 +137,13 @@ const SignUp: React.FC<Props> = () => {
                   </StyledLabelInputWrapper>
 
                   <StyledButtonWrapper>
-                    <StyledButton color="green" type="submit">
-                      Sign up
+                    <StyledButton color="yellow" type="submit">
+                      Sign in
                     </StyledButton>
+
                     <StyledInfo>
                       Haven't got account?
-                      <StyledInfoButton to="/sign-in">Sign in</StyledInfoButton>
+                      <StyledInfoButton to="/sign-up">Sign up</StyledInfoButton>
                     </StyledInfo>
                   </StyledButtonWrapper>
                 </StyledForm>
@@ -184,4 +155,5 @@ const SignUp: React.FC<Props> = () => {
     </Formik>
   );
 };
-export default SignUp;
+
+export default SignIn;

@@ -1,14 +1,14 @@
 import React from 'react';
 import { RouteComponentProps } from '@reach/router';
-// import { auth } from './firebase';
-import Projects from './views/projects';
-// import useUser from './hooks/useUser';
-import SignIn from './views/sign-in';
-import { isLoggedIn } from './utils/utils';
+import Projects from './Projects';
+import useUser from '../hooks/useUser';
+import SignIn from './SignIn';
+import { isLoggedIn } from '../utils/utils';
 
 type Props = RouteComponentProps;
 
 const Main: React.FC<Props> = () => {
+  useUser();
   return <>{isLoggedIn() ? <Projects /> : <SignIn />}</>;
 };
 

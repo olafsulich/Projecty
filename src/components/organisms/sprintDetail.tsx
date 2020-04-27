@@ -7,6 +7,7 @@ import StyledSelect from '../atoms/Select';
 import StyledOption from '../atoms/Option';
 import { firestore } from '../../firebase/index';
 import { Sprint } from '../../types';
+import StyledButton from '../atoms/Button';
 
 const StyledFigure = styled.figure`
   width: 100%;
@@ -55,7 +56,7 @@ const SprintDetail: React.FC<Props> = () => {
   const sprints = useSprints();
   const projectID = localStorage.getItem('PROJECT_ID');
   const projectKey = localStorage.getItem('PROJECT_KEY');
-
+  const sprintsRef = firestore.doc(`projects/${projectID}`).collection('sprints');
   const matchedSprint = sprints.find((doc: Sprint) => doc.id === id);
 
   const onSelect = (e: React.ChangeEvent<HTMLSelectElement>) => {
@@ -68,6 +69,10 @@ const SprintDetail: React.FC<Props> = () => {
     setSprint(matchedSprint);
   }, []);
 
+  const handleRemove = (docId: string) => {
+    sprintsRef.doc(docId).delete();
+    navigate(`/project/${projectKey}/sprints`);
+  };
   const cardDetail = () => {
     if (sprint) {
       const {
@@ -113,6 +118,9 @@ const SprintDetail: React.FC<Props> = () => {
             <StyledRole heading>Duration:</StyledRole>
             <StyledRole>{days} days</StyledRole>
           </StyledRoleWrapper>
+          <StyledButton color="red" onClick={() => handleRemove(sprint.id)}>
+            Delete
+          </StyledButton>
         </>
       );
     }

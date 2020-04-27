@@ -4,14 +4,14 @@ import Card from '../atoms/Card';
 import { auth } from '../../firebase';
 import { Projects, Project } from '../../types/index';
 
-const StyledList = styled.div`
+const StyledList = styled.ul`
   width: 100%;
   max-height: 35%;
   overflow: scroll;
   padding-top: 5rem;
 `;
 
-const StyledCardWrapper = styled.div`
+const StyledCardWrapper = styled.li`
   text-decoration: none;
   color: inherit;
   cursor: pointer;

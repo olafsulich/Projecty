@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import Heading from '../components/atoms/Heading';
 
-const StyledModal = styled.section<{ modalTheme?: string }>`
+const StyledModal = styled.div<{ modalTheme?: string }>`
   position: absolute;
   background-color: #fff;
   z-index: 101;
@@ -22,7 +22,7 @@ const StyledModal = styled.section<{ modalTheme?: string }>`
   }
 `;
 
-const StyledWrapper = styled.article`
+const StyledWrapper = styled.div`
   width: 100%;
   height: 100%;
   display: flex;
@@ -73,7 +73,7 @@ const StyledButtonClose = styled.button`
   }
 `;
 
-const StyledHeadingWrapper = styled.article`
+const StyledHeadingWrapper = styled.section`
   width: 100%;
   display: flex;
   align-items: center;
@@ -89,11 +89,12 @@ interface Props {
   toggleVisibility: () => void;
   title: string;
   modalTheme?: string;
+  isVisible: boolean;
 }
 
-const ModalTemplate: React.FC<Props> = ({ toggleVisibility, children, title, modalTheme }) => {
+const ModalTemplate: React.FC<Props> = ({ toggleVisibility, children, title, modalTheme, isVisible }) => {
   return (
-    <StyledModal modalTheme={modalTheme}>
+    <StyledModal modalTheme={modalTheme} aria-hidden={!isVisible} aria-expanded={isVisible}>
       <StyledWrapper>
         <StyledButtonClose role="img" aria-label="close modal" onClick={() => toggleVisibility()} />
         <StyledHeadingWrapper>

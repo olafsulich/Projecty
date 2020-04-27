@@ -41,7 +41,7 @@ const StyledLogoWrapper = styled(Link)`
 const StyledLogo = styled.h1<Props>`
   font-size: 2rem;
   font-weight: regular;
-  color: ${({ signUp, theme }) => (signUp ? theme.greenPrimary : theme.yellowSecondary)};
+  color: ${({ signUp, theme }) => (signUp ? theme.greenPrimary : theme.yellowPrimary)};
 `;
 
 const StyledHeading = styled.h2<Props>`
