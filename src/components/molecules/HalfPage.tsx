@@ -83,7 +83,7 @@ const HalfPage: React.FC<Props> = ({ signUp }) => {
       <StyledLogoWrapper to="/">
         <StyledLogo signUp={signUp}>Projecty</StyledLogo>
       </StyledLogoWrapper>
-      <StyledHeading signUp={signUp}>Menage your projects and earn more</StyledHeading>
+      <StyledHeading signUp={signUp}>Manage your projects and earn more</StyledHeading>
       {signUp ? <SignUpSVG /> : <SignInSVG />}
     </StyledWrapper>
   );

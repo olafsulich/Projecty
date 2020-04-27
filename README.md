@@ -1,68 +1,83 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<h1 align="center">
 
-## Available Scripts
+<br>
 
-In the project directory, you can run:
+<p align="center">
+<img src="https://i.ibb.co/1TrnMrw/TEam1.png"  alt="Logo">
+</p>
 
-### `npm start`
+<br>
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+<br>
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+</h1>
 
-### `npm test`
+<h4 align="center">Projecty - open source project management tool</h4>
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Project Overview 🎉
 
-### `npm run build`
+## Tech/framework used 🔧
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+| Tech                                                  | Description                               |
+| ----------------------------------------------------- | ----------------------------------------- |
+| [React](https://reactjs.org/)                         | Library for building user interfaces      |
+| [Typescript](https://www.typescriptlang.org/)         | Javascript superset language              |
+| [Redux](https://redux.js.org/)                        | A Predictable State Container for JS Apps |
+| [Reach Router](https://reach.tech/router)             | Declarative routing for React             |
+| [Firebase](https://firebase.google.com/)              | Google development platform               |
+| [Styled Components](https://styled-components.com/)   | Visual primitives for the component age.  |
+| [CircleCI](https://circleci.com/)                     | Continuous Integration platform           |
+| [Formik](https://jaredpalmer.com/formik/)             | Forms with easy-to-use validation.        |
+| [React Testing Library](https://testing-library.com/) | Testing library for React                 |
+| [Husky](https://github.com/okonet/lint-staged)        | Pre-commit tool.                          |
+| [Lint-staged](https://github.com/okonet/lint-staged)  | Pre-commit tool.                          |
+| [Eslint](https://eslint.org/)                         | Javascript Linter                         |
+| [Prettier](https://prettier.io/)                      | Code formatter                            |
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+## Screenshots 📺
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+<p align="center">
+    <img src="https://i.ibb.co/GRPr0BR/SignUp.png" alt="Screenshot">
+</p>
 
-### `npm run eject`
+<p align="center">
+    <img src="https://i.ibb.co/g6jzH2p/Select-Rol.png" alt="Screenshot">
+</p>
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+<p align="center">
+    <img src="https://i.ibb.co/1TrnMrw/TEam1.png" alt="Screenshot">
+</p>
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Code Example/Issues 🔍
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+If you have any issues, please let me know in the issues section or directly to olafsulich@gmail.com
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+## Installation 💾
 
-## Learn More
+```bash
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+git clone https://github.com/olafsulich/Projecty.git
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+npm install
 
-### Code Splitting
+npm run start
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
+```
 
-### Analyzing the Bundle Size
+## Available scripts
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
+| Command         | Description            |     |
+| --------------- | ---------------------- | --- |
+| `npm run start` | Open local server      |     |
+| `npm run build` | Create optimized build |     |
+| `npm run test`  | Run tests              |     |
 
-### Making a Progressive Web App
+## Live 📍
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
+https://projecty.netlify.app/
 
-### Advanced Configuration
+## License 🔱
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
+Under license (MIT, Apache etc)
 
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+MIT © [Olaf Sulich]()
