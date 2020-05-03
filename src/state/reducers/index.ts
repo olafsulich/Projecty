@@ -1,4 +1,7 @@
-import {
+import { types } from '../enums';
+import { Team, Announcements, Backlogs, Sprints, ProjectId, ProjectKey, CurrentUser, Projects } from '../../types';
+
+const {
   SET_USER,
   CURRENT_USER,
   PROJECT_KEY,
@@ -14,8 +17,7 @@ import {
   SPRINTS,
   PROJECT_ID,
   SET_PROJECT_ID,
-} from '../constants';
-import { Team, Announcements, Backlogs, Sprints, ProjectId, ProjectKey, CurrentUser, Projects } from '../../types/index';
+} = types;
 
 export interface InitState {
   projectKey: ProjectKey;

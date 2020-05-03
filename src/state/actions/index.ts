@@ -2,8 +2,10 @@ import { Dispatch } from 'redux';
 import { auth, firestore } from '../../firebase/index';
 import { createUserDoc } from '../../firebase/utils';
 import { documentsCollection } from '../../utils/utils';
-import { SET_USER, CURRENT_USER, SET_PROJECT_ID, PROJECT_ID, PROJECT_KEY, FETCH_PROJECTS, PROJECTS } from '../constants';
+import { types } from '../enums';
 import { Projects, ProjectKey } from '../../types/index';
+
+const { SET_USER, CURRENT_USER, SET_PROJECT_ID, PROJECT_ID, PROJECT_KEY, FETCH_PROJECTS, PROJECTS } = types;
 
 export const setCurrentUser = () => (dispatch: Dispatch) => {
   dispatch({ type: SET_USER });
