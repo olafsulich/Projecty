@@ -14,7 +14,9 @@ const StyledInput = styled.input<{ signup?: boolean; newProject?: boolean; selec
   ::-webkit-file-upload-button {
     display: none;
   }
-
+  :read-only {
+    cursor: not-allowed;
+  }
   [type='file'] {
     cursor: pointer;
   }

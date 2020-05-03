@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import { RouteComponentProps, Link, navigate } from '@reach/router';
 import { useDispatch } from 'react-redux';
@@ -210,6 +210,18 @@ type Props = RouteComponentProps;
 const NewProject: React.FC<Props> = () => {
   const currentUser = useUser();
   const setKey = useDispatch();
+  const [generatedId, setGeneratedId] = useState<string>('');
+
+  const generateId = () =>
+    setGeneratedId(
+      Math.random()
+        .toString(36)
+        .substr(2, 9),
+    );
+
+  useEffect(() => {
+    generateId();
+  }, []);
 
   const handleCreate = (projectName: string, key: string) => {
     if (currentUser !== null) {
@@ -242,8 +254,8 @@ const NewProject: React.FC<Props> = () => {
           <StyledFormWrapper>
             <StyledFormHeadingWrapper>
               <StyledHeading form>Start a new project</StyledHeading>
-              <Formik initialValues={{ name: '', key: '' }} onSubmit={({ name, key }) => handleCreate(name, key)}>
-                {({ values: { name, key }, handleChange, handleBlur, handleSubmit }) => {
+              <Formik initialValues={{ name: '' }} onSubmit={({ name }) => handleCreate(name, generatedId)}>
+                {({ values: { name }, handleChange, handleBlur, handleSubmit }) => {
                   return (
                     <StyledForm onSubmit={handleSubmit}>
                       <StyledLabelInputWrapper>
@@ -270,10 +282,12 @@ const NewProject: React.FC<Props> = () => {
                           onChange={handleChange}
                           onBlur={handleBlur}
                           name="key"
-                          value={key}
+                          value={generatedId}
                           aria-label="key"
-                          aria-required="true"
+                          aria-disabled="true"
                           autoComplete="new-password"
+                          placeholder={generatedId}
+                          readOnly
                         />
                       </StyledLabelInputWrapper>
                       <StyledButtonWrapper>
