@@ -223,14 +223,14 @@ const NewProject: React.FC<Props> = () => {
     generateId();
   }, []);
 
-  const handleCreate = (projectName: string, key: string) => {
+  const handleCreate = (projectName: string) => {
     if (currentUser !== null) {
       const projectsRef = firestore.collection('projects');
       const { uid, photoURL, email, name } = currentUser;
 
       const project = {
         projectName,
-        key,
+        key: generatedId,
         user: {
           uid,
           photoURL,
@@ -240,8 +240,8 @@ const NewProject: React.FC<Props> = () => {
       };
       projectsRef.add({ ...project });
     }
-    setKey(setProjectKey(key));
-    navigate(`project/${key}/select-role`);
+    setKey(setProjectKey(generatedId));
+    navigate(`project/${generatedId}/select-role`);
   };
 
   return (
