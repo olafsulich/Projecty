@@ -18,6 +18,7 @@ import Projects from './Projects';
 import SignIn from './SignIn';
 import SignUp from './SignUp';
 import Main from './Home';
+import NotFoundPage from '../components/organisms/404';
 import { routes } from '../routes/index';
 
 const App: React.FC = () => {
@@ -59,6 +60,7 @@ const App: React.FC = () => {
         <SprintDetail path={sprintDetails} />
         <SelectRole path={selectRole} />
         <Account path={account} />
+        <NotFoundPage default />
       </Router>
     </Layout>
   );

@@ -254,7 +254,7 @@ const NewProject: React.FC<Props> = () => {
           <StyledFormWrapper>
             <StyledFormHeadingWrapper>
               <StyledHeading form>Start a new project</StyledHeading>
-              <Formik initialValues={{ name: '' }} onSubmit={({ name }) => handleCreate(name, generatedId)}>
+              <Formik initialValues={{ name: '' }} onSubmit={({ name }) => handleCreate(name)}>
                 {({ values: { name }, handleChange, handleBlur, handleSubmit }) => {
                   return (
                     <StyledForm onSubmit={handleSubmit}>
