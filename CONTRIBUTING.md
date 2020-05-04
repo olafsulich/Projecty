@@ -9,3 +9,42 @@ If you encounter a bug, please file a bug report. If you have a feature to reque
 ## Pull Requests
 
 In order to create a pull request for SocialDev, follow the GitHub instructions for [Creating a pull request from a fork](https://help.github.com/en/github/collaborating-with-issues-and-pull-requests/creating-a-pull-request-from-a-fork). Please link your pull request to an existing issue.
+
+## Scripts
+
+An explanation of the `package.json` scripts.
+
+| Command          | Description                         |
+| ---------------- | ----------------------------------- |
+| `build`          | Create a production build           |
+| `start`          | Start a dev server                  |
+| `eject`          | Eject CRA                           |
+| `test`           | Run tests in the command line       |
+| `netlify:deploy` | Build and deploy project to netlify |
+
+## Technologies
+
+This project is possible thanks to all these open source languages, libraries, and frameworks.
+
+| Tech                                                  | Description                               |
+| ----------------------------------------------------- | ----------------------------------------- |
+| [React](https://reactjs.org/)                         | Library for building user interfaces      |
+| [Typescript](https://www.typescriptlang.org/)         | Javascript superset language              |
+| [Redux](https://redux.js.org/)                        | A Predictable State Container for JS Apps |
+| [Reach Router](https://reach.tech/router)             | Declarative routing for React             |
+| [Firebase](https://firebase.google.com/)              | Google development platform               |
+| [Styled Components](https://styled-components.com/)   | Visual primitives for the component age.  |
+| [CircleCI](https://circleci.com/)                     | Continuous Integration platform           |
+| [Formik](https://jaredpalmer.com/formik/)             | Forms with easy-to-use validation.        |
+| [React Testing Library](https://testing-library.com/) | Testing library for React                 |
+| [Husky](https://github.com/okonet/lint-staged)        | Pre-commit tool.                          |
+| [Lint-staged](https://github.com/okonet/lint-staged)  | Pre-commit tool.                          |
+| [Eslint](https://eslint.org/)                         | Javascript Linter                         |
+| [Prettier](https://prettier.io/)                      | Code formatter                            |
+
+## Styleguide
+
+Coding conventions are enforced by [ESLint](.eslintrc) and [Prettier](.prettierrc).
+
+- React: functional style with Hooks (no classes)
+- `const` preferred over `let`
