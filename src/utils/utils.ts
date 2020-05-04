@@ -12,3 +12,8 @@ export const documentsCollection = (doc: { id: string; data: () => {} }) => ({ i
 export const trimString = (string: string) => string.replace(/^(.{65}[^\s]*).*/, '$1');
 
 export const useTypedSelector: TypedUseSelectorHook<InitState> = useSelector;
+
+export const isUserOwnership = (docUserId: string): boolean => {
+  if (auth.currentUser?.uid === docUserId) return true;
+  return false;
+};

@@ -9,6 +9,7 @@ import { firestore } from '../../firebase/index';
 import { Sprint } from '../../types';
 import StyledButton from '../atoms/Button';
 import { types } from '../../state/enums';
+import { isUserOwnership } from '../../utils/utils';
 
 const StyledFigure = styled.figure`
   width: 100%;
@@ -78,7 +79,7 @@ const SprintDetail: React.FC<Props> = () => {
   const cardDetail = () => {
     if (sprint) {
       const {
-        user: { photoURL, name },
+        user: { photoURL, name, uid },
         content,
         type,
         days,
@@ -120,9 +121,11 @@ const SprintDetail: React.FC<Props> = () => {
             <StyledRole heading>Duration:</StyledRole>
             <StyledRole>{days} days</StyledRole>
           </StyledRoleWrapper>
-          <StyledButton color="red" onClick={() => handleRemove(sprint.id)}>
-            Delete
-          </StyledButton>
+          {isUserOwnership(uid) && (
+            <StyledButton color="red" onClick={() => handleRemove(sprint.id)}>
+              Delete
+            </StyledButton>
+          )}
         </>
       );
     }

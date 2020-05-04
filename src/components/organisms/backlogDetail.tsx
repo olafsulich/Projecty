@@ -9,6 +9,7 @@ import { firestore } from '../../firebase/index';
 import { Backlog } from '../../types';
 import StyledButton from '../atoms/Button';
 import { types } from '../../state/enums';
+import { isUserOwnership } from '../../utils/utils';
 
 const StyledFigure = styled.figure`
   width: 100%;
@@ -79,7 +80,7 @@ const BacklogDetail: React.FC<Props> = () => {
   const cardDetail = () => {
     if (backlog) {
       const {
-        user: { photoURL, name },
+        user: { photoURL, name, uid },
         content,
         type,
       } = backlog;
@@ -116,9 +117,11 @@ const BacklogDetail: React.FC<Props> = () => {
               <StyledOption>Finished</StyledOption>
             </StyledSelect>
           </StyledRoleWrapper>
-          <StyledButton color="red" onClick={() => handleRemove(backlog.id)}>
-            Delete
-          </StyledButton>
+          {isUserOwnership(uid) && (
+            <StyledButton color="red" onClick={() => handleRemove(backlog.id)}>
+              Delete
+            </StyledButton>
+          )}
         </>
       );
     }

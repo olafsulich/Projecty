@@ -7,6 +7,7 @@ import { Announcement } from '../../types';
 import StyledButton from '../atoms/Button';
 import { firestore } from '../../firebase/index';
 import { types } from '../../state/enums';
+import { isUserOwnership } from '../../utils/utils';
 
 const StyledFigure = styled.figure`
   width: 100%;
@@ -72,7 +73,7 @@ const AnnouncementsDetails: React.FC<Props> = () => {
   const cardDetail = () => {
     if (announcement) {
       const {
-        user: { photoURL, name },
+        user: { photoURL, name, uid },
         content,
         type,
       } = announcement;
@@ -90,9 +91,11 @@ const AnnouncementsDetails: React.FC<Props> = () => {
             <StyledRole heading>Type:</StyledRole>
             <StyledRole>{type}</StyledRole>
           </StyledRoleWrapper>
-          <StyledButton color="red" onClick={() => handleRemove(announcement.id)}>
-            Delete
-          </StyledButton>
+          {isUserOwnership(uid) && (
+            <StyledButton color="red" onClick={() => handleRemove(announcement.id)}>
+              Delete
+            </StyledButton>
+          )}
         </>
       );
     }
