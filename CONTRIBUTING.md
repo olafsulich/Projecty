@@ -8,7 +8,40 @@ If you encounter a bug, please file a bug report. If you have a feature to reque
 
 ## Pull Requests
 
-In order to create a pull request for SocialDev, follow the GitHub instructions for [Creating a pull request from a fork](https://help.github.com/en/github/collaborating-with-issues-and-pull-requests/creating-a-pull-request-from-a-fork). Please link your pull request to an existing issue.
+In order to create a pull request for Projecty, follow the GitHub instructions for [Creating a pull request from a fork](https://help.github.com/en/github/collaborating-with-issues-and-pull-requests/creating-a-pull-request-from-a-fork). Please link your pull request to an existing issue.
+
+## Folder Structure
+
+Description of the project files and directories.
+
+```bash
+├── public/                    # Files that will write to dist on build
+├── src/                       # All SocialDev app source files
+│   ├── assets/                # Supplemental assets
+│   ├── components/            # Components in Atomic Design System
+│       ├── atoms/             # Basic blocks for building bigger parts
+│       ├── molecules/         # Many of atoms components connect to each other
+│       ├── organisms/         # Biggest one's
+│   └── firebase/              # Firebase config and refs files.
+│   └── hooks/                 # All of custom Hooks in there
+│   └── layout/                # GlobalStyles and theme from Styles Components
+│   └── routes/                # Utils routes for React Router
+│   └── state/                 # Redux - actions,reducers,store and enums
+│   └── templates/             # Templates for further pages
+│   └── theme/                 # Global Styles and color utils
+│   └── types/                 # Types
+│   └── utils/                 # Utilities functions
+│   └── views/                 # Pages
+│   └── index.js               # Main React file
+│   └── setupTests.js          # Tests configuration file
+├── .eslintrc                  # Eslint configuration file
+├── .gitignore                 # Files ignored by git
+├── .prettierrc                # Code convention enforced by Prettier
+├── LICENSE                    # License for this open source project
+├── package-lock.json          # Package lockfile
+├── package.json               # Dependencies and additional information
+├── README.md
+```
 
 ## Scripts
 
