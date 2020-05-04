@@ -45,13 +45,13 @@ export const fetchProjects = () => (dispatch: Dispatch) => {
   });
 };
 
-export const fetchFactory = (key: ProjectKey, fetch: string, collection: string, state: string) => (dispatch: Dispatch) => {
+export const fetchFactory = (key: ProjectKey, fetch: string, state: string) => (dispatch: Dispatch) => {
   dispatch({ type: fetch });
   const fetchFunc = async () => {
     await fetchProjects();
     await firestore
       .doc(`projects/${key}`)
-      .collection(collection)
+      .collection(state.toLowerCase())
       .onSnapshot((snapshot: firebase.firestore.QuerySnapshot) => {
         const dataFromSnapshot = snapshot.docs.map(documentsCollection);
         dispatch({ type: state, payload: dataFromSnapshot });

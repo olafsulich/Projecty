@@ -18,7 +18,7 @@ import Projects from './Projects';
 import SignIn from './SignIn';
 import SignUp from './SignUp';
 import Main from './Home';
-import NotFoundPage from '../components/organisms/404';
+import NotFoundPage from './404';
 import { routes } from '../routes/index';
 
 const App: React.FC = () => {

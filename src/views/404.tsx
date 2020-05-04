@@ -1,9 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
 import { RouteComponentProps, navigate } from '@reach/router';
-import FormTemplate from '../../templates/FormTemplate';
-import Heading from '../atoms/Heading';
-import StyledButton from '../atoms/Button';
+import FormTemplate from '../templates/FormTemplate';
+import Heading from '../components/atoms/Heading';
+import StyledButton from '../components/atoms/Button';
 
 const StyledFormWrapper = styled.main`
   width: 100%;

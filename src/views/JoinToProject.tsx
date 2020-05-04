@@ -12,6 +12,7 @@ import useUser from '../hooks/useUser';
 import useProjects from '../hooks/useProjects';
 import { useTypedSelector } from '../utils/utils';
 import { Project, Member } from '../types';
+import { types } from '../state/enums';
 
 const StyledFormWrapper = styled.main`
   width: 100%;
@@ -216,10 +217,11 @@ const JoinProject: React.FC<Props> = () => {
   const setTeam = useDispatch();
   const team = useTypedSelector(state => state.team);
   const setProjectID = useDispatch();
+  const { FETCH_TEAM, TEAM } = types;
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setFilteredProject(projects.filter((doc: Project) => doc.key === e.target.value));
-    setTeam(fetchFactory(projects.filter((doc: Project) => doc.key === e.target.value)[0].id, 'FETCH_TEAM', 'team', 'TEAM'));
+    setTeam(fetchFactory(projects.filter((doc: Project) => doc.key === e.target.value)[0].id, FETCH_TEAM, TEAM));
   };
 
   const handleJoin = (e: React.MouseEvent<HTMLButtonElement, MouseEvent> | React.FormEvent<HTMLFormElement>) => {
