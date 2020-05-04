@@ -6,6 +6,7 @@ import useAnnouncements from '../../hooks/useAnnouncements';
 import { Announcement } from '../../types';
 import StyledButton from '../atoms/Button';
 import { firestore } from '../../firebase/index';
+import { types } from '../../state/enums';
 
 const StyledFigure = styled.figure`
   width: 100%;
@@ -53,8 +54,9 @@ const AnnouncementsDetails: React.FC<Props> = () => {
   const [announcement, setAnnouncement] = useState<Announcement>();
   const { id } = useParams();
   const announcements = useAnnouncements();
-  const projectID = localStorage.getItem('PROJECT_ID');
-  const projectKey = localStorage.getItem('PROJECT_KEY');
+  const { PROJECT_ID, PROJECT_KEY } = types;
+  const projectID = localStorage.getItem(PROJECT_ID);
+  const projectKey = localStorage.getItem(PROJECT_KEY);
   const announcementRef = firestore.doc(`projects/${projectID}`).collection('announcements');
   const matchedAnnouncements = announcements.find((doc: Announcement) => doc.id === id);
 

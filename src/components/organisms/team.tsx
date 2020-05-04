@@ -5,12 +5,14 @@ import Card from '../atoms/Card';
 import Category from '../molecules/Category';
 import useTeam from '../../hooks/useTeam';
 import { Member } from '../../types';
+import { types } from '../../state/enums';
 
 type Props = RouteComponentProps;
 
 const Team: React.FC<Props> = () => {
   const team = useTeam();
-  const projectKey = localStorage.getItem('PROJECT_KEY');
+  const { PROJECT_KEY } = types;
+  const projectKey = localStorage.getItem(PROJECT_KEY);
 
   const cardFuncCreator = (role: string) => {
     if (team) {

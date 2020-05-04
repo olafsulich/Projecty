@@ -7,6 +7,7 @@ import { ReactComponent as StatisticsSVG } from '../../assets/menu/Statistics.sv
 import { ReactComponent as BacklogSVG } from '../../assets/menu/Backlog.svg';
 import { ReactComponent as SprintsSVG } from '../../assets/menu/Sprints.svg';
 import { ReactComponent as SettingSVG } from '../../assets/settings.svg';
+import { types } from '../../state/enums';
 
 const StyledMenuIcon = styled.div`
   width: 2rem;
@@ -77,7 +78,8 @@ interface Props {
 }
 
 const MenuItemsList: React.FC<Props> = ({ main }) => {
-  const projectKey = localStorage.getItem('PROJECT_KEY');
+  const { PROJECT_KEY } = types;
+  const projectKey = localStorage.getItem(PROJECT_KEY);
   const projectPath = `/project/${projectKey}`;
   return (
     <>

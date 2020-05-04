@@ -5,12 +5,14 @@ import Card from '../atoms/Card';
 import Category from '../molecules/Category';
 import useSprints from '../../hooks/useSprints';
 import { Sprint } from '../../types';
+import { types } from '../../state/enums';
 
 type Props = RouteComponentProps;
 
 const Backlog: React.FC<Props> = () => {
   const sprints = useSprints();
-  const projectKey = localStorage.getItem('PROJECT_KEY');
+  const { PROJECT_KEY } = types;
+  const projectKey = localStorage.getItem(PROJECT_KEY);
 
   const cardFuncCreator = (cardType: string) => {
     if (sprints) {

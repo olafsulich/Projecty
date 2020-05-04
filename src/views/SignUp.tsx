@@ -94,8 +94,6 @@ const StyledInfoButton = styled(Link)`
 type Props = RouteComponentProps;
 
 const SignUp: React.FC<Props> = () => {
-  // const pageWidth = usePageWidth();
-
   const handleSignUp = async (email: string, password: string, name: string) => {
     if (auth) {
       await auth.createUserWithEmailAndPassword(email, password).then(() => {

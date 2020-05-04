@@ -11,6 +11,7 @@ import { getProjectID } from '../../state/actions';
 import useUser from '../../hooks/useUser';
 import useProjects from '../../hooks/useProjects';
 import { Project } from '../../types';
+import { types } from '../../state/enums';
 
 const StyledFormWrapper = styled.main`
   width: 100%;
@@ -110,7 +111,8 @@ const StyledHeading = styled(Heading)`
 type Props = RouteComponentProps;
 
 const SelectRole: React.FC<Props> = () => {
-  const projectKey = localStorage.getItem('PROJECT_KEY');
+  const { PROJECT_KEY } = types;
+  const projectKey = localStorage.getItem(PROJECT_KEY);
   const currentUser = useUser();
   const projects = useProjects();
   const setId = useDispatch();

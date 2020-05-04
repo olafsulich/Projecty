@@ -8,6 +8,7 @@ import StyledOption from '../atoms/Option';
 import { firestore } from '../../firebase/index';
 import { Sprint } from '../../types';
 import StyledButton from '../atoms/Button';
+import { types } from '../../state/enums';
 
 const StyledFigure = styled.figure`
   width: 100%;
@@ -54,8 +55,9 @@ const SprintDetail: React.FC<Props> = () => {
   const [sprint, setSprint] = useState<Sprint>();
   const { id } = useParams();
   const sprints = useSprints();
-  const projectID = localStorage.getItem('PROJECT_ID');
-  const projectKey = localStorage.getItem('PROJECT_KEY');
+  const { PROJECT_ID, PROJECT_KEY } = types;
+  const projectID = localStorage.getItem(PROJECT_ID);
+  const projectKey = localStorage.getItem(PROJECT_KEY);
   const sprintsRef = firestore.doc(`projects/${projectID}`).collection('sprints');
   const matchedSprint = sprints.find((doc: Sprint) => doc.id === id);
 

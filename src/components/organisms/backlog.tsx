@@ -5,12 +5,14 @@ import Card from '../atoms/Card';
 import Category from '../molecules/Category';
 import useBacklog from '../../hooks/useBacklog';
 import { Backlog as BacklogTypes } from '../../types';
+import { types } from '../../state/enums';
 
 type Props = RouteComponentProps;
 
 const Backlog: React.FC<Props> = () => {
   const backlog = useBacklog();
-  const projectKey = localStorage.getItem('PROJECT_KEY');
+  const { PROJECT_KEY } = types;
+  const projectKey = localStorage.getItem(PROJECT_KEY);
 
   const cardFuncCreator = (cardType: string) => {
     if (backlog) {

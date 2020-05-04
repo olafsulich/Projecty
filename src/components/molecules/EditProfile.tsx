@@ -13,6 +13,7 @@ import useBacklog from '../../hooks/useBacklog';
 import useSprints from '../../hooks/useSprints';
 import useAnnouncements from '../../hooks/useAnnouncements';
 import { DocumentFromCollection, Image, Collection, InputEvent } from '../../types/index';
+import { types } from '../../state/enums';
 
 const StyledForm = styled.form`
   width: 100%;
@@ -48,7 +49,8 @@ const EditProfile: React.FC<Props> = ({ toggleVisibility, isVisible }) => {
   const announcements = useAnnouncements();
   const [name, setName] = useState<string>('');
   const [image, setImage] = useState<Image>(null);
-  const projectID = localStorage.getItem('PROJECT_ID');
+  const { PROJECT_ID } = types;
+  const projectID = localStorage.getItem(PROJECT_ID);
 
   const filterCollection = (doc: DocumentFromCollection) => {
     if (currentUser) {

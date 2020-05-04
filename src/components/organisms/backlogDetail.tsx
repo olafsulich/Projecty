@@ -8,6 +8,7 @@ import StyledOption from '../atoms/Option';
 import { firestore } from '../../firebase/index';
 import { Backlog } from '../../types';
 import StyledButton from '../atoms/Button';
+import { types } from '../../state/enums';
 
 const StyledFigure = styled.figure`
   width: 100%;
@@ -54,8 +55,9 @@ const BacklogDetail: React.FC<Props> = () => {
   const [backlog, setBacklog] = useState<Backlog>();
   const { id } = useParams();
   const backlogs = useBacklog();
-  const projectID = localStorage.getItem('PROJECT_ID');
-  const projectKey = localStorage.getItem('PROJECT_KEY');
+  const { PROJECT_ID, PROJECT_KEY } = types;
+  const projectID = localStorage.getItem(PROJECT_ID);
+  const projectKey = localStorage.getItem(PROJECT_KEY);
   const backlogsRef = firestore.doc(`projects/${projectID}`).collection('backlog');
   const matchedBacklog = backlogs.find((doc: Backlog) => doc.id === id);
 

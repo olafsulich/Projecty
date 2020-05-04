@@ -10,6 +10,7 @@ import useUser from '../../hooks/useUser';
 import ModalTemplate from '../../templates/ModalTemplate';
 import StyledLabelInputWrapper from '../atoms/LabelInputWrapper';
 import StyledButton from '../atoms/Button';
+import { types } from '../../state/enums';
 
 const StyledForm = styled.form`
   width: 100%;
@@ -35,10 +36,11 @@ interface Props {
 
 const AddBacklog: React.FC<Props> = ({ toggleVisibility, isVisible }) => {
   const currentUser = useUser();
+  const { PROJECT_ID } = types;
 
   const handleCreate = (content: string, selected: string) => {
     if (currentUser !== null) {
-      const projectID = localStorage.getItem('PROJECT_ID');
+      const projectID = localStorage.getItem(PROJECT_ID);
       const BacklogRef = firestore.collection(`projects/${projectID}/backlog`);
       const { uid, photoURL, email, name } = currentUser;
 
