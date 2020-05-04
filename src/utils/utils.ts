@@ -1,6 +1,6 @@
 import { TypedUseSelectorHook, useSelector } from 'react-redux';
 import { auth } from '../firebase/index';
-import { InitState } from '../state/reducers/index';
+import { InitState } from '../types/index';
 
 export const isLoggedIn = (): boolean => {
   if (auth.currentUser) return true;
