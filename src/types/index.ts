@@ -34,6 +34,21 @@ export interface Project extends Member {
   projectName: string;
 }
 
+export interface InitState {
+  projectKey: ProjectKey;
+  projectId: ProjectId;
+  currentUser: CurrentUser;
+  team: Team;
+  announcements: Announcements;
+  backlog: Backlogs;
+  sprints: Sprints;
+  projects: Projects;
+}
+export interface Action {
+  type: string;
+  payload: [];
+}
+
 export type Team = Member[];
 export type Announcements = Announcement[];
 export type Backlogs = Backlog[];

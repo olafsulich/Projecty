@@ -1,5 +1,5 @@
 import { types } from '../enums';
-import { Team, Announcements, Backlogs, Sprints, ProjectId, ProjectKey, CurrentUser, Projects } from '../../types';
+import { InitState, Action } from '../../types';
 
 const {
   SET_USER,
@@ -19,17 +19,6 @@ const {
   SET_PROJECT_ID,
 } = types;
 
-export interface InitState {
-  projectKey: ProjectKey;
-  projectId: ProjectId;
-  currentUser: CurrentUser;
-  team: Team;
-  announcements: Announcements;
-  backlog: Backlogs;
-  sprints: Sprints;
-  projects: Projects;
-}
-
 const initialState: InitState = {
   projectKey: '',
   projectId: '',
@@ -46,11 +35,6 @@ const initialState: InitState = {
   sprints: [],
   projects: [],
 };
-
-interface Action {
-  type: string;
-  payload: [];
-}
 
 const rootReducer = (state = initialState, action: Action) => {
   switch (action.type) {
