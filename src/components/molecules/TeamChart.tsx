@@ -57,8 +57,6 @@ const TeamChart: React.FC = () => {
     { name: 'QA', value: filterRole('quality-assurance') },
   ];
 
-  const COLORS = ['#1FC844', '#F7B801', '#ea4c89', '#2E5BFF'];
-
   return (
     <StyledTeamWrapper>
       {!teamData.length ? (
@@ -67,12 +65,9 @@ const TeamChart: React.FC = () => {
         <>
           <StyledHeading>Team</StyledHeading>
           <StyledPie width={cardWidth()} height={cardHeight()}>
-            <Pie data={teamData} innerRadius={80} outerRadius={110} dataKey="value" label>
-              {teamData.map((entry, index) => (
-                <>
-                  <Cell fill={COLORS[index % COLORS.length]} />
-                  <p>{entry}</p>
-                </>
+            <Pie data={teamData} innerRadius={80} outerRadius={110} dataKey="value" label fill="#F7B801">
+              {teamData.map(entry => (
+                <Cell key={`cell-${entry}`} />
               ))}
               <Legend />
             </Pie>
