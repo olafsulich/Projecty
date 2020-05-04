@@ -16,6 +16,8 @@
 
 ## Project Overview 🎉
 
+Projecty is an open source tool for project management, where you and your team can follow work progress. As a team member you can add new announcements, create new sprints and backlogs. Feel free to change your nick name and avatar whenever you like. Also, you can estimate sprint duration and change status of your sprints/backlogs.
+
 ## Tech/framework used 🔧
 
 | Tech                                                  | Description                               |
