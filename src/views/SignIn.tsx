@@ -96,7 +96,11 @@ type Props = RouteComponentProps;
 
 const SignIn: React.FC<Props> = () => {
   const handleSignIn = async (email: string, password: string) => {
-    if (auth) await auth.signInWithEmailAndPassword(email, password).then(() => navigate(`/projects`));
+    if (auth)
+      await auth
+        .signInWithEmailAndPassword(email, password)
+        .then(() => navigate(`/projects`))
+        .catch(() => alert(`Email is already in use, sign in or use other email`));
   };
 
   return (

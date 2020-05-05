@@ -96,11 +96,14 @@ type Props = RouteComponentProps;
 const SignUp: React.FC<Props> = () => {
   const handleSignUp = async (email: string, password: string, name: string) => {
     if (auth) {
-      await auth.createUserWithEmailAndPassword(email, password).then(() => {
-        const user = auth.currentUser;
-        createUserDoc(user, name);
-        navigate('/start-new-project');
-      });
+      await auth
+        .createUserWithEmailAndPassword(email, password)
+        .then(() => {
+          const user = auth.currentUser;
+          createUserDoc(user, name);
+          navigate('/start-new-project');
+        })
+        .catch(() => alert(`Email is already in use, sign in or use other email`));
     }
   };
 

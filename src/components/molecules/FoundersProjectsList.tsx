@@ -15,6 +15,12 @@ const StyledCardWrapper = styled.li`
   text-decoration: none;
   color: inherit;
   cursor: pointer;
+
+  :focus {
+    div {
+      border: 2px solid ${({ theme }) => theme.typeCardSecondary};
+    }
+  }
 `;
 
 interface Props {
@@ -30,7 +36,7 @@ const FoundersProjectsList: React.FC<Props> = ({ projects, handlePick }) => {
       {projects ? (
         <StyledList>
           {projects.filter(filterDocument).map(({ projectName, key }: Project) => (
-            <StyledCardWrapper onClick={() => handlePick(key)}>
+            <StyledCardWrapper key={key} tabIndex={0} onClick={() => handlePick(key)}>
               <Card heading={projectName} type="project" />
             </StyledCardWrapper>
           ))}
