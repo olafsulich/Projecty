@@ -19,6 +19,7 @@
     "@typescript-eslint/explicit-function-return-type": "off",
     "react/jsx-props-no-spreading": "off",
     "import/named": "off",
+    "no-alert": "off",
     "react/no-unescaped-entities": [
       "error",
       {
