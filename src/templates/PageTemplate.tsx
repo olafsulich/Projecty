@@ -77,6 +77,41 @@ const StyledButtonSecondary = styled.button<{ pageHeading: string }>`
   font-weight: 700;
   border-radius: 10px;
   margin-left: 3rem;
+
+  :focus {
+    color: ${({ pageHeading }) => {
+      switch (pageHeading) {
+        case 'Announcements':
+          return '#FFF5DA';
+        case 'Team':
+          return '#EAFCEE';
+        case 'Backlog':
+          return '#FFF5DA';
+        case 'Sprints':
+          return '#EAFCEE';
+        case 'Account':
+          return '#EAFCEE';
+        default:
+          return '#f7b801';
+      }
+    }};
+    background-color: ${({ pageHeading }) => {
+      switch (pageHeading) {
+        case 'Announcements':
+          return '#f7b801';
+        case 'Team':
+          return '#1FC844';
+        case 'Backlog':
+          return '#f7b801';
+        case 'Sprints':
+          return '#1FC844';
+        case 'Account':
+          return '#1FC844';
+        default:
+          return '#f7b801';
+      }
+    }};
+  }
   @media only screen and (min-width: 950px) {
     margin-bottom: 1rem;
     height: 3.4rem;

@@ -1,4 +1,5 @@
 import React from 'react';
+import styled from 'styled-components';
 import { RouteComponentProps, Link } from '@reach/router';
 import PageTemplate from '../../templates/PageTemplate';
 import Card from '../atoms/Card';
@@ -7,6 +8,13 @@ import useTeam from '../../hooks/useTeam';
 import { Member } from '../../types';
 import { types } from '../../state/enums';
 
+const StyledLink = styled(Link)`
+  :focus {
+    div {
+      border: 2px solid ${({ theme }) => theme.typeCardSecondary};
+    }
+  }
+`;
 type Props = RouteComponentProps;
 
 const Team: React.FC<Props> = () => {
@@ -19,9 +27,9 @@ const Team: React.FC<Props> = () => {
       return team
         .filter((doc: Member) => doc.user.type === role)
         .map(({ user: { name, type, photoURL, uid } }: Member) => (
-          <Link key={uid} to={`/project/${projectKey}/team/${uid}`}>
+          <StyledLink key={uid} to={`/project/${projectKey}/team/${uid}`}>
             <Card photoURL={photoURL} heading={name} content={type} type={type} />
-          </Link>
+          </StyledLink>
         ));
     }
     return null;

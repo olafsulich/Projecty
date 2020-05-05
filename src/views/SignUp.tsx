@@ -108,7 +108,7 @@ const SignUp: React.FC<Props> = () => {
     <Formik
       initialValues={{ email: '', password: '', name: '' }}
       validate={({ email, password, name }) => {
-        const errors: { email: string; password: string; name: string } = { email: '', password: '', name: '' };
+        const errors: Partial<{ email: string; password: string; name: string }> = {};
         if (!name) {
           errors.name = 'Name is required';
         } else if (!email) {
