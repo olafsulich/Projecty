@@ -11,6 +11,7 @@ import StyledInput from '../components/atoms/Input';
 import StyledLogo from '../components/atoms/Logo';
 import { setProjectKey } from '../state/actions/index';
 import useUser from '../hooks/useUser';
+import ErrorMessage from '../components/atoms/ErrorMessage';
 
 const StyledFormWrapper = styled.main`
   width: 100%;
@@ -111,6 +112,11 @@ const StyledButtonSecondary = styled(Link)`
   font-weight: 700;
   border-radius: 10px;
   display: none;
+
+  :focus {
+    color: ${({ theme }) => theme.yellowSecondary};
+    background-color: ${({ theme }) => theme.yellowPrimary};
+  }
 
   @media only screen and (min-width: 950px) {
     display: flex;
@@ -254,8 +260,18 @@ const NewProject: React.FC<Props> = () => {
           <StyledFormWrapper>
             <StyledFormHeadingWrapper>
               <StyledHeading form>Start a new project</StyledHeading>
-              <Formik initialValues={{ name: '' }} onSubmit={({ name }) => handleCreate(name)}>
-                {({ values: { name }, handleChange, handleBlur, handleSubmit }) => {
+              <Formik
+                initialValues={{ name: '' }}
+                validate={({ name }) => {
+                  const errors: Partial<{ name: string }> = {};
+                  if (!name) {
+                    errors.name = 'Name is required';
+                  }
+                  return errors;
+                }}
+                onSubmit={({ name }) => handleCreate(name)}
+              >
+                {({ values: { name }, handleChange, handleBlur, handleSubmit, errors }) => {
                   return (
                     <StyledForm onSubmit={handleSubmit}>
                       <StyledLabelInputWrapper>
@@ -270,8 +286,10 @@ const NewProject: React.FC<Props> = () => {
                           value={name}
                           aria-label="name"
                           aria-required="true"
+                          aria-invalid={errors.name ? 'true' : 'false'}
                           autoComplete="new-password"
                         />
+                        {errors.name && <ErrorMessage>{errors.name}</ErrorMessage>}
                       </StyledLabelInputWrapper>
                       <StyledLabelInputWrapper>
                         <StyledLabel htmlFor="key">Key</StyledLabel>

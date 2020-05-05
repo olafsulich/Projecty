@@ -13,6 +13,7 @@ import useProjects from '../hooks/useProjects';
 import { useTypedSelector } from '../utils/utils';
 import { Project, Member } from '../types';
 import { types } from '../state/enums';
+import ErrorMessage from '../components/atoms/ErrorMessage';
 
 const StyledFormWrapper = styled.main`
   width: 100%;
@@ -208,9 +209,12 @@ const StyledInfoButton = styled(Link)`
   }
 `;
 type Props = RouteComponentProps;
+type ChangeInputValue = React.ChangeEvent<HTMLInputElement>;
 
 const JoinProject: React.FC<Props> = () => {
   const [filteredProject, setFilteredProject] = useState<Project[]>();
+  const [inputValue, setInputValue] = useState<string>('');
+  const [errorMessage, setErrorMessage] = useState<string>('');
   const currentUser = useUser();
   const setKey = useDispatch();
   const projects = useProjects();
@@ -219,14 +223,28 @@ const JoinProject: React.FC<Props> = () => {
   const setProjectID = useDispatch();
   const { FETCH_TEAM, TEAM } = types;
 
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setFilteredProject(projects.filter((doc: Project) => doc.key === e.target.value));
-    setTeam(fetchFactory(projects.filter((doc: Project) => doc.key === e.target.value)[0].id, FETCH_TEAM, TEAM));
+  const filterProjects = (e: ChangeInputValue) => projects.filter((doc: Project) => doc.key === e.target.value);
+
+  const handleInputChange = (e: ChangeInputValue) => {
+    setInputValue(e.target.value);
+    setErrorMessage('');
+    setFilteredProject(filterProjects(e));
+    if (filterProjects(e)[0]) {
+      setTeam(fetchFactory(filterProjects(e)[0].id, FETCH_TEAM, TEAM));
+    }
+    if (!filterProjects(e)[0]) {
+      setErrorMessage('Please check your project key');
+    }
   };
 
   const handleJoin = (e: React.MouseEvent<HTMLButtonElement, MouseEvent> | React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    if (projects && currentUser && team && filteredProject) {
+    if (!inputValue) {
+      setErrorMessage('Key is required');
+      return;
+    }
+
+    if (projects && currentUser && team && filteredProject && !errorMessage) {
       const projectKey = filteredProject[0].key;
       const projectMember = team.filter((doc: Member) => doc.user.uid === currentUser.uid);
       setKey(setProjectKey(projectKey));
@@ -254,15 +272,19 @@ const JoinProject: React.FC<Props> = () => {
                   <StyledLabel htmlFor="key">Key</StyledLabel>
                   <StyledInput
                     newProject
+                    value={inputValue}
                     id="key"
                     type="text"
                     onChange={handleInputChange}
                     name="key"
                     aria-label="key"
                     aria-required="true"
+                    aria-invalid={errorMessage ? 'true' : 'false'}
                     autoComplete="new-password"
                   />
+                  {errorMessage && <ErrorMessage>{errorMessage}</ErrorMessage>}
                 </StyledLabelInputWrapper>
+
                 <StyledButtonWrapper>
                   <StyledButton type="submit">Go!</StyledButton>
                   <StyledInfo>
