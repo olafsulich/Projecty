@@ -9,6 +9,7 @@ import StyledLabel from '../components/atoms/Label';
 import StyledInput from '../components/atoms/Input';
 import StyledButton from '../components/atoms/Button';
 import StyledLabelInputWrapper from '../components/atoms/LabelInputWrapper';
+import ErrorMessage from '../components/atoms/ErrorMessage';
 
 const StyledFormWrapper = styled.main`
   width: 100%;
@@ -99,8 +100,24 @@ const SignIn: React.FC<Props> = () => {
   };
 
   return (
-    <Formik initialValues={{ email: '', password: '' }} onSubmit={({ email, password }) => handleSignIn(email, password)}>
-      {({ values: { email, password }, handleChange, handleBlur, handleSubmit }) => {
+    <Formik
+      initialValues={{ email: '', password: '' }}
+      validate={({ email, password }) => {
+        const errors: { email: string; password: string } = { email: '', password: '' };
+        if (!email) {
+          errors.email = 'Email is required';
+        } else if (!password) {
+          errors.password = 'Password is required';
+        } else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(email)) {
+          errors.email = 'Invalid email address';
+        } else if (!/^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{6,}$/i.test(password)) {
+          errors.password = 'Password should contain min. 6 characters and one number';
+        }
+        return errors;
+      }}
+      onSubmit={({ email, password }) => handleSignIn(email, password)}
+    >
+      {({ values: { email, password }, handleChange, handleBlur, handleSubmit, errors }) => {
         return (
           <FormTemplate>
             <StyledFormWrapper>
@@ -118,8 +135,10 @@ const SignIn: React.FC<Props> = () => {
                       value={email}
                       aria-label="email"
                       aria-required="true"
+                      aria-invalid={errors.email ? 'true' : 'false'}
                       autoComplete="new-password"
                     />
+                    {errors.email && <ErrorMessage>{errors.email}</ErrorMessage>}
                   </StyledLabelInputWrapper>
                   <StyledLabelInputWrapper>
                     <StyledLabel htmlFor="password">Password</StyledLabel>
@@ -132,8 +151,10 @@ const SignIn: React.FC<Props> = () => {
                       value={password}
                       aria-label="password"
                       aria-required="true"
+                      aria-invalid={errors.password ? 'true' : 'false'}
                       autoComplete="new-password"
                     />
+                    {errors.password && <ErrorMessage>{errors.password}</ErrorMessage>}
                   </StyledLabelInputWrapper>
 
                   <StyledButtonWrapper>

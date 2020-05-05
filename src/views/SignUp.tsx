@@ -8,9 +8,9 @@ import StyledHeading from '../components/atoms/Heading';
 import StyledLabel from '../components/atoms/Label';
 import StyledInput from '../components/atoms/Input';
 import { createUserDoc } from '../firebase/utils';
-// import usePageWidth from '../hooks/usePageWidth';
 import StyledButton from '../components/atoms/Button';
 import StyledLabelInputWrapper from '../components/atoms/LabelInputWrapper';
+import ErrorMessage from '../components/atoms/ErrorMessage';
 
 const StyledFormWrapper = styled.main`
   width: 100%;
@@ -107,9 +107,24 @@ const SignUp: React.FC<Props> = () => {
   return (
     <Formik
       initialValues={{ email: '', password: '', name: '' }}
+      validate={({ email, password, name }) => {
+        const errors: { email: string; password: string; name: string } = { email: '', password: '', name: '' };
+        if (!name) {
+          errors.name = 'Name is required';
+        } else if (!email) {
+          errors.email = 'Email is required';
+        } else if (!password) {
+          errors.password = 'Password is required';
+        } else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(email)) {
+          errors.email = 'Invalid email address';
+        } else if (!/^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{6,}$/i.test(password)) {
+          errors.password = 'Password should contain min. 6 characters and one number';
+        }
+        return errors;
+      }}
       onSubmit={({ email, password, name }) => handleSignUp(email, password, name)}
     >
-      {({ values: { email, password, name }, handleChange, handleBlur, handleSubmit }) => {
+      {({ values: { email, password, name }, handleChange, handleBlur, handleSubmit, errors }) => {
         return (
           <FormTemplate signUp>
             <StyledFormWrapper>
@@ -128,12 +143,14 @@ const SignUp: React.FC<Props> = () => {
                       value={name}
                       aria-label="name"
                       aria-required="true"
+                      aria-invalid={errors.name ? 'true' : 'false'}
                       autoComplete="new-password"
                     />
+                    {errors.name && <ErrorMessage>{errors.name}</ErrorMessage>}
                   </StyledLabelInputWrapper>
 
                   <StyledLabelInputWrapper>
-                    <StyledLabel htmlFor="email">Email Adress</StyledLabel>
+                    <StyledLabel htmlFor="email">Email Address</StyledLabel>
                     <StyledInput
                       signup
                       id="email"
@@ -144,14 +161,17 @@ const SignUp: React.FC<Props> = () => {
                       value={email}
                       aria-label="email"
                       aria-required="true"
+                      aria-invalid={errors.email ? 'true' : 'false'}
                       autoComplete="new-password"
                     />
+                    {errors.email && <ErrorMessage>{errors.email}</ErrorMessage>}
                   </StyledLabelInputWrapper>
                   <StyledLabelInputWrapper>
                     <StyledLabel htmlFor="password">Password</StyledLabel>
                     <StyledInput
                       type="password"
                       placeholder="6+ characters"
+                      min="6"
                       signup
                       id="password"
                       onChange={handleChange}
@@ -160,8 +180,10 @@ const SignUp: React.FC<Props> = () => {
                       value={password}
                       aria-label="password"
                       aria-required="true"
+                      aria-invalid={errors.password ? 'true' : 'false'}
                       autoComplete="new-password"
                     />
+                    {errors.password && <ErrorMessage>{errors.password}</ErrorMessage>}
                   </StyledLabelInputWrapper>
 
                   <StyledButtonWrapper>
