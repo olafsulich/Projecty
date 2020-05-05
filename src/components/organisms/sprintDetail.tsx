@@ -70,7 +70,7 @@ const SprintDetail: React.FC<Props> = () => {
 
   useEffect(() => {
     setSprint(matchedSprint);
-  }, []);
+  }, [matchedSprint]);
 
   const handleRemove = (docId: string) => {
     sprintsRef.doc(docId).delete();

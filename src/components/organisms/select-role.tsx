@@ -154,7 +154,7 @@ const SelectRole: React.FC<Props> = () => {
         <StyledWrapper>
           <StyledFormWrapper>
             <StyledFormHeadingWrapper>
-              <StyledHeading form>What's your role?</StyledHeading>
+              <StyledHeading formHeading>What's your role?</StyledHeading>
               <StyledForm>
                 <TypeCard handlePick={handlePick} type="project-manager" />
                 <TypeCard handlePick={handlePick} type="developer" />

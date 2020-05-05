@@ -122,7 +122,7 @@ const SignIn: React.FC<Props> = () => {
           <FormTemplate>
             <StyledFormWrapper>
               <StyledFormHeadingWrapper>
-                <StyledHeading form>Sign in to Projecty</StyledHeading>
+                <StyledHeading formHeading>Sign in to Projecty</StyledHeading>
                 <StyledForm onSubmit={handleSubmit}>
                   <StyledLabelInputWrapper>
                     <StyledLabel htmlFor="email">Email Adress</StyledLabel>

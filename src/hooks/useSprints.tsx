@@ -12,7 +12,7 @@ const useSprints = () => {
 
   useEffect(() => {
     setSprints(fetchFactory(projectId, FETCH_SPRINTS, SPRINTS));
-  }, []);
+  }, [projectId, FETCH_SPRINTS, SPRINTS, setSprints]);
 
   return sprints;
 };

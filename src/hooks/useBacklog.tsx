@@ -12,7 +12,7 @@ const useBacklog = () => {
 
   useEffect(() => {
     setBacklog(fetchFactory(projectId, FETCH_BACKLOG, BACKLOG));
-  }, []);
+  }, [projectId, FETCH_BACKLOG, BACKLOG, setBacklog]);
 
   return backlog;
 };

@@ -158,7 +158,7 @@ const Projects: React.FC<Props> = () => {
         <StyledWrapper>
           <StyledFormWrapper>
             <StyledFormHeadingWrapper>
-              <StyledHeading form>Choose your project</StyledHeading>
+              <StyledHeading formHeading>Choose your project</StyledHeading>
               <FoundersProjectsList projects={projects} handlePick={handlePick} />
             </StyledFormHeadingWrapper>
           </StyledFormWrapper>

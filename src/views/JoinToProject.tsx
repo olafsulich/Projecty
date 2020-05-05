@@ -266,7 +266,7 @@ const JoinProject: React.FC<Props> = () => {
         <StyledWrapper>
           <StyledFormWrapper>
             <StyledFormHeadingWrapper>
-              <StyledHeading form>Join to project</StyledHeading>
+              <StyledHeading formHeading>Join to project</StyledHeading>
               <StyledForm onSubmit={handleJoin}>
                 <StyledLabelInputWrapper>
                   <StyledLabel htmlFor="key">Key</StyledLabel>

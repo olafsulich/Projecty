@@ -201,7 +201,7 @@ const ProjectForm: React.FC<Props> = ({ newProject, projectsList }) => {
       <StyledWrapper>
         <StyledFormWrapper>
           <StyledFormHeadingWrapper projectsList={projectsList}>
-            <StyledHeading form>{newProject ? 'Start a new project' : 'Join to project'}</StyledHeading>
+            <StyledHeading formHeading>{newProject ? 'Start a new project' : 'Join to project'}</StyledHeading>
             {projectsList ? (
               <>
                 <Card heading="Projecty" content="tool for project menagement" type="project" />

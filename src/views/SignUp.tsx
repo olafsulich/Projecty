@@ -129,7 +129,7 @@ const SignUp: React.FC<Props> = () => {
           <FormTemplate signUp>
             <StyledFormWrapper>
               <StyledFormHeadingWrapper>
-                <StyledHeading form>Sign up to Projecty</StyledHeading>
+                <StyledHeading formHeading>Sign up to Projecty</StyledHeading>
                 <StyledForm onSubmit={handleSubmit}>
                   <StyledLabelInputWrapper>
                     <StyledLabel htmlFor="name">Full Name</StyledLabel>

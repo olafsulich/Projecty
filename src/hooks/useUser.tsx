@@ -9,7 +9,7 @@ const useUser = () => {
 
   useEffect(() => {
     fetchUser(setCurrentUser());
-  }, []);
+  }, [fetchUser]);
   return currentUser;
 };
 

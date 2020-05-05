@@ -12,7 +12,7 @@ const useAnnouncements = () => {
 
   useEffect(() => {
     setAnnouncements(fetchFactory(projectId, FETCH_ANNOUNCEMENTS, ANNOUNCEMENTS));
-  }, []);
+  }, [projectId, FETCH_ANNOUNCEMENTS, ANNOUNCEMENTS, setAnnouncements]);
 
   return announcements;
 };

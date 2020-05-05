@@ -9,7 +9,7 @@ const useProjects = () => {
 
   useEffect(() => {
     setProjects(fetchProjects());
-  }, []);
+  }, [setProjects]);
 
   return projects;
 };

@@ -219,7 +219,7 @@ const PageTemplate: React.FC<Props> = ({ pageHeading, children }) => {
         <StyledMorph />
         <StyledWrapper>
           <StyledHeader>
-            <StyledHeading form>{pageHeading}</StyledHeading>
+            <StyledHeading formHeading>{pageHeading}</StyledHeading>
             {isButtonVisible()}
           </StyledHeader>
           {pageHeading === 'Statistics' ? <GridLayout statistics>{children}</GridLayout> : <GridLayout>{children}</GridLayout>}

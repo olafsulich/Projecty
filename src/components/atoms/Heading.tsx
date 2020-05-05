@@ -1,8 +1,8 @@
 import styled, { css } from 'styled-components';
 
-const StyledHeading = styled.h2<{ form?: boolean }>`
-  ${({ form }) =>
-    form &&
+const StyledHeading = styled.h2<{ formHeading?: boolean }>`
+  ${({ formHeading }) =>
+    formHeading &&
     css`
       width: 100%;
       text-align: left;

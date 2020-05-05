@@ -259,7 +259,7 @@ const NewProject: React.FC<Props> = () => {
         <StyledWrapper>
           <StyledFormWrapper>
             <StyledFormHeadingWrapper>
-              <StyledHeading form>Start a new project</StyledHeading>
+              <StyledHeading formHeading>Start a new project</StyledHeading>
               <Formik
                 initialValues={{ name: '' }}
                 validate={({ name }) => {

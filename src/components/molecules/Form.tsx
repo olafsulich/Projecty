@@ -98,9 +98,9 @@ const Form: React.FC<Props> = ({ signup, newProject }) => {
     <StyledFormWrapper>
       <StyledFormHeadingWrapper>
         {newProject ? (
-          <StyledHeading form>Start a new project</StyledHeading>
+          <StyledHeading formHeading>Start a new project</StyledHeading>
         ) : (
-          <StyledHeading form>{signup ? 'Sign up to Projecty' : 'Sign in to Projecty'}</StyledHeading>
+          <StyledHeading formHeading>{signup ? 'Sign up to Projecty' : 'Sign in to Projecty'}</StyledHeading>
         )}
         <StyledForm>
           {signup ? (

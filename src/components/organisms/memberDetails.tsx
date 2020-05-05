@@ -55,7 +55,7 @@ const MemberDetails: React.FC<Props> = () => {
 
   useEffect(() => {
     setMember(matchedUser);
-  }, []);
+  }, [matchedUser]);
 
   const cardDetail = () => {
     if (member) {

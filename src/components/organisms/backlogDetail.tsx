@@ -70,7 +70,7 @@ const BacklogDetail: React.FC<Props> = () => {
 
   useEffect(() => {
     setBacklog(matchedBacklog);
-  }, []);
+  }, [matchedBacklog]);
 
   const handleRemove = (docId: string) => {
     backlogsRef.doc(docId).delete();

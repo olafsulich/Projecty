@@ -63,7 +63,7 @@ const AnnouncementsDetails: React.FC<Props> = () => {
 
   useEffect(() => {
     setAnnouncement(matchedAnnouncements);
-  }, []);
+  }, [matchedAnnouncements]);
 
   const handleRemove = (docId: string) => {
     announcementRef.doc(docId).delete();

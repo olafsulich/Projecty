@@ -12,7 +12,7 @@ const useTeam = () => {
 
   useEffect(() => {
     setTeam(fetchFactory(projectId, FETCH_TEAM, TEAM));
-  }, []);
+  }, [projectId, FETCH_TEAM, TEAM, setTeam]);
 
   return team;
 };

@@ -94,7 +94,7 @@ interface Props {
 
 const ModalTemplate: React.FC<Props> = ({ toggleVisibility, children, title, modalTheme, isVisible }) => {
   return (
-    <StyledModal modalTheme={modalTheme} aria-hidden={!isVisible} aria-expanded={isVisible}>
+    <StyledModal modalTheme={modalTheme} aria-hidden={!isVisible} aria-expanded={isVisible} tabIndex={isVisible ? 0 : -1}>
       <StyledWrapper>
         <StyledButtonClose role="img" aria-label="close modal" onClick={() => toggleVisibility()} />
         <StyledHeadingWrapper>
