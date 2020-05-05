@@ -11,6 +11,7 @@ import ModalTemplate from '../../templates/ModalTemplate';
 import StyledLabelInputWrapper from '../atoms/LabelInputWrapper';
 import StyledButton from '../atoms/Button';
 import { types } from '../../state/enums';
+import ErrorMessage from '../atoms/ErrorMessage';
 
 const StyledForm = styled.form`
   width: 100%;
@@ -61,8 +62,18 @@ const AddBacklog: React.FC<Props> = ({ toggleVisibility, isVisible }) => {
 
   return (
     <ModalTemplate isVisible={isVisible} toggleVisibility={toggleVisibility} title="Add Backlog">
-      <Formik initialValues={{ content: '', selected: 'To do' }} onSubmit={({ content, selected }) => handleCreate(content, selected)}>
-        {({ values: { content, selected }, handleChange, handleBlur, handleSubmit }) => {
+      <Formik
+        initialValues={{ content: '', selected: 'To do' }}
+        validate={({ content }) => {
+          const errors: { content: string } = { content: '' };
+          if (!content) {
+            errors.content = 'Content is required';
+          }
+          return errors;
+        }}
+        onSubmit={({ content, selected }) => handleCreate(content, selected)}
+      >
+        {({ values: { content, selected }, handleChange, handleBlur, handleSubmit, errors }) => {
           return (
             <StyledForm onSubmit={handleSubmit}>
               <StyledLabelInputWrapper>
@@ -75,6 +86,7 @@ const AddBacklog: React.FC<Props> = ({ toggleVisibility, isVisible }) => {
                   value={selected}
                   aria-label="selected"
                   aria-required="true"
+                  aria-invalid="true"
                   autoComplete="new-password"
                 >
                   <StyledOption>To do</StyledOption>
@@ -93,9 +105,12 @@ const AddBacklog: React.FC<Props> = ({ toggleVisibility, isVisible }) => {
                   value={content}
                   aria-label="content"
                   aria-required="true"
+                  aria-invalid={errors.content ? 'true' : 'false'}
                   autoComplete="new-password"
                 />
+                {errors.content && <ErrorMessage>{errors.content}</ErrorMessage>}
               </StyledLabelInputWrapper>
+
               <StyledButtonWrapper>
                 <StyledButton type="submit" color="yellow">
                   Add
