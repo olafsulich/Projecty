@@ -14,7 +14,7 @@ const StyledModal = styled.div<{ modalTheme?: string }>`
   left: 0;
 
   @media only screen and (min-width: 550px) {
-    height: 64rem;
+    height: 68rem;
     width: 54rem;
     top: 50%;
     left: 50%;

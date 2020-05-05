@@ -65,7 +65,7 @@ const AddAnnouncement: React.FC<Props> = ({ toggleVisibility, isVisible }) => {
       <Formik
         initialValues={{ content: '', selected: 'Information' }}
         validate={({ content }) => {
-          const errors: { content: string } = { content: '' };
+          const errors: Partial<{ content: string }> = {};
           if (!content) {
             errors.content = 'Content is required';
           }
