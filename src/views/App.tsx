@@ -1,6 +1,6 @@
 import React from 'react';
 import { Router } from '@reach/router';
-import Layout from '../layout/Layout';
+import Layout from '../Layout/Layout';
 import Team from '../components/organisms/Team';
 import Announcements from '../components/organisms/Announcements';
 import Statistics from '../components/organisms/Statistics';
