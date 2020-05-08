@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import Layout from '../layout/Layout';
+import Layout from '../Layout/Layout';
 import { ReactComponent as Morphing } from '../assets/morphing.svg';
 import Navigation from '../components/molecules/Navigation';
 
