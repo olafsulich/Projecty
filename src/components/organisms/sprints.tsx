@@ -7,6 +7,7 @@ import Category from '../molecules/Category';
 import useSprints from '../../hooks/useSprints';
 import { Sprint } from '../../types';
 import { types } from '../../state/enums';
+import { sprintsInfo } from '../../data';
 
 const StyledLink = styled(Link)`
   :focus {
@@ -37,15 +38,11 @@ const Backlog: React.FC<Props> = () => {
 
   return (
     <PageTemplate pageHeading="Sprints">
-      <Category type="orange" heading="To do">
-        {cardFuncCreator('To do')}
-      </Category>
-      <Category type="green" heading="In progress">
-        {cardFuncCreator('In progress')}
-      </Category>
-      <Category type="red" heading="Finished">
-        {cardFuncCreator('Finished')}
-      </Category>
+      {sprintsInfo.map(({ type, heading }) => (
+        <Category key={type} type={type} heading={heading}>
+          {cardFuncCreator(heading)}
+        </Category>
+      ))}
     </PageTemplate>
   );
 };

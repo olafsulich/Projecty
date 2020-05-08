@@ -7,6 +7,7 @@ import Category from '../molecules/Category';
 import useAnnouncements from '../../hooks/useAnnouncements';
 import { Announcement } from '../../types';
 import { types } from '../../state/enums';
+import { announcementsInfo } from '../../data';
 
 const StyledLink = styled(Link)`
   :focus {
@@ -38,18 +39,13 @@ const Announcements: React.FC<Props> = () => {
 
   return (
     <PageTemplate pageHeading="Announcements">
-      <Category type="orange" heading="Information">
-        {cardFuncCreator('Information')}
-      </Category>
-      <Category type="green" heading="Meeting">
-        {cardFuncCreator('Meeting')}
-      </Category>
-      <Category type="red" heading="Deadline">
-        {cardFuncCreator('Deadline')}
-      </Category>
-      <Category type="blue" heading="Other">
-        {cardFuncCreator('Other')}
-      </Category>
+      {announcementsInfo.map(({ type, heading }) => {
+        return (
+          <Category key={type} type={type} heading={heading}>
+            {cardFuncCreator(heading)}
+          </Category>
+        );
+      })}
     </PageTemplate>
   );
 };

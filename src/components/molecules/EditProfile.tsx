@@ -62,15 +62,33 @@ const EditProfile: React.FC<Props> = ({ toggleVisibility, isVisible }) => {
   const updateDocuments = (array: Collection, collection: string, photo?: string) => {
     if (array && team && currentUser) {
       array.forEach((document: DocumentFromCollection) => {
-        const filtredMemberId = team.filter(filterCollection);
+        const filteredMemberId = team.filter(filterCollection);
         const docId = document.id;
         const docRef = firestore.doc(`projects/${projectID}/${collection}/${docId}`);
         const { email, photoURL, uid } = currentUser;
         const userName = currentUser.name;
-        const userRole = filtredMemberId[0].user.type;
+        const userRole = filteredMemberId[0].user.type;
         if (name) docRef.update({ user: { name, email, photoURL, type: userRole, uid } });
         if (image && photo) docRef.update({ user: { name: userName, email, photoURL: photo, type: userRole, uid } });
       });
+    }
+  };
+
+  const chooseWhatToUpdate = (urlPath?: string) => {
+    const filteredMemberId = team.filter(filterCollection);
+    const filteredBacklogs = backlog.filter(filterCollection);
+    const filteredSprints = sprints.filter(filterCollection);
+    const filteredAnnouncements = announcements.filter(filterCollection);
+    if (urlPath) {
+      updateDocuments(filteredMemberId, 'team', urlPath);
+      updateDocuments(filteredBacklogs, 'backlog', urlPath);
+      updateDocuments(filteredSprints, 'sprints', urlPath);
+      updateDocuments(filteredAnnouncements, 'announcements', urlPath);
+    } else {
+      updateDocuments(filteredMemberId, 'team');
+      updateDocuments(filteredBacklogs, 'backlog');
+      updateDocuments(filteredSprints, 'sprints');
+      updateDocuments(filteredAnnouncements, 'announcements');
     }
   };
 
@@ -88,17 +106,10 @@ const EditProfile: React.FC<Props> = ({ toggleVisibility, isVisible }) => {
       e.preventDefault();
       const userUid = currentUser.uid;
       const docRef = firestore.doc(`users/${userUid}`);
-      const filtredMemberId = team.filter(filterCollection);
-      const filtredBacklogs = backlog.filter(filterCollection);
-      const filtredSprints = sprints.filter(filterCollection);
-      const filtredAnnouncements = announcements.filter(filterCollection);
 
       if (name) {
         docRef.update({ name });
-        updateDocuments(filtredMemberId, 'team');
-        updateDocuments(filtredBacklogs, 'backlog');
-        updateDocuments(filtredSprints, 'sprints');
-        updateDocuments(filtredAnnouncements, 'announcements');
+        chooseWhatToUpdate();
       }
       if (image) {
         const uploadTask = storage
@@ -115,10 +126,7 @@ const EditProfile: React.FC<Props> = ({ toggleVisibility, isVisible }) => {
             .getDownloadURL()
             .then((urlPath: string) => {
               docRef.update({ photoURL: urlPath });
-              updateDocuments(filtredMemberId, 'team', urlPath);
-              updateDocuments(filtredBacklogs, 'backlog', urlPath);
-              updateDocuments(filtredSprints, 'sprints', urlPath);
-              updateDocuments(filtredAnnouncements, 'announcements', urlPath);
+              chooseWhatToUpdate(urlPath);
             });
         });
       }

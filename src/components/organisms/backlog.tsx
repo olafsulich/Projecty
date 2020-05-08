@@ -7,6 +7,7 @@ import Category from '../molecules/Category';
 import useBacklog from '../../hooks/useBacklog';
 import { Backlog as BacklogTypes } from '../../types';
 import { types } from '../../state/enums';
+import { backlogsInfo } from '../../data';
 
 const StyledLink = styled(Link)`
   :focus {
@@ -38,15 +39,11 @@ const Backlog: React.FC<Props> = () => {
 
   return (
     <PageTemplate pageHeading="Backlog">
-      <Category type="orange" heading="To do">
-        {cardFuncCreator('To do')}
-      </Category>
-      <Category type="green" heading="In progress">
-        {cardFuncCreator('In progress')}
-      </Category>
-      <Category type="red" heading="Finished">
-        {cardFuncCreator('Finished')}
-      </Category>
+      {backlogsInfo.map(({ type, heading }) => (
+        <Category key={type} type={type} heading={heading}>
+          {cardFuncCreator(heading)}
+        </Category>
+      ))}
     </PageTemplate>
   );
 };

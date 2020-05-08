@@ -7,6 +7,7 @@ import Category from '../molecules/Category';
 import useTeam from '../../hooks/useTeam';
 import { Member } from '../../types';
 import { types } from '../../state/enums';
+import { teamInfo } from '../../data';
 
 const StyledLink = styled(Link)`
   :focus {
@@ -37,20 +38,11 @@ const Team: React.FC<Props> = () => {
 
   return (
     <PageTemplate pageHeading="Team">
-      <>
-        <Category type="orange" heading="Project Managers">
-          {cardFuncCreator('project-manager')}
+      {teamInfo.map(({ type, heading, key }) => (
+        <Category key={type} type={type} heading={heading}>
+          {cardFuncCreator(key)}
         </Category>
-        <Category type="green" heading="Developers">
-          {cardFuncCreator('developer')}
-        </Category>
-        <Category type="red" heading="Designers">
-          {cardFuncCreator('designer')}
-        </Category>
-        <Category type="blue" heading="Quality Assurance">
-          {cardFuncCreator('quality-assurance')}
-        </Category>
-      </>
+      ))}
     </PageTemplate>
   );
 };

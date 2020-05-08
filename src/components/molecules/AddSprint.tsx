@@ -40,7 +40,6 @@ const AddSprint: React.FC<Props> = ({ toggleVisibility, isVisible }) => {
   const { PROJECT_ID } = types;
 
   const handleCreate = (content: string, selected: string, days: string) => {
-    console.log('created');
     if (currentUser !== null) {
       const projectID = localStorage.getItem(PROJECT_ID);
       const SprintsRef = firestore.collection(`projects/${projectID}/sprints`);
