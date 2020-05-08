@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { Link } from '@reach/router';
-import Layout from '../layout/Layout';
+import Layout from '../Layout/Layout';
 import HalfPage from '../components/molecules/HalfPage';
 import StyledLogo from '../components/atoms/Logo';
 import usePageWidth from '../hooks/usePageWidth';

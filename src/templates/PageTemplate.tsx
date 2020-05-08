@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 import Heading from '../components/atoms/Heading';
-import GridLayout from '../layout/GridLayout';
-import Layout from '../layout/Layout';
+import GridLayout from '../Layout/GridLayout';
+import Layout from '../Layout/Layout';
 import { ReactComponent as Morphing } from '../assets/morphing.svg';
 import Navigation from '../components/molecules/Navigation';
 import AddAnnouncement from '../components/molecules/AddAnnouncement';

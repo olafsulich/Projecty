@@ -36,12 +36,12 @@ const initialState: InitState = {
   projects: [],
 };
 
-const rootReducer = (state = initialState, action: Action) => {
-  switch (action.type) {
+const rootReducer = (state = initialState, { type, payload }: Action) => {
+  switch (type) {
     case CURRENT_USER:
       return {
         ...state,
-        currentUser: { ...action.payload },
+        currentUser: { ...payload },
       };
     case SET_USER:
       return {
@@ -50,12 +50,12 @@ const rootReducer = (state = initialState, action: Action) => {
     case PROJECT_KEY:
       return {
         ...state,
-        projectKey: action.payload,
+        projectKey: payload,
       };
     case PROJECTS:
       return {
         ...state,
-        projects: action.payload,
+        projects: payload,
       };
     case FETCH_PROJECTS:
       return {
@@ -64,7 +64,7 @@ const rootReducer = (state = initialState, action: Action) => {
     case TEAM:
       return {
         ...state,
-        team: action.payload,
+        team: payload,
       };
     case FETCH_TEAM:
       return {
@@ -73,7 +73,7 @@ const rootReducer = (state = initialState, action: Action) => {
     case ANNOUNCEMENTS:
       return {
         ...state,
-        announcements: action.payload,
+        announcements: payload,
       };
     case FETCH_ANNOUNCEMENTS:
       return {
@@ -82,7 +82,7 @@ const rootReducer = (state = initialState, action: Action) => {
     case BACKLOG:
       return {
         ...state,
-        backlog: action.payload,
+        backlog: payload,
       };
     case FETCH_BACKLOG:
       return {
@@ -91,7 +91,7 @@ const rootReducer = (state = initialState, action: Action) => {
     case SPRINTS:
       return {
         ...state,
-        sprints: action.payload,
+        sprints: payload,
       };
     case FETCH_SPRINTS:
       return {
@@ -100,7 +100,7 @@ const rootReducer = (state = initialState, action: Action) => {
     case PROJECT_ID:
       return {
         ...state,
-        projectId: action.payload,
+        projectId: payload,
       };
     case SET_PROJECT_ID:
       return {

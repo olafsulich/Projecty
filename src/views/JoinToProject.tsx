@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import styled from 'styled-components';
 import { Link, navigate, RouteComponentProps } from '@reach/router';
 import { useDispatch } from 'react-redux';
-import Layout from '../layout/Layout';
+import Layout from '../Layout/Layout';
 import StyledHeading from '../components/atoms/Heading';
 import StyledLabel from '../components/atoms/Label';
 import StyledInput from '../components/atoms/Input';
