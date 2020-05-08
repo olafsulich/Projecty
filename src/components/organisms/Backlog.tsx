@@ -15,7 +15,7 @@ const Backlog: React.FC<Props> = () => {
     <PageTemplate pageHeading="Backlog">
       {backlogsInfo.map(({ type, heading }) => (
         <Category key={type} type={type} heading={heading}>
-          {cardFuncCreator(heading, backlog)}
+          {cardFuncCreator(heading, backlog, 'backlog')}
         </Category>
       ))}
     </PageTemplate>

@@ -16,7 +16,7 @@ const Announcements: React.FC<Props> = () => {
       {announcementsInfo.map(({ type, heading }) => {
         return (
           <Category key={type} type={type} heading={heading}>
-            {cardFuncCreator(heading, announcements)}
+            {cardFuncCreator(heading, announcements, 'announcements')}
           </Category>
         );
       })}
