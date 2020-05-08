@@ -4,7 +4,7 @@ import { RouteComponentProps, Link, navigate } from '@reach/router';
 import { useDispatch } from 'react-redux';
 import { Formik } from 'formik';
 import { firestore } from '../firebase/index';
-import Layout from '../Layout/Layout';
+import Layout from '../layout/Layout';
 import StyledHeading from '../components/atoms/Heading';
 import StyledLabel from '../components/atoms/Label';
 import StyledInput from '../components/atoms/Input';

@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { RouteComponentProps, Link, navigate } from '@reach/router';
 import { useDispatch } from 'react-redux';
 import { firestore, auth } from '../../firebase/index';
-import Layout from '../../Layout/Layout';
+import Layout from '../../layout/Layout';
 import Heading from '../atoms/Heading';
 import StyledLogo from '../atoms/Logo';
 import TypeCard from '../atoms/TypeCard';
