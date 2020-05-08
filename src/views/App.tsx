@@ -43,9 +43,6 @@ const App: React.FC = () => {
   return (
     <Layout>
       <Router>
-        <SignIn path={signIn} />
-        <SignUp path={signUp} />
-        <Main path="/" />
         <JoinProject path={joinProject} />
         <NewProject path={startProject} />
         <Projects path={projects} />
@@ -61,6 +58,9 @@ const App: React.FC = () => {
         <SelectRole path={selectRole} />
         <Account path={account} />
         <NotFoundPage default />
+        <SignIn path={signIn} />
+        <SignUp path={signUp} />
+        <Main path="/" />
       </Router>
     </Layout>
   );

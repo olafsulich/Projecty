@@ -1,5 +1,6 @@
 import { User } from 'firebase/app';
 import { firestore } from './index';
+import DefaultUser from '../assets/default-user-image.png';
 
 /* eslint-disable */
 export const getUserDoc = async (uid: string | undefined) => {
@@ -25,7 +26,7 @@ export const createUserDoc = async (user: User | null, name?: string) => {
     try {
       await userRef.set({
         email,
-        photoURL: 'https://pngimage.net/wp-content/uploads/2018/05/default-user-profile-image-png-7.png',
+        photoURL: DefaultUser,
         createdAt,
         name,
         uid,
