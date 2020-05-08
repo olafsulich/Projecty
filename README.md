@@ -95,10 +95,8 @@ Thanks goes to these wonderful people:
 <table>
   <tr>
     <td align="center"><a href="https://github.com/olafsulich/"><img src="https://avatars2.githubusercontent.com/u/46969484?s=460&u=6efb367aa9e2618cde36837f5b48fe2a09a69045&v=4" width="50px;" alt=""/><br /><sub><b>Olaf Sulich</b></sub></a><br /><a title="Code">💻</a> <a  title="Ideas, Planning, & Feedback">🤔</a> <a title="Bug reports">🐛</a></td>
-  </tr>
-    <tr>
     <td align="center"><a href="https://github.com/kamilsutkowski"><img src="https://avatars2.githubusercontent.com/u/25950530?s=460&v=4" width="50px;" alt=""/><br /><sub><b>kamilsutkowski
-</b></sub></a><br /><a title="Bug reports">🐛</a></td>
+</b></sub></a><br /><a title="Bug reports">🐛</a></td>  
   </tr>
 </table>
 
