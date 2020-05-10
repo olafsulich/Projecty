@@ -20,6 +20,7 @@ import SignUp from './SignUp';
 import Main from './Home';
 import NotFoundPage from './404';
 import { routes } from '../routes/index';
+import PrivateRoute from '../components/atoms/PrivateRoute';
 
 const App: React.FC = () => {
   const {
@@ -43,20 +44,20 @@ const App: React.FC = () => {
   return (
     <Layout>
       <Router>
-        <JoinProject path={joinProject} />
-        <NewProject path={startProject} />
-        <Projects path={projects} />
-        <Team path={team} />
-        <MemberDetails path={memberDetails} />
-        <Announcements path={announcements} />
-        <AnnouncementsDetails path={announcementsDetails} />
-        <Statistics path={statistics} />
-        <Backlog path={backlog} />
-        <BacklogDetail path={backlogDetails} />
-        <Sprints path={sprints} />
-        <SprintDetail path={sprintDetails} />
-        <SelectRole path={selectRole} />
-        <Account path={account} />
+        <PrivateRoute as={JoinProject} path={joinProject} />
+        <PrivateRoute as={NewProject} path={startProject} />
+        <PrivateRoute as={Projects} path={projects} />
+        <PrivateRoute as={Team} path={team} />
+        <PrivateRoute as={MemberDetails} path={memberDetails} />
+        <PrivateRoute as={Announcements} path={announcements} />
+        <PrivateRoute as={AnnouncementsDetails} path={announcementsDetails} />
+        <PrivateRoute as={Statistics} path={statistics} />
+        <PrivateRoute as={Backlog} path={backlog} />
+        <PrivateRoute as={BacklogDetail} path={backlogDetails} />
+        <PrivateRoute as={Sprints} path={sprints} />
+        <PrivateRoute as={SprintDetail} path={sprintDetails} />
+        <PrivateRoute as={SelectRole} path={selectRole} />
+        <PrivateRoute as={Account} path={account} />
         <NotFoundPage default />
         <SignIn path={signIn} />
         <SignUp path={signUp} />
