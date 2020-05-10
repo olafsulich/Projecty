@@ -3,7 +3,7 @@ import { RouteComponentProps } from '@reach/router';
 import PageTemplate from '../../templates/PageTemplate';
 import Category from '../molecules/Category';
 import useBacklog from '../../hooks/useBacklog';
-import { backlogsInfo } from '../../data';
+import { backlogsInfo } from '../../data/projectPagesData';
 import cardFuncCreator from '../molecules/CardFuncCreator';
 
 type Props = RouteComponentProps;

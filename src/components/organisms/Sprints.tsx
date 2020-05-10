@@ -3,7 +3,7 @@ import { RouteComponentProps } from '@reach/router';
 import PageTemplate from '../../templates/PageTemplate';
 import Category from '../molecules/Category';
 import useSprints from '../../hooks/useSprints';
-import { sprintsInfo } from '../../data';
+import { sprintsInfo } from '../../data/projectPagesData';
 import cardFuncCreator from '../molecules/CardFuncCreator';
 
 type Props = RouteComponentProps;

@@ -7,7 +7,7 @@ import Category from '../molecules/Category';
 import useTeam from '../../hooks/useTeam';
 import { Member } from '../../types';
 import { types } from '../../state/enums';
-import { teamInfo } from '../../data';
+import { teamInfo } from '../../data/projectPagesData';
 
 const StyledLink = styled(Link)`
   :focus {

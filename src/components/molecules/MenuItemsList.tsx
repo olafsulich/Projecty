@@ -1,13 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
 import { Link } from '@reach/router';
-import { ReactComponent as TeamSVG } from '../../assets/menu/Team.svg';
-import { ReactComponent as AnnoucementsSVG } from '../../assets/menu/Announcements.svg';
-import { ReactComponent as StatisticsSVG } from '../../assets/menu/Statistics.svg';
-import { ReactComponent as BacklogSVG } from '../../assets/menu/Backlog.svg';
-import { ReactComponent as SprintsSVG } from '../../assets/menu/Sprints.svg';
 import { ReactComponent as SettingSVG } from '../../assets/settings.svg';
 import { types } from '../../state/enums';
+import { menuItemsData } from '../../data/menuItemsData';
 
 const StyledMenuIcon = styled.div`
   width: 2rem;
@@ -85,36 +81,14 @@ const MenuItemsList: React.FC<Props> = ({ main }) => {
     <>
       {main ? (
         <>
-          <StyledWrapper>
-            <StyledMenuItem to={`${projectPath}/team`}>
-              <StyledMenuIcon as={TeamSVG} />
-              <StyledMenuText>Team</StyledMenuText>
-            </StyledMenuItem>
-          </StyledWrapper>
-          <StyledWrapper>
-            <StyledMenuItem to={`${projectPath}/announcements`}>
-              <StyledMenuIcon as={AnnoucementsSVG} />
-              <StyledMenuText>Annoucements</StyledMenuText>
-            </StyledMenuItem>
-          </StyledWrapper>
-          <StyledWrapper>
-            <StyledMenuItem to={`${projectPath}/statistics`}>
-              <StyledMenuIcon as={StatisticsSVG} />
-              <StyledMenuText>Statistics</StyledMenuText>
-            </StyledMenuItem>
-          </StyledWrapper>
-          <StyledWrapper>
-            <StyledMenuItem to={`${projectPath}/backlog`}>
-              <StyledMenuIcon as={BacklogSVG} />
-              <StyledMenuText>Backlog</StyledMenuText>
-            </StyledMenuItem>
-          </StyledWrapper>
-          <StyledWrapper>
-            <StyledMenuItem to={`${projectPath}/sprints`}>
-              <StyledMenuIcon as={SprintsSVG} />
-              <StyledMenuText>Sprints</StyledMenuText>
-            </StyledMenuItem>
-          </StyledWrapper>
+          {menuItemsData.map(({ icon, path, name }) => (
+            <StyledWrapper key={name}>
+              <StyledMenuItem to={`${projectPath}/${path}`}>
+                <StyledMenuIcon as={icon} />
+                <StyledMenuText>{name}</StyledMenuText>
+              </StyledMenuItem>
+            </StyledWrapper>
+          ))}
         </>
       ) : (
         <StyledWrapper>
