@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { trimString } from '../../utils/utils';
+import { truncateSentence } from '../../utils/utils';
 
 const StyledCard = styled.div<{ type?: string }>`
   width: 24rem;
@@ -76,7 +76,7 @@ const Card: React.FC<Props> = ({ heading, content, type, photoURL }) => {
       )}
       <StyledTexWrapper>
         <StyledCardHeading>{heading}</StyledCardHeading>
-        {content && content.length >= 65 ? <StyledText>{trimString(content)}...</StyledText> : <StyledText>{content}</StyledText>}
+        {content && content.length >= 65 ? <StyledText>{truncateSentence(content)}...</StyledText> : <StyledText>{content}</StyledText>}
       </StyledTexWrapper>
     </StyledCard>
   );
