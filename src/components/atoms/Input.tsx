@@ -20,6 +20,12 @@ const StyledInput = styled.input<{ signup?: boolean; newProject?: boolean; selec
   [type='file'] {
     cursor: pointer;
   }
+  [type='number']::-webkit-inner-spin-button,
+  [type='number']::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    -moz-appearance: textfield;
+    margin: 0;
+  }
 
   :focus,
   :hover {

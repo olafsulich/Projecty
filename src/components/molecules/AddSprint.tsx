@@ -119,7 +119,7 @@ const AddSprint: React.FC<Props> = ({ toggleVisibility, isVisible }) => {
                 <StyledLabel htmlFor="days">Number of days</StyledLabel>
                 <StyledInput
                   id="days"
-                  type="text"
+                  type="number"
                   onChange={handleChange}
                   onBlur={handleBlur}
                   name="days"
