@@ -3,11 +3,11 @@ import styled, { css } from 'styled-components';
 import { RouteComponentProps, useParams, navigate } from '@reach/router';
 import useBacklog from '../../hooks/useBacklog';
 import CardDetailsTemplate from '../../templates/CardDetailsTemplate';
-import StyledSelect from '../atoms/Select';
-import StyledOption from '../atoms/Option';
+import StyledSelect from '../atoms/Select/Select.styles';
+import StyledOption from '../atoms/Option/Option.styles';
 import { firestore } from '../../firebase/index';
 import { Backlog } from '../../types';
-import StyledButton from '../atoms/Button/Button';
+import StyledButton from '../atoms/Button/Button.styles';
 import { types } from '../../state/enums';
 import { isUserOwnership } from '../../utils/utils';
 

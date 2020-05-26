@@ -4,12 +4,12 @@ import { Formik } from 'formik';
 import styled from 'styled-components';
 import { auth } from '../firebase/index';
 import FormTemplate from '../templates/FormTemplate';
-import StyledHeading from '../components/atoms/Heading';
-import StyledLabel from '../components/atoms/Label';
-import StyledInput from '../components/atoms/Input';
-import StyledButton from '../components/atoms/Button/Button';
-import StyledLabelInputWrapper from '../components/atoms/LabelInputWrapper';
-import ErrorMessage from '../components/atoms/ErrorMessage';
+import StyledHeading from '../components/atoms/Heading/Heading.styles';
+import StyledLabel from '../components/atoms/Label/Label.styles';
+import StyledInput from '../components/atoms/Input/Input.styles';
+import StyledButton from '../components/atoms/Button/Button.styles';
+import StyledLabelInputWrapper from '../components/atoms/LabelInputWrapper/LabelInputWrapper.styles';
+import ErrorMessage from '../components/atoms/ErrorMessage/ErrorMessage.styles';
 
 const StyledFormWrapper = styled.main`
   width: 100%;

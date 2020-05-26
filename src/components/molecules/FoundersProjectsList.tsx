@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import Card from '../atoms/Card';
+import Card from '../atoms/Card/Card';
 import { auth } from '../../firebase';
 import { Projects, Project } from '../../types/index';
 

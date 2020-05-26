@@ -1,8 +1,6 @@
-import React from 'react';
 import styled from 'styled-components';
-import { truncateSentence } from '../../utils/utils';
 
-const StyledCard = styled.div<{ type?: string }>`
+const CardWrapper = styled.div<{ type?: string }>`
   width: 24rem;
   height: ${({ type }) => (type === 'project' ? '10rem' : '20rem')};
   padding: 2rem 2.2rem;
@@ -21,7 +19,7 @@ const StyledCard = styled.div<{ type?: string }>`
   }
 `;
 
-const StyledImageWrapper = styled.figure`
+const ImageWrapper = styled.figure`
   width: 6rem;
   height: 100%;
   display: flex;
@@ -35,7 +33,7 @@ const StyledImageWrapper = styled.figure`
   }
 `;
 
-const StyledTexWrapper = styled.article`
+const TextWrapper = styled.article`
   width: calc(100% - 7rem);
   display: flex;
   align-items: flex-start;
@@ -46,40 +44,17 @@ const StyledTexWrapper = styled.article`
   word-break: break-word;
 `;
 
-const StyledCardHeading = styled.h3`
+const CardHeading = styled.h3`
   font-size: 1.8rem;
   font-weight: 400;
   margin: 0rem 0 0.5rem 0;
   text-transform: capitalize;
 `;
 
-const StyledText = styled.p`
+const Text = styled.p`
   font-size: 1.8rem;
   color: ${({ theme }) => theme.textSecondary};
   font-weight: 400;
 `;
 
-interface Props {
-  heading: string;
-  content?: string;
-  type?: string;
-  photoURL?: string;
-}
-
-const Card: React.FC<Props> = ({ heading, content, type, photoURL }) => {
-  return (
-    <StyledCard type={type}>
-      {photoURL && (
-        <StyledImageWrapper>
-          <img src={photoURL} alt={heading} />
-        </StyledImageWrapper>
-      )}
-      <StyledTexWrapper>
-        <StyledCardHeading>{heading}</StyledCardHeading>
-        {content && content.length >= 65 ? <StyledText>{truncateSentence(content)}...</StyledText> : <StyledText>{content}</StyledText>}
-      </StyledTexWrapper>
-    </StyledCard>
-  );
-};
-
-export default Card;
+export { CardWrapper, ImageWrapper, TextWrapper, CardHeading, Text };

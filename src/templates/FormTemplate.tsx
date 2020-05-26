@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { Link } from '@reach/router';
 import Layout from '../Layout/Layout';
 import HalfPage from '../components/molecules/HalfPage';
-import StyledLogo from '../components/atoms/Logo';
+import StyledLogo from '../components/atoms/Logo/Logo.styles';
 import usePageWidth from '../hooks/usePageWidth';
 
 const StyledContainer = styled.div`

@@ -4,7 +4,7 @@ import { RouteComponentProps, navigate } from '@reach/router';
 import { auth } from '../../firebase/index';
 import useUser from '../../hooks/useUser';
 import PageTemplate from '../../templates/PageTemplate';
-import StyledButton from '../atoms/Button/Button';
+import StyledButton from '../atoms/Button/Button.styles';
 
 const StyledFigure = styled.figure`
   width: 100%;

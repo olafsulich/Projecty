@@ -20,7 +20,7 @@ import SignUp from './SignUp';
 import Main from './Home';
 import NotFoundPage from './404';
 import { routes } from '../routes/index';
-import PrivateRoute from '../components/atoms/PrivateRoute';
+import PrivateRoute from '../components/atoms/PrivateRoute/PrivateRoute';
 
 const App: React.FC = () => {
   const {

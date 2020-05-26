@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import Heading from '../components/atoms/Heading';
+import Heading from '../components/atoms/Heading/Heading.styles';
 
 const StyledModal = styled.div<{ modalTheme?: string }>`
   position: absolute;

@@ -1,9 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
-import { ReactComponent as ProjectManagerSVG } from '../../assets/board.svg';
-import { ReactComponent as DeveloperSVG } from '../../assets/rocket.svg';
-import { ReactComponent as DesignerSVG } from '../../assets/paint.svg';
-import { ReactComponent as QASVG } from '../../assets/checked.svg';
+import { ReactComponent as ProjectManagerSVG } from '../../../assets/board.svg';
+import { ReactComponent as DeveloperSVG } from '../../../assets/rocket.svg';
+import { ReactComponent as DesignerSVG } from '../../../assets/paint.svg';
+import { ReactComponent as QASVG } from '../../../assets/checked.svg';
 
 const StyledWrapper = styled.div`
   width: 15rem;

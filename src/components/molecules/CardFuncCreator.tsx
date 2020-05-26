@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { Link } from '@reach/router';
 import { types } from '../../state/enums/index';
 import { Backlog, Announcement, Sprint } from '../../types';
-import Card from '../atoms/Card';
+import Card from '../atoms/Card/Card';
 
 const StyledLink = styled(Link)`
   :focus {

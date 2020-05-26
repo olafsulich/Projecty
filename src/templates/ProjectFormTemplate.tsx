@@ -1,11 +1,11 @@
 import React from 'react';
 import { Link } from '@reach/router';
 import styled from 'styled-components';
-import StyledHeading from '../components/atoms/Heading';
-import StyledLabel from '../components/atoms/Label';
-import StyledInput from '../components/atoms/Input';
-import StyledLogo from '../components/atoms/Logo';
-import Card from '../components/atoms/Card';
+import StyledHeading from '../components/atoms/Heading/Heading.styles';
+import StyledLabel from '../components/atoms/Label/Label.styles';
+import StyledInput from '../components/atoms/Input/Input.styles';
+import StyledLogo from '../components/atoms/Logo/Logo.styles';
+import Card from '../components/atoms/Card/Card';
 import usePageWidth from '../hooks/usePageWidth';
 
 const StyledFormWrapper = styled.main`

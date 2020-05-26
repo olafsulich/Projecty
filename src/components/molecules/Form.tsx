@@ -1,11 +1,11 @@
 import React from 'react';
 import { Link } from '@reach/router';
 import styled from 'styled-components';
-import StyledHeading from '../atoms/Heading';
-import StyledLabel from '../atoms/Label';
-import StyledInput from '../atoms/Input';
-import StyledButton from '../atoms/Button/Button';
-import StyledLabelInputWrapper from '../atoms/LabelInputWrapper';
+import StyledHeading from '../atoms/Heading/Heading.styles';
+import StyledLabel from '../atoms/Label/Label.styles';
+import StyledInput from '../atoms/Input/Input.styles';
+import StyledButton from '../atoms/Button/Button.styles';
+import StyledLabelInputWrapper from '../atoms/LabelInputWrapper/LabelInputWrapper.styles';
 
 const StyledFormWrapper = styled.main`
   width: 100%;

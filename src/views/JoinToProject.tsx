@@ -3,17 +3,17 @@ import styled from 'styled-components';
 import { Link, navigate, RouteComponentProps } from '@reach/router';
 import { useDispatch } from 'react-redux';
 import Layout from '../Layout/Layout';
-import StyledHeading from '../components/atoms/Heading';
-import StyledLabel from '../components/atoms/Label';
-import StyledInput from '../components/atoms/Input';
-import StyledLogo from '../components/atoms/Logo';
+import StyledHeading from '../components/atoms/Heading/Heading.styles';
+import StyledLabel from '../components/atoms/Label/Label.styles';
+import StyledInput from '../components/atoms/Input/Input.styles';
+import StyledLogo from '../components/atoms/Logo/Logo.styles';
 import { setProjectKey, fetchFactory, getProjectID } from '../state/actions/index';
 import useUser from '../hooks/useUser';
 import useProjects from '../hooks/useProjects';
 import { useTypedSelector } from '../utils/utils';
 import { Project, Member } from '../types';
 import { types } from '../state/enums';
-import ErrorMessage from '../components/atoms/ErrorMessage';
+import ErrorMessage from '../components/atoms/ErrorMessage/ErrorMessage.styles';
 
 const StyledFormWrapper = styled.main`
   width: 100%;

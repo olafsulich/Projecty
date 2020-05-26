@@ -2,16 +2,16 @@ import React from 'react';
 import styled from 'styled-components';
 import { Formik } from 'formik';
 import { firestore } from '../../firebase/index';
-import StyledInput from '../atoms/Input';
-import StyledLabel from '../atoms/Label';
-import StyledSelect from '../atoms/Select';
-import StyledOption from '../atoms/Option';
+import StyledInput from '../atoms/Input/Input.styles';
+import StyledLabel from '../atoms/Label/Label.styles';
+import StyledSelect from '../atoms/Select/Select.styles';
+import StyledOption from '../atoms/Option/Option.styles';
 import useUser from '../../hooks/useUser';
 import ModalTemplate from '../../templates/ModalTemplate';
-import StyledLabelInputWrapper from '../atoms/LabelInputWrapper';
-import StyledButton from '../atoms/Button/Button';
+import StyledLabelInputWrapper from '../atoms/LabelInputWrapper/LabelInputWrapper.styles';
+import StyledButton from '../atoms/Button/Button.styles';
 import { types } from '../../state/enums';
-import ErrorMessage from '../atoms/ErrorMessage';
+import ErrorMessage from '../atoms/ErrorMessage/ErrorMessage.styles';
 
 const StyledForm = styled.form`
   width: 100%;

@@ -1,7 +1,7 @@
 import React from 'react';
 import styled, { css } from 'styled-components';
 import MenuItemsList from './MenuItemsList';
-import StyledLogo from '../atoms/Logo';
+import StyledLogo from '../atoms/Logo/Logo.styles';
 import usePageWidth from '../../hooks/usePageWidth';
 
 const StyledWrapper = styled.nav<{ isVisible?: boolean }>`

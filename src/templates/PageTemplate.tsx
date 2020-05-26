@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
-import Heading from '../components/atoms/Heading';
+import Heading from '../components/atoms/Heading/Heading.styles';
 import GridLayout from '../Layout/GridLayout';
 import Layout from '../Layout/Layout';
 import { ReactComponent as Morphing } from '../assets/morphing.svg';
