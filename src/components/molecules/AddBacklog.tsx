@@ -9,7 +9,7 @@ import StyledOption from '../atoms/Option';
 import useUser from '../../hooks/useUser';
 import ModalTemplate from '../../templates/ModalTemplate';
 import StyledLabelInputWrapper from '../atoms/LabelInputWrapper';
-import StyledButton from '../atoms/Button';
+import StyledButton from '../atoms/Button/Button';
 import { types } from '../../state/enums';
 import ErrorMessage from '../atoms/ErrorMessage';
 

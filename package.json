@@ -11,6 +11,7 @@
     "@types/recharts": "^1.8.9",
     "@types/redux-actions": "^2.6.1",
     "@types/styled-components": "^5.0.1",
+    "@types/testing-library__react": "^10.0.1",
     "babel-plugin-styled-components": "^1.10.1",
     "firebase": "^7.13.1",
     "firebase-admin": "^8.10.0",

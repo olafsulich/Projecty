@@ -4,7 +4,7 @@ import { RouteComponentProps, useParams, navigate } from '@reach/router';
 import CardDetailsTemplate from '../../templates/CardDetailsTemplate';
 import useAnnouncements from '../../hooks/useAnnouncements';
 import { Announcement } from '../../types';
-import StyledButton from '../atoms/Button';
+import StyledButton from '../atoms/Button/Button';
 import { firestore } from '../../firebase/index';
 import { types } from '../../state/enums';
 import { isUserOwnership } from '../../utils/utils';

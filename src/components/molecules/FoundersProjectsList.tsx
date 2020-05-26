@@ -8,6 +8,7 @@ const StyledList = styled.ul`
   width: 100%;
   max-height: 35%;
   overflow: scroll;
+  overflow-x: hidden;
   padding-top: 5rem;
 `;
 

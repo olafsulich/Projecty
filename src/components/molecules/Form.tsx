@@ -4,7 +4,7 @@ import styled from 'styled-components';
 import StyledHeading from '../atoms/Heading';
 import StyledLabel from '../atoms/Label';
 import StyledInput from '../atoms/Input';
-import StyledButton from '../atoms/Button';
+import StyledButton from '../atoms/Button/Button';
 import StyledLabelInputWrapper from '../atoms/LabelInputWrapper';
 
 const StyledFormWrapper = styled.main`

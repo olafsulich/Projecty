@@ -7,7 +7,7 @@ import FormTemplate from '../templates/FormTemplate';
 import StyledHeading from '../components/atoms/Heading';
 import StyledLabel from '../components/atoms/Label';
 import StyledInput from '../components/atoms/Input';
-import StyledButton from '../components/atoms/Button';
+import StyledButton from '../components/atoms/Button/Button';
 import StyledLabelInputWrapper from '../components/atoms/LabelInputWrapper';
 import ErrorMessage from '../components/atoms/ErrorMessage';
 

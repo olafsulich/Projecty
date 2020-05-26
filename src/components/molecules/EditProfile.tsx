@@ -7,7 +7,7 @@ import StyledLabel from '../atoms/Label';
 import useUser from '../../hooks/useUser';
 import ModalTemplate from '../../templates/ModalTemplate';
 import StyledLabelInputWrapper from '../atoms/LabelInputWrapper';
-import StyledButton from '../atoms/Button';
+import StyledButton from '../atoms/Button/Button';
 import useTeam from '../../hooks/useTeam';
 import useBacklog from '../../hooks/useBacklog';
 import useSprints from '../../hooks/useSprints';

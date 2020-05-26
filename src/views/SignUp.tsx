@@ -8,7 +8,7 @@ import StyledHeading from '../components/atoms/Heading';
 import StyledLabel from '../components/atoms/Label';
 import StyledInput from '../components/atoms/Input';
 import { createUserDoc } from '../firebase/utils';
-import StyledButton from '../components/atoms/Button';
+import StyledButton from '../components/atoms/Button/Button';
 import StyledLabelInputWrapper from '../components/atoms/LabelInputWrapper';
 import ErrorMessage from '../components/atoms/ErrorMessage';
 

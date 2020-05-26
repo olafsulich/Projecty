@@ -7,7 +7,7 @@ import StyledSelect from '../atoms/Select';
 import StyledOption from '../atoms/Option';
 import { firestore } from '../../firebase/index';
 import { Sprint } from '../../types';
-import StyledButton from '../atoms/Button';
+import StyledButton from '../atoms/Button/Button';
 import { types } from '../../state/enums';
 import { isUserOwnership } from '../../utils/utils';
 

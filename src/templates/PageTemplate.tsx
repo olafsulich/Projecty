@@ -20,7 +20,6 @@ const StyledWrapper = styled.main`
   background-color: #fbfbfb;
   padding-top: 5rem;
   overflow-x: hidden;
-
   @media only screen and (min-width: 950px) {
     padding-top: 10rem;
     position: relative;
