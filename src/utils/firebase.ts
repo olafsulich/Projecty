@@ -1,5 +1,5 @@
 import { User } from 'firebase/app';
-import { firestore } from './index';
+import { firestore } from '../firebase/index';
 import DefaultUser from '../assets/default-user-image.png';
 
 /* eslint-disable */

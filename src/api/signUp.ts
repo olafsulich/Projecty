@@ -1,6 +1,6 @@
 import { navigate } from '@reach/router';
 import { auth } from '../firebase';
-import { createUserDoc } from '../firebase/utils';
+import { createUserDoc } from '../utils/firebase';
 
 export const handleSignUp = async (email: string, password: string, name: string) => {
   if (auth) {
