@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import { Link } from '@reach/router';
-import { ButtonSecondary } from './Projects.types';
+import { ButtonSecondaryProps } from './Projects.types';
 
 const FormWrapper = styled.main`
   width: 100%;
@@ -98,7 +98,7 @@ const ButtonsWrapper = styled.div`
   }
 `;
 
-const ButtonSecondary = styled(Link)<ButtonSecondary>`
+const ButtonSecondary = styled(Link)<ButtonSecondaryProps>`
   text-decoration: none;
   display: flex;
   align-items: center;

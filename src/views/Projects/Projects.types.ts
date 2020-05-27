@@ -1,1 +1,1 @@
-export type ButtonSecondary = { type: string };
+export type ButtonSecondaryProps = { type: string };
