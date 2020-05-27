@@ -1,15 +1,8 @@
-import React from 'react';
 import styled from 'styled-components';
-import { Link, navigate, RouteComponentProps } from '@reach/router';
-import { useDispatch } from 'react-redux';
-import Layout from '../Layout/Layout';
-import StyledHeading from '../components/atoms/Heading/Heading.styles';
-import StyledLogo from '../components/atoms/Logo/Logo.styles';
-import { getProjectID } from '../state/actions';
-import FoundersProjectsList from '../components/molecules/FoundersProjectsList/FoundersProjectsList';
-import useProjects from '../hooks/useProjects';
+import { Link } from '@reach/router';
+import { ButtonSecondary } from './Projects.types';
 
-const StyledFormWrapper = styled.main`
+const FormWrapper = styled.main`
   width: 100%;
   height: 80%;
   display: flex;
@@ -18,7 +11,7 @@ const StyledFormWrapper = styled.main`
   margin-bottom: 3rem;
 `;
 
-const StyledFormHeadingWrapper = styled.section`
+const FormHeadingWrapper = styled.section`
   width: 100%;
   height: 100%;
   display: flex;
@@ -44,7 +37,7 @@ const StyledFormHeadingWrapper = styled.section`
   }
 `;
 
-const StyledContainer = styled.section`
+const Container = styled.section`
   width: 100%;
   height: 100vh;
   padding: 3rem 2rem;
@@ -59,7 +52,7 @@ const StyledContainer = styled.section`
   }
 `;
 
-const StyledWrapper = styled.div`
+const Wrapper = styled.div`
   width: 100%;
   max-width: 40rem;
   height: 100%;
@@ -85,13 +78,13 @@ const StyledWrapper = styled.div`
   }
 `;
 
-const StyledLogoWrapper = styled(Link)`
+const LogoWrapper = styled(Link)`
   position: absolute;
   top: 7%;
   left: 4%;
 `;
 
-const StyledButtonsWrapper = styled.div`
+const ButtonsWrapper = styled.div`
   position: absolute;
   top: 5%;
   right: 4%;
@@ -105,7 +98,7 @@ const StyledButtonsWrapper = styled.div`
   }
 `;
 
-const StyledButtonSecondary = styled(Link)<{ type: string }>`
+const ButtonSecondary = styled(Link)<ButtonSecondary>`
   text-decoration: none;
   display: flex;
   align-items: center;
@@ -138,42 +131,4 @@ const StyledButtonSecondary = styled(Link)<{ type: string }>`
   border-radius: 10px;
 `;
 
-type Props = RouteComponentProps;
-
-const Projects: React.FC<Props> = () => {
-  const projects = useProjects();
-  const setId = useDispatch();
-
-  const handlePick = (projectKey: string) => {
-    setId(getProjectID(projects, projectKey));
-    navigate(`project/${projectKey}/team`);
-  };
-
-  return (
-    <Layout>
-      <StyledContainer>
-        <StyledLogoWrapper to="/">
-          <StyledLogo newProject>Projecty</StyledLogo>
-        </StyledLogoWrapper>
-        <StyledWrapper>
-          <StyledFormWrapper>
-            <StyledFormHeadingWrapper>
-              <StyledHeading formHeading>Choose your project</StyledHeading>
-              <FoundersProjectsList projects={projects} handlePick={handlePick} />
-            </StyledFormHeadingWrapper>
-          </StyledFormWrapper>
-        </StyledWrapper>
-        <StyledButtonsWrapper>
-          <StyledButtonSecondary type="yellow" to="/join-to-project">
-            join to project
-          </StyledButtonSecondary>
-          <StyledButtonSecondary type="green" to="/start-new-project">
-            start project
-          </StyledButtonSecondary>
-        </StyledButtonsWrapper>
-      </StyledContainer>
-    </Layout>
-  );
-};
-
-export default Projects;
+export { FormWrapper, FormHeadingWrapper, Container, Wrapper, LogoWrapper, ButtonsWrapper, ButtonSecondary };

@@ -1,6 +1,6 @@
 import React from 'react';
 import { RouteComponentProps } from '@reach/router';
-import SignIn from '../../../views/SignIn';
+import SignIn from '../../../views/SignIn/SignIn';
 import useUser from '../../../hooks/useUser';
 
 interface Props {

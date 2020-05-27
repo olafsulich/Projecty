@@ -11,10 +11,10 @@ const GlobalStyle = createGlobalStyle`
   }
 
 
-  button{
-  border:none;
-  background:none;
-  cursor: pointer;
+  button {
+    border:none;
+    background:none;
+    cursor: pointer;
   }
 
   html {
@@ -32,17 +32,18 @@ const GlobalStyle = createGlobalStyle`
     outline:none;
   }
 
-  a{
+  a {
     text-decoration:none;
     color:inherit;
   }
 
   input[type="search"]::-webkit-search-cancel-button {
-  display: none;
-}
-    *:focus {
+    display: none;
+  }
+  
+  *:focus {
     outline: transparent;
-   }
+  }
 `;
 
 export default GlobalStyle;
