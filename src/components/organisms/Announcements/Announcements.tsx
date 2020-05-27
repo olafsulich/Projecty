@@ -1,14 +1,12 @@
 import React from 'react';
 import { RouteComponentProps } from '@reach/router';
-import PageTemplate from '../../templates/PageTemplate';
-import Category from '../molecules/Category/Category';
-import useAnnouncements from '../../hooks/useAnnouncements';
-import { announcementsInfo } from '../../data/projectPagesData';
-import cardFuncCreator from '../molecules/CardFuncCreator/CardFuncCreator';
+import PageTemplate from '../../../templates/PageTemplate';
+import Category from '../../molecules/Category/Category';
+import useAnnouncements from '../../../hooks/useAnnouncements';
+import { announcementsInfo } from '../../../data/projectPagesData';
+import cardFuncCreator from '../../molecules/CardFuncCreator/CardFuncCreator';
 
-type Props = RouteComponentProps;
-
-const Announcements: React.FC<Props> = () => {
+const Announcements: React.FC<RouteComponentProps> = () => {
   const announcements = useAnnouncements();
 
   return (

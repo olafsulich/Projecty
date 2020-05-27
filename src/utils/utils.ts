@@ -1,3 +1,4 @@
+import { navigate } from '@reach/router';
 import { TypedUseSelectorHook, useSelector } from 'react-redux';
 import { auth } from '../firebase/index';
 import { InitState } from '../types/index';
@@ -16,4 +17,10 @@ export const useTypedSelector: TypedUseSelectorHook<InitState> = useSelector;
 export const isUserOwnership = (docUserId: string): boolean => {
   if (auth.currentUser?.uid === docUserId) return true;
   return false;
+};
+
+export const handleSignOut = () => {
+  auth.signOut();
+  localStorage.clear();
+  navigate('/sign-in');
 };

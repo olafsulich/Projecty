@@ -1,14 +1,12 @@
 import React from 'react';
 import { RouteComponentProps } from '@reach/router';
-import PageTemplate from '../../templates/PageTemplate';
-import Category from '../molecules/Category/Category';
-import useSprints from '../../hooks/useSprints';
-import { sprintsInfo } from '../../data/projectPagesData';
-import cardFuncCreator from '../molecules/CardFuncCreator/CardFuncCreator';
+import PageTemplate from '../../../templates/PageTemplate';
+import Category from '../../molecules/Category/Category';
+import useSprints from '../../../hooks/useSprints';
+import { sprintsInfo } from '../../../data/projectPagesData';
+import cardFuncCreator from '../../molecules/CardFuncCreator/CardFuncCreator';
 
-type Props = RouteComponentProps;
-
-const Backlog: React.FC<Props> = () => {
+const Backlog: React.FC<RouteComponentProps> = () => {
   const sprints = useSprints();
 
   return (
