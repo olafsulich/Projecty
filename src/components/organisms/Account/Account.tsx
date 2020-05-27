@@ -4,7 +4,7 @@ import useUser from '../../../hooks/useUser';
 import PageTemplate from '../../../templates/PageTemplate';
 import Button from '../../atoms/Button/Button.styles';
 import { Figure, RoleWrapper, Role, Card } from './Account.styles';
-import { handleSignOut } from '../../../utils/utils';
+import { handleSignOut } from '../../../api/signOut';
 
 const Account: React.FC<RouteComponentProps> = () => {
   const { photoURL, email, name } = useUser();

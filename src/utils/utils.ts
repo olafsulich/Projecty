@@ -1,4 +1,3 @@
-import { navigate } from '@reach/router';
 import { auth } from '../firebase/index';
 
 export const isLoggedIn = (): boolean => {
@@ -13,10 +12,4 @@ export const truncateSentence = (string: string) => string.replace(/^(.{65}[^\s]
 export const isUserOwnership = (docUserId: string): boolean => {
   if (auth.currentUser?.uid === docUserId) return true;
   return false;
-};
-
-export const handleSignOut = () => {
-  auth.signOut();
-  localStorage.clear();
-  navigate('/sign-in');
 };
