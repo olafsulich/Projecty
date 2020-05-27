@@ -1,20 +1,7 @@
 import { User } from 'firebase/app';
 import { firestore } from '../firebase/index';
 import DefaultUser from '../assets/default-user-image.png';
-
-/* eslint-disable */
-export const getUserDoc = async (uid: string | undefined) => {
-  if (!uid) return null;
-  try {
-    const userDoc = await firestore
-      .collection('users')
-      .doc(uid)
-      .get();
-    return { uid, ...userDoc.data() };
-  } catch (error) {
-    console.log('Error with firebase getUserDoc :OOOO!!!!', error);
-  }
-};
+import { getUserDoc } from './getUserDoc';
 
 export const createUserDoc = async (user: User | null, name?: string) => {
   if (!user) return;

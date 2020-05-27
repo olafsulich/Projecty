@@ -1,5 +1,5 @@
 import React from 'react';
-import { truncateSentence } from '../../../utils/utils';
+import { truncateSentence } from '../../../utils/truncateSentence';
 import { CardWrapper, ImageWrapper, TextWrapper, CardHeading, Text } from './Card.styles';
 
 interface Props {

@@ -3,7 +3,7 @@ import { RouteComponentProps } from '@reach/router';
 import Projects from '../Projects/Projects';
 import useUser from '../../hooks/useUser';
 import SignIn from '../SignIn/SignIn';
-import { isLoggedIn } from '../../utils/utils';
+import { isLoggedIn } from '../../utils/isLoggedIn';
 
 const Main: React.FC<RouteComponentProps> = () => {
   useUser();

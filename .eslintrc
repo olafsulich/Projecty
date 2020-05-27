@@ -20,6 +20,7 @@
     "react/jsx-props-no-spreading": "off",
     "import/named": "off",
     "no-alert": "off",
+    "consistent-return": "off",
     "react/no-unescaped-entities": [
       "error",
       {

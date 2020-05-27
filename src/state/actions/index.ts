@@ -1,7 +1,7 @@
 import { Dispatch } from 'redux';
 import { auth, firestore } from '../../firebase/index';
-import { createUserDoc } from '../../utils/firebase';
-import { documentsCollection } from '../../utils/utils';
+import { createUserDoc } from '../../utils/createUserDoc';
+import { documentsCollection } from '../../utils/documentsCollection';
 import { types } from '../enums';
 import { Projects, ProjectKey } from '../../types/index';
 

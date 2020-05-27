@@ -8,7 +8,7 @@ import { firestore } from '../../../firebase/index';
 import { Sprint } from '../../../types';
 import Button from '../../atoms/Button/Button.styles';
 import { types } from '../../../state/enums';
-import { isUserOwnership } from '../../../utils/utils';
+import { isUserOwnership } from '../../../utils/isUserOwnership';
 import { Figure, RoleWrapper, Role } from './SprintDetails.styles';
 
 const SprintDetail: React.FC<RouteComponentProps> = () => {

@@ -6,7 +6,7 @@ import { Announcement } from '../../../types';
 import Button from '../../atoms/Button/Button.styles';
 import { firestore } from '../../../firebase/index';
 import { types } from '../../../state/enums';
-import { isUserOwnership } from '../../../utils/utils';
+import { isUserOwnership } from '../../../utils/isUserOwnership';
 import { Figure, RoleWrapper, Role } from './AnnouncementsDetails.styles';
 
 const AnnouncementsDetails: React.FC<RouteComponentProps> = () => {
