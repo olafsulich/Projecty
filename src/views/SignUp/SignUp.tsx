@@ -1,31 +1,17 @@
 import React from 'react';
-import { navigate, RouteComponentProps } from '@reach/router';
+import { RouteComponentProps } from '@reach/router';
 import { Formik } from 'formik';
-import { auth } from '../../firebase/index';
 import FormTemplate from '../../templates/FormTemplate';
 import Heading from '../../components/atoms/Heading/Heading.styles';
 import Label from '../../components/atoms/Label/Label.styles';
 import Input from '../../components/atoms/Input/Input.styles';
-import { createUserDoc } from '../../firebase/utils';
 import Button from '../../components/atoms/Button/Button.styles';
 import LabelInputWrapper from '../../components/atoms/LabelInputWrapper/LabelInputWrapper.styles';
 import ErrorMessage from '../../components/atoms/ErrorMessage/ErrorMessage.styles';
 import { FormWrapper, FormHeadingWrapper, Form, ButtonWrapper, Info, InfoButton } from './SignUp.styles';
+import { handleSignUp } from '../../api/signUp';
 
 const SignUp: React.FC<RouteComponentProps> = () => {
-  const handleSignUp = async (email: string, password: string, name: string) => {
-    if (auth) {
-      await auth
-        .createUserWithEmailAndPassword(email, password)
-        .then(() => {
-          const user = auth.currentUser;
-          createUserDoc(user, name);
-          navigate('/start-new-project');
-        })
-        .catch(() => alert(`Email is already in use, sign in or use other email`));
-    }
-  };
-
   return (
     <Formik
       initialValues={{ email: '', password: '', name: '' }}
