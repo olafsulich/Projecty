@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { setCurrentUser } from '../state/actions';
-import { useTypedSelector } from '../utils/utils';
+import { useTypedSelector } from '../helpers/useTypedSelector';
 
 const useUser = () => {
   const currentUser = useTypedSelector(state => state.currentUser);

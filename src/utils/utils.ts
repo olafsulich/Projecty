@@ -1,7 +1,5 @@
 import { navigate } from '@reach/router';
-import { TypedUseSelectorHook, useSelector } from 'react-redux';
 import { auth } from '../firebase/index';
-import { InitState } from '../types/index';
 
 export const isLoggedIn = (): boolean => {
   if (auth.currentUser) return true;
@@ -11,8 +9,6 @@ export const isLoggedIn = (): boolean => {
 export const documentsCollection = (doc: { id: string; data: () => {} }) => ({ id: doc.id, ...doc.data() });
 
 export const truncateSentence = (string: string) => string.replace(/^(.{65}[^\s]*).*/, '$1');
-
-export const useTypedSelector: TypedUseSelectorHook<InitState> = useSelector;
 
 export const isUserOwnership = (docUserId: string): boolean => {
   if (auth.currentUser?.uid === docUserId) return true;

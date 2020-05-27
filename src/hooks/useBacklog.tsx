@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { fetchFactory } from '../state/actions';
-import { useTypedSelector } from '../utils/utils';
+import { useTypedSelector } from '../helpers/useTypedSelector';
 import { types } from '../state/enums';
 
 const useBacklog = () => {

@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { fetchProjects } from '../state/actions';
-import { useTypedSelector } from '../utils/utils';
+import { useTypedSelector } from '../helpers/useTypedSelector';
 
 const useProjects = () => {
   const projects = useTypedSelector(state => state.projects);

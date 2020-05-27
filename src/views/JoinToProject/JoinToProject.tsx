@@ -9,7 +9,7 @@ import Logo from '../../components/atoms/Logo/Logo.styles';
 import { setProjectKey, fetchFactory, getProjectID } from '../../state/actions/index';
 import useUser from '../../hooks/useUser';
 import useProjects from '../../hooks/useProjects';
-import { useTypedSelector } from '../../utils/utils';
+import { useTypedSelector } from '../../helpers/useTypedSelector';
 import { Project, Member } from '../../types';
 import { types } from '../../state/enums';
 import ErrorMessage from '../../components/atoms/ErrorMessage/ErrorMessage.styles';
