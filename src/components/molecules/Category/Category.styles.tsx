@@ -1,7 +1,6 @@
-import React from 'react';
 import styled from 'styled-components';
 
-const StyledCategory = styled.section`
+const CategoryWrapper = styled.section`
   display: flex;
   align-items: flex-start;
   flex-direction: column;
@@ -9,7 +8,7 @@ const StyledCategory = styled.section`
   margin-bottom: 4rem;
 `;
 
-const StyledCategoryHeading = styled.h2<{ type: string }>`
+const CategoryHeading = styled.h2<{ type: string }>`
   font-weight: 500;
   color: #0d0c22;
   margin-bottom: 8rem;
@@ -43,16 +42,4 @@ const StyledCategoryHeading = styled.h2<{ type: string }>`
   }
 `;
 
-interface Props {
-  heading: string;
-  type: string;
-}
-
-const Category: React.FC<Props> = ({ heading, children, type }) => (
-  <StyledCategory>
-    <StyledCategoryHeading type={type}>{heading}</StyledCategoryHeading>
-    {children}
-  </StyledCategory>
-);
-
-export default Category;
+export { CategoryWrapper, CategoryHeading };

@@ -1,6 +1,6 @@
 import styled, { css } from 'styled-components';
 
-const StyledLogo = styled.h1<{ signUp?: boolean; newProject?: boolean }>`
+const Logo = styled.h1<{ signUp?: boolean; newProject?: boolean }>`
   font-size: 2rem;
   font-weight: regular;
   color: ${({ signUp, theme }) => (signUp ? theme.greenPrimary : theme.yellowPrimary)};
@@ -12,4 +12,4 @@ const StyledLogo = styled.h1<{ signUp?: boolean; newProject?: boolean }>`
     `};
 `;
 
-export default StyledLogo;
+export default Logo;

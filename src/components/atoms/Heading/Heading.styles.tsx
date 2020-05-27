@@ -1,6 +1,6 @@
 import styled, { css } from 'styled-components';
 
-const StyledHeading = styled.h2<{ formHeading?: boolean }>`
+const Heading = styled.h2<{ formHeading?: boolean }>`
   ${({ formHeading }) =>
     formHeading &&
     css`
@@ -23,4 +23,4 @@ const StyledHeading = styled.h2<{ formHeading?: boolean }>`
     `};
 `;
 
-export default StyledHeading;
+export default Heading;

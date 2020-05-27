@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-const StyledLabelInputWrapper = styled.fieldset`
+const LabelInputWrapper = styled.fieldset`
   width: 100%;
   display: flex;
   align-items: flex-start;
@@ -14,4 +14,4 @@ const StyledLabelInputWrapper = styled.fieldset`
   }
 `;
 
-export default StyledLabelInputWrapper;
+export default LabelInputWrapper;

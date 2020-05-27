@@ -1,10 +1,7 @@
-import React from 'react';
 import styled, { css } from 'styled-components';
-import MenuItemsList from './MenuItemsList';
-import StyledLogo from '../atoms/Logo/Logo.styles';
-import usePageWidth from '../../hooks/usePageWidth';
+import { Props } from './Menu.types';
 
-const StyledWrapper = styled.nav<{ isVisible?: boolean }>`
+const Wrapper = styled.nav<Props>`
   position: absolute;
   width: 100%;
   height: 100vh;
@@ -28,14 +25,14 @@ const StyledWrapper = styled.nav<{ isVisible?: boolean }>`
   }
 `;
 
-const StyledButtonWrapper = styled.div`
+const ButtonWrapper = styled.div`
   width: 100%;
   display: flex;
   align-items: center;
   justify-content: flex-start;
 `;
 
-const StyledButton = styled.button`
+const Button = styled.button`
   width: 3rem;
   height: 2rem;
   display: flex;
@@ -71,7 +68,7 @@ const StyledButton = styled.button`
   }
 `;
 
-const StyledList = styled.ul<{ secondary?: boolean }>`
+const List = styled.ul<{ secondary?: boolean }>`
   margin-top: 2rem;
   list-style: none;
   width: 100%;
@@ -96,7 +93,7 @@ const StyledList = styled.ul<{ secondary?: boolean }>`
     `};
 `;
 
-const StyledLogoWrapper = styled.section`
+const LogoWrapper = styled.section`
   width: 100%;
   display: flex;
   align-items: center;
@@ -104,42 +101,4 @@ const StyledLogoWrapper = styled.section`
   padding: 3rem 2rem;
 `;
 
-interface Props {
-  isVisible?: boolean;
-  handleChange: () => void;
-}
-
-const Menu: React.FC<Props> = ({ isVisible, handleChange }) => {
-  const pageWidth = usePageWidth();
-  return (
-    <>
-      {pageWidth > 950 ? (
-        <StyledWrapper isVisible>
-          <StyledLogoWrapper>
-            <StyledLogo signUp>Projecty</StyledLogo>
-          </StyledLogoWrapper>
-          <StyledList>
-            <MenuItemsList main />
-          </StyledList>
-          <StyledList secondary>
-            <MenuItemsList />
-          </StyledList>
-        </StyledWrapper>
-      ) : (
-        <StyledWrapper isVisible={isVisible}>
-          <StyledButtonWrapper>
-            <StyledButton name="close menu" onClick={handleChange} />
-          </StyledButtonWrapper>
-          <StyledList>
-            <MenuItemsList main />
-          </StyledList>
-          <StyledList secondary>
-            <MenuItemsList />
-          </StyledList>
-        </StyledWrapper>
-      )}
-    </>
-  );
-};
-
-export default Menu;
+export { Wrapper, ButtonWrapper, Button, List, LogoWrapper };

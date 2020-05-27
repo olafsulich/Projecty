@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-const StyledOption = styled.option`
+const Option = styled.option`
   width: 100%;
   font-size: 1.1rem;
   text-transform: capitalize;
@@ -12,4 +12,4 @@ const StyledOption = styled.option`
     color: #fff;
   }
 `;
-export default StyledOption;
+export default Option;

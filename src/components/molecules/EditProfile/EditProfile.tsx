@@ -1,40 +1,19 @@
 import React, { useState } from 'react';
 import { navigate } from '@reach/router';
-import styled from 'styled-components';
-import { firestore, storage } from '../../firebase/index';
-import StyledInput from '../atoms/Input/Input.styles';
-import StyledLabel from '../atoms/Label/Label.styles';
-import useUser from '../../hooks/useUser';
-import ModalTemplate from '../../templates/ModalTemplate';
-import StyledLabelInputWrapper from '../atoms/LabelInputWrapper/LabelInputWrapper.styles';
-import StyledButton from '../atoms/Button/Button.styles';
-import useTeam from '../../hooks/useTeam';
-import useBacklog from '../../hooks/useBacklog';
-import useSprints from '../../hooks/useSprints';
-import useAnnouncements from '../../hooks/useAnnouncements';
-import { DocumentFromCollection, Image, Collection, InputEvent } from '../../types/index';
-import { types } from '../../state/enums';
-
-const StyledForm = styled.form`
-  width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
-  flex-direction: column;
-  margin-top: 6rem;
-`;
-
-const StyledButtonWrapper = styled.div`
-  width: 100%;
-  display: flex;
-  align-items: flex-start;
-  justify-content: center;
-  flex-direction: column;
-`;
-
-const StyledInputFile = styled(StyledInput)`
-  cursor: pointer;
-`;
+import { firestore, storage } from '../../../firebase/index';
+import Input from '../../atoms/Input/Input.styles';
+import Label from '../../atoms/Label/Label.styles';
+import useUser from '../../../hooks/useUser';
+import ModalTemplate from '../../../templates/ModalTemplate';
+import LabelInputWrapper from '../../atoms/LabelInputWrapper/LabelInputWrapper.styles';
+import Button from '../../atoms/Button/Button.styles';
+import useTeam from '../../../hooks/useTeam';
+import useBacklog from '../../../hooks/useBacklog';
+import useSprints from '../../../hooks/useSprints';
+import useAnnouncements from '../../../hooks/useAnnouncements';
+import { DocumentFromCollection, Image, Collection, InputEvent } from '../../../types/index';
+import { types } from '../../../state/enums';
+import { Form, ButtonWrapper, InputFile } from './EditProfile.styles';
 
 interface Props {
   toggleVisibility: () => void;
@@ -138,10 +117,10 @@ const EditProfile: React.FC<Props> = ({ toggleVisibility, isVisible }) => {
 
   return (
     <ModalTemplate isVisible={isVisible} toggleVisibility={toggleVisibility} title="Edit profile" modalTheme="green">
-      <StyledForm onSubmit={handleUpdate}>
-        <StyledLabelInputWrapper>
-          <StyledLabel htmlFor="file">Photo</StyledLabel>
-          <StyledInputFile
+      <Form onSubmit={handleUpdate}>
+        <LabelInputWrapper>
+          <Label htmlFor="file">Photo</Label>
+          <InputFile
             id="file"
             type="file"
             onChange={handlePhotoChange}
@@ -151,10 +130,10 @@ const EditProfile: React.FC<Props> = ({ toggleVisibility, isVisible }) => {
             autoComplete="new-password"
             signup
           />
-        </StyledLabelInputWrapper>
-        <StyledLabelInputWrapper>
-          <StyledLabel htmlFor="userName">User name</StyledLabel>
-          <StyledInput
+        </LabelInputWrapper>
+        <LabelInputWrapper>
+          <Label htmlFor="userName">User name</Label>
+          <Input
             id="userName"
             type="text"
             onChange={handleUserNameChange}
@@ -166,13 +145,13 @@ const EditProfile: React.FC<Props> = ({ toggleVisibility, isVisible }) => {
             placeholder={currentUser ? currentUser.name : ''}
             signup
           />
-        </StyledLabelInputWrapper>
-        <StyledButtonWrapper>
-          <StyledButton type="submit" color="green">
+        </LabelInputWrapper>
+        <ButtonWrapper>
+          <Button type="submit" color="green">
             Edit
-          </StyledButton>
-        </StyledButtonWrapper>
-      </StyledForm>
+          </Button>
+        </ButtonWrapper>
+      </Form>
     </ModalTemplate>
   );
 };

@@ -1,10 +1,10 @@
-import React from 'react';
 import styled from 'styled-components';
 import { Link } from '@reach/router';
-import { ReactComponent as SignIn } from '../../assets/login.svg';
-import { ReactComponent as SignUp } from '../../assets/signup.svg';
+import { ReactComponent as SignIn } from '../../../assets/login.svg';
+import { ReactComponent as SignUp } from '../../../assets/signup.svg';
+import { Props } from './HalfPage.types';
 
-const StyledWrapper = styled.section<Props>`
+const Wrapper = styled.section<Props>`
   width: 50%;
   height: 100%;
   display: flex;
@@ -32,19 +32,19 @@ const StyledWrapper = styled.section<Props>`
   }
 `;
 
-const StyledLogoWrapper = styled(Link)`
+const LogoWrapper = styled(Link)`
   position: absolute;
   top: 5%;
   left: 10%;
 `;
 
-const StyledLogo = styled.h1<Props>`
+const Logo = styled.h1<Props>`
   font-size: 2rem;
   font-weight: regular;
   color: ${({ signUp, theme }) => (signUp ? theme.greenPrimary : theme.yellowPrimary)};
 `;
 
-const StyledHeading = styled.h2<Props>`
+const Heading = styled.h2<Props>`
   width: 100%;
   padding: 0 15%;
   font-size: 3rem;
@@ -73,20 +73,4 @@ const SignUpSVG = styled(SignUp)`
   }
 `;
 
-interface Props {
-  signUp?: boolean;
-}
-
-const HalfPage: React.FC<Props> = ({ signUp }) => {
-  return (
-    <StyledWrapper signUp={signUp}>
-      <StyledLogoWrapper to="/">
-        <StyledLogo signUp={signUp}>Projecty</StyledLogo>
-      </StyledLogoWrapper>
-      <StyledHeading signUp={signUp}>Manage your projects and earn more</StyledHeading>
-      {signUp ? <SignUpSVG /> : <SignInSVG />}
-    </StyledWrapper>
-  );
-};
-
-export default HalfPage;
+export { Wrapper, LogoWrapper, Logo, Heading, SignInSVG, SignUpSVG };

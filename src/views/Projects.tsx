@@ -6,7 +6,7 @@ import Layout from '../Layout/Layout';
 import StyledHeading from '../components/atoms/Heading/Heading.styles';
 import StyledLogo from '../components/atoms/Logo/Logo.styles';
 import { getProjectID } from '../state/actions';
-import FoundersProjectsList from '../components/molecules/FoundersProjectsList';
+import FoundersProjectsList from '../components/molecules/FoundersProjectsList/FoundersProjectsList';
 import useProjects from '../hooks/useProjects';
 
 const StyledFormWrapper = styled.main`

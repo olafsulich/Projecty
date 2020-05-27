@@ -1,8 +1,8 @@
 import React from 'react';
 import { RouteComponentProps } from '@reach/router';
 import PageTemplate from '../../templates/PageTemplate';
-import TeamChart from '../molecules/TeamChart';
-import BarDataChart from '../molecules/BarChart';
+import TeamChart from '../molecules/TeamChart/TeamChart';
+import BarDataChart from '../molecules/BarChart/BarChart';
 
 type Props = RouteComponentProps;
 

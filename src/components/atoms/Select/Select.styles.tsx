@@ -1,6 +1,6 @@
 import styled, { css } from 'styled-components';
 
-const StyledSelect = styled.select<{ signup?: boolean; details?: boolean }>`
+const Select = styled.select<{ signup?: boolean; details?: boolean }>`
   background-color: ${({ theme }) => theme.inputBackgournd};
   border: none;
   width: 100%;
@@ -55,4 +55,4 @@ const StyledSelect = styled.select<{ signup?: boolean; details?: boolean }>`
     `};
 `;
 
-export default StyledSelect;
+export default Select;

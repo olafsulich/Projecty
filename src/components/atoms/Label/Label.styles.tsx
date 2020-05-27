@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-const StyledLabel = styled.label`
+const Label = styled.label`
   font-size: 1.4rem;
   color: ${({ theme }) => theme.textPrimary};
   font-weight: 700;
@@ -11,4 +11,4 @@ const StyledLabel = styled.label`
   }
 `;
 
-export default StyledLabel;
+export default Label;

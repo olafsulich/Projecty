@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-const StyledButton = styled.button<{ color: string }>`
+const Button = styled.button<{ color: string }>`
   width: 100%;
   height: 4rem;
   font-size: 1.4rem;
@@ -67,4 +67,4 @@ const StyledButton = styled.button<{ color: string }>`
   }
 `;
 
-export default StyledButton;
+export default Button;

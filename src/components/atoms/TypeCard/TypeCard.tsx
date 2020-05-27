@@ -5,7 +5,7 @@ import { ReactComponent as DeveloperSVG } from '../../../assets/rocket.svg';
 import { ReactComponent as DesignerSVG } from '../../../assets/paint.svg';
 import { ReactComponent as QASVG } from '../../../assets/checked.svg';
 
-const StyledWrapper = styled.div`
+const Wrapper = styled.div`
   width: 15rem;
   height: 18rem;
   border-radius: 10px;
@@ -24,7 +24,7 @@ const StyledWrapper = styled.div`
   }
 `;
 
-const StyledCircularIcon = styled.div<{ type: string }>`
+const CircularIcon = styled.div<{ type: string }>`
   width: 6rem;
   height: 6rem;
   border-radius: 50%;
@@ -48,13 +48,13 @@ const StyledCircularIcon = styled.div<{ type: string }>`
   justify-content: center;
 `;
 
-const StyledHeading = styled.h3`
+const Heading = styled.h3`
   font-size: 1.3rem;
   font-weight: 400;
   pointer-events: none;
 `;
 
-const StyledText = styled.p`
+const Text = styled.p`
   font-size: 1.3rem;
   color: ${({ theme }) => theme.textSecondary};
   font-weight: 400;
@@ -73,59 +73,59 @@ const TypeCard: React.FC<Props> = ({ type, handlePick }) => {
       case 'project-manager':
         return (
           <>
-            <StyledCircularIcon type="project-menager">
+            <CircularIcon type="project-menager">
               <ProjectManagerSVG />
-            </StyledCircularIcon>
-            <StyledHeading>Project Manager</StyledHeading>
-            <StyledText>Look after the project</StyledText>
+            </CircularIcon>
+            <Heading>Project Manager</Heading>
+            <Text>Look after the project</Text>
           </>
         );
       case 'developer':
         return (
           <>
-            <StyledCircularIcon type="developer">
+            <CircularIcon type="developer">
               <DeveloperSVG />
-            </StyledCircularIcon>
-            <StyledHeading>Developer</StyledHeading>
-            <StyledText>Build creative projects</StyledText>
+            </CircularIcon>
+            <Heading>Developer</Heading>
+            <Text>Build creative projects</Text>
           </>
         );
       case 'designer':
         return (
           <>
-            <StyledCircularIcon type="designer">
+            <CircularIcon type="designer">
               <DesignerSVG />
-            </StyledCircularIcon>
-            <StyledHeading>Designer</StyledHeading>
-            <StyledText>Create amazing experience</StyledText>
+            </CircularIcon>
+            <Heading>Designer</Heading>
+            <Text>Create amazing experience</Text>
           </>
         );
       case 'quality-assurance':
         return (
           <>
-            <StyledCircularIcon type="quality-assurance">
+            <CircularIcon type="quality-assurance">
               <QASVG />
-            </StyledCircularIcon>
-            <StyledHeading>Quality Assurance</StyledHeading>
-            <StyledText>Deliver quality solutions</StyledText>
+            </CircularIcon>
+            <Heading>Quality Assurance</Heading>
+            <Text>Deliver quality solutions</Text>
           </>
         );
       default:
         return (
           <>
-            <StyledCircularIcon type="project-manager">
+            <CircularIcon type="project-manager">
               <ProjectManagerSVG />
-            </StyledCircularIcon>
-            <StyledHeading>Project Manager</StyledHeading>
-            <StyledText>Manage your project</StyledText>
+            </CircularIcon>
+            <Heading>Project Manager</Heading>
+            <Text>Manage your project</Text>
           </>
         );
     }
   };
   return (
-    <StyledWrapper tabIndex={0} data-type={type} onClick={handlePick}>
+    <Wrapper tabIndex={0} data-type={type} onClick={handlePick}>
       {switchTypeCard(type)}
-    </StyledWrapper>
+    </Wrapper>
   );
 };
 

@@ -1,34 +1,17 @@
 import React from 'react';
-import styled from 'styled-components';
 import { Formik } from 'formik';
-import { firestore } from '../../firebase/index';
-import StyledInput from '../atoms/Input/Input.styles';
-import StyledLabel from '../atoms/Label/Label.styles';
-import StyledSelect from '../atoms/Select/Select.styles';
-import StyledOption from '../atoms/Option/Option.styles';
-import useUser from '../../hooks/useUser';
-import ModalTemplate from '../../templates/ModalTemplate';
-import StyledLabelInputWrapper from '../atoms/LabelInputWrapper/LabelInputWrapper.styles';
-import StyledButton from '../atoms/Button/Button.styles';
-import { types } from '../../state/enums';
-import ErrorMessage from '../atoms/ErrorMessage/ErrorMessage.styles';
-
-const StyledForm = styled.form`
-  width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
-  flex-direction: column;
-  margin-top: 6rem;
-`;
-
-const StyledButtonWrapper = styled.div`
-  width: 100%;
-  display: flex;
-  align-items: flex-start;
-  justify-content: center;
-  flex-direction: column;
-`;
+import { firestore } from '../../../firebase/index';
+import Input from '../../atoms/Input/Input.styles';
+import Label from '../../atoms/Label/Label.styles';
+import Select from '../../atoms/Select/Select.styles';
+import Option from '../../atoms/Option/Option.styles';
+import useUser from '../../../hooks/useUser';
+import ModalTemplate from '../../../templates/ModalTemplate';
+import LabelInputWrapper from '../../atoms/LabelInputWrapper/LabelInputWrapper.styles';
+import Button from '../../atoms/Button/Button.styles';
+import { types } from '../../../state/enums';
+import ErrorMessage from '../../atoms/ErrorMessage/ErrorMessage.styles';
+import { Form, ButtonWrapper } from './AddAnnouncement.styles';
 
 interface Props {
   toggleVisibility: () => void;
@@ -75,10 +58,10 @@ const AddAnnouncement: React.FC<Props> = ({ toggleVisibility, isVisible }) => {
       >
         {({ values: { content, selected }, handleChange, handleBlur, handleSubmit, errors }) => {
           return (
-            <StyledForm onSubmit={handleSubmit}>
-              <StyledLabelInputWrapper>
-                <StyledLabel htmlFor="select">Type</StyledLabel>
-                <StyledSelect
+            <Form onSubmit={handleSubmit}>
+              <LabelInputWrapper>
+                <Label htmlFor="select">Type</Label>
+                <Select
                   id="selected"
                   onChange={handleChange}
                   onBlur={handleBlur}
@@ -89,15 +72,15 @@ const AddAnnouncement: React.FC<Props> = ({ toggleVisibility, isVisible }) => {
                   aria-invalid="true"
                   autoComplete="new-password"
                 >
-                  <StyledOption>Information</StyledOption>
-                  <StyledOption>Meeting</StyledOption>
-                  <StyledOption>Deadline</StyledOption>
-                  <StyledOption>Other</StyledOption>
-                </StyledSelect>
-              </StyledLabelInputWrapper>
-              <StyledLabelInputWrapper>
-                <StyledLabel htmlFor="content">Content</StyledLabel>
-                <StyledInput
+                  <Option>Information</Option>
+                  <Option>Meeting</Option>
+                  <Option>Deadline</Option>
+                  <Option>Other</Option>
+                </Select>
+              </LabelInputWrapper>
+              <LabelInputWrapper>
+                <Label htmlFor="content">Content</Label>
+                <Input
                   id="content"
                   type="text"
                   onChange={handleChange}
@@ -110,13 +93,13 @@ const AddAnnouncement: React.FC<Props> = ({ toggleVisibility, isVisible }) => {
                   autoComplete="new-password"
                 />
                 {errors.content && <ErrorMessage>{errors.content}</ErrorMessage>}
-              </StyledLabelInputWrapper>
-              <StyledButtonWrapper>
-                <StyledButton type="submit" color="yellow">
+              </LabelInputWrapper>
+              <ButtonWrapper>
+                <Button type="submit" color="yellow">
                   Add
-                </StyledButton>
-              </StyledButtonWrapper>
-            </StyledForm>
+                </Button>
+              </ButtonWrapper>
+            </Form>
           );
         }}
       </Formik>

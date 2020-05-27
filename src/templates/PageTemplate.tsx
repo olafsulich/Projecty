@@ -4,11 +4,11 @@ import Heading from '../components/atoms/Heading/Heading.styles';
 import GridLayout from '../Layout/GridLayout';
 import Layout from '../Layout/Layout';
 import { ReactComponent as Morphing } from '../assets/morphing.svg';
-import Navigation from '../components/molecules/Navigation';
-import AddAnnouncement from '../components/molecules/AddAnnouncement';
-import AddBacklog from '../components/molecules/AddBacklog';
-import AddSprint from '../components/molecules/AddSprint';
-import EditProfile from '../components/molecules/EditProfile';
+import Navigation from '../components/molecules/Navigation/Navigation';
+import AddAnnouncement from '../components/molecules/AddAnnouncement/AddAnnouncement';
+import AddBacklog from '../components/molecules/AddBacklog/AddBacklog';
+import AddSprint from '../components/molecules/AddSprint/AddSprint';
+import EditProfile from '../components/molecules/EditProfile/EditProfile';
 
 const StyledWrapper = styled.main`
   width: 100%;

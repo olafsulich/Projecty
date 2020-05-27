@@ -1,17 +1,8 @@
 import React from 'react';
-import styled from 'styled-components';
-import { Link } from '@reach/router';
-import { types } from '../../state/enums/index';
-import { Backlog, Announcement, Sprint } from '../../types';
-import Card from '../atoms/Card/Card';
-
-const StyledLink = styled(Link)`
-  :focus {
-    div {
-      border: 2px solid ${({ theme }) => theme.typeCardSecondary};
-    }
-  }
-`;
+import { types } from '../../../state/enums/index';
+import { Backlog, Announcement, Sprint } from '../../../types';
+import Card from '../../atoms/Card/Card';
+import { Link } from './CardFuncCreator.styles';
 
 type Collection = Backlog | Announcement | Sprint;
 
@@ -22,9 +13,9 @@ const cardFuncCreator = (cardType: string, collection: Collection[], collectionN
     return collection
       .filter((doc: Collection) => doc.type === cardType)
       .map(({ type, content, id, user: { name, photoURL } }: Collection) => (
-        <StyledLink key={id} to={`/project/${projectKey}/${collectionName}/${id}`}>
+        <Link key={id} to={`/project/${projectKey}/${collectionName}/${id}`}>
           <Card photoURL={photoURL} heading={name} content={content} type={type} />
-        </StyledLink>
+        </Link>
       ));
   }
   return null;

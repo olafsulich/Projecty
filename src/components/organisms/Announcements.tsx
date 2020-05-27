@@ -1,10 +1,10 @@
 import React from 'react';
 import { RouteComponentProps } from '@reach/router';
 import PageTemplate from '../../templates/PageTemplate';
-import Category from '../molecules/Category';
+import Category from '../molecules/Category/Category';
 import useAnnouncements from '../../hooks/useAnnouncements';
 import { announcementsInfo } from '../../data/projectPagesData';
-import cardFuncCreator from '../molecules/CardFuncCreator';
+import cardFuncCreator from '../molecules/CardFuncCreator/CardFuncCreator';
 
 type Props = RouteComponentProps;
 

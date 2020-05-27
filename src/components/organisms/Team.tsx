@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { RouteComponentProps, Link } from '@reach/router';
 import PageTemplate from '../../templates/PageTemplate';
 import Card from '../atoms/Card/Card';
-import Category from '../molecules/Category';
+import Category from '../molecules/Category/Category';
 import useTeam from '../../hooks/useTeam';
 import { Member } from '../../types';
 import { types } from '../../state/enums';

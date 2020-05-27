@@ -1,24 +1,10 @@
 import React from 'react';
-import styled from 'styled-components';
-import { BarChart, Bar, XAxis, YAxis, Legend } from 'recharts';
-import useBacklog from '../../hooks/useBacklog';
-import useSprints from '../../hooks/useSprints';
-import usePageWidth from '../../hooks/usePageWidth';
-import { Backlogs, Sprints, Backlog, Sprint } from '../../types/index';
-
-const StyledBarChart = styled(BarChart)`
-  background-color: #fff;
-  padding: 3rem 4rem;
-  border-radius: 7px;
-  box-shadow: 3px 6px 10px ${({ theme }) => theme.cardShadow};
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  @media only screen and (min-width: 450px) {
-    padding: 3rem 6rem;
-  }
-`;
+import { Bar, XAxis, YAxis, Legend } from 'recharts';
+import useBacklog from '../../../hooks/useBacklog';
+import useSprints from '../../../hooks/useSprints';
+import usePageWidth from '../../../hooks/usePageWidth';
+import { Backlogs, Sprints, Backlog, Sprint } from '../../../types/index';
+import { BarChart } from './BarChart.styles';
 
 interface Props {
   barType: string;
@@ -59,11 +45,7 @@ const BarDataChart: React.FC<Props> = ({ barType }) => {
 
   return (
     <>
-      <StyledBarChart
-        width={cardWidth()}
-        height={cardHeight()}
-        data={barType === 'backlog' ? collectionData(backlog) : collectionData(sprints)}
-      >
+      <BarChart width={cardWidth()} height={cardHeight()} data={barType === 'backlog' ? collectionData(backlog) : collectionData(sprints)}>
         <XAxis dataKey="name" />
         <YAxis />
         <Legend />
@@ -72,7 +54,7 @@ const BarDataChart: React.FC<Props> = ({ barType }) => {
           fill={barType === 'backlog' ? '#1FC844' : '#ea4c89'}
           background={{ fill: '#eee' }}
         />
-      </StyledBarChart>
+      </BarChart>
     </>
   );
 };
