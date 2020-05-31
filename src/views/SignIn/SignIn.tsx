@@ -37,7 +37,7 @@ const SignIn: React.FC<RouteComponentProps> = () => (
               <Heading formHeading>Sign in to Projecty</Heading>
               <Form onSubmit={handleSubmit}>
                 <LabelInputWrapper>
-                  <Label htmlFor="email">Email Adress</Label>
+                  <Label htmlFor="email">Email Address</Label>
                   <Input
                     id="email"
                     type="email"
