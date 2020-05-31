@@ -25,21 +25,16 @@ import {
   ButtonWrapper,
   Button,
 } from './StartNewProject.styles';
+import { generateId } from '../../utils/generateId';
+import { NewProjectSchema } from './StartNewProject.validate';
 
 const NewProject: React.FC<RouteComponentProps> = () => {
   const currentUser = useUser();
   const setKey = useDispatch();
   const [generatedId, setGeneratedId] = useState<string>('');
 
-  const generateId = () =>
-    setGeneratedId(
-      Math.random()
-        .toString(36)
-        .substr(2, 9),
-    );
-
   useEffect(() => {
-    generateId();
+    setGeneratedId(generateId());
   }, []);
 
   const handleCreate = (projectName: string) => {
@@ -73,17 +68,7 @@ const NewProject: React.FC<RouteComponentProps> = () => {
           <FormWrapper>
             <FormHeadingWrapper>
               <Heading formHeading>Start a new project</Heading>
-              <Formik
-                initialValues={{ name: '' }}
-                validate={({ name }) => {
-                  const errors: Partial<{ name: string }> = {};
-                  if (!name) {
-                    errors.name = 'Name is required';
-                  }
-                  return errors;
-                }}
-                onSubmit={({ name }) => handleCreate(name)}
-              >
+              <Formik initialValues={{ name: '' }} validationSchema={NewProjectSchema} onSubmit={({ name }) => handleCreate(name)}>
                 {({ values: { name }, handleChange, handleBlur, handleSubmit, errors }) => {
                   return (
                     <Form onSubmit={handleSubmit}>
