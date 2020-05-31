@@ -1,7 +1,6 @@
 import React from 'react';
 import { RouteComponentProps } from '@reach/router';
 import { Formik } from 'formik';
-import * as yup from 'yup';
 import FormTemplate from '../../templates/FormTemplate/FormTemplate';
 import Heading from '../../components/atoms/Heading/Heading.styles';
 import Label from '../../components/atoms/Label/Label.styles';
@@ -22,7 +21,7 @@ const SignIn: React.FC<RouteComponentProps> = () => (
       setErrors({});
     }}
   >
-    {({ values: { email, password }, handleChange, handleBlur, handleSubmit, errors, touched }) => {
+    {({ values: { email, password }, handleChange, handleBlur, handleSubmit, errors }) => {
       return (
         <FormTemplate>
           <FormWrapper>
@@ -43,7 +42,7 @@ const SignIn: React.FC<RouteComponentProps> = () => (
                     aria-invalid={errors.email ? 'true' : 'false'}
                     autoComplete="new-password"
                   />
-                  {errors.email && touched.email && <ErrorMessage>{errors.email}</ErrorMessage>}
+                  {errors.email && <ErrorMessage>{errors.email}</ErrorMessage>}
                 </LabelInputWrapper>
                 <LabelInputWrapper>
                   <Label htmlFor="password">Password</Label>
