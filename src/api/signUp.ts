@@ -1,6 +1,7 @@
 import { navigate } from '@reach/router';
 import { auth } from '../firebase';
 import { createUserDoc } from '../utils/createUserDoc';
+import { emailAlreadyExist } from '../helpers/errorMessages';
 
 export const handleSignUp = async (email: string, password: string, name: string) => {
   if (auth) {
@@ -11,6 +12,6 @@ export const handleSignUp = async (email: string, password: string, name: string
         createUserDoc(user, name);
         navigate('/start-new-project');
       })
-      .catch(() => alert(`Email is already in use, sign in or use other email`));
+      .catch(() => alert(emailAlreadyExist));
   }
 };
