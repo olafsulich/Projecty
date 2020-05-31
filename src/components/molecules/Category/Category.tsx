@@ -1,10 +1,6 @@
 import React from 'react';
 import { CategoryWrapper, CategoryHeading } from './Category.styles';
-
-interface Props {
-  heading: string;
-  type: string;
-}
+import { Props } from './Category.types';
 
 const Category: React.FC<Props> = ({ heading, children, type }) => (
   <CategoryWrapper>

@@ -1,14 +1,6 @@
 import React from 'react';
 import { Cell } from 'recharts';
-
-interface TeamMember {
-  name: string;
-  value: number | null;
-}
-
-interface Props {
-  teamData: TeamMember[];
-}
+import { Props } from './PieCellList.types';
 
 const PieCellList: React.FC<Props> = ({ teamData }) => {
   return (

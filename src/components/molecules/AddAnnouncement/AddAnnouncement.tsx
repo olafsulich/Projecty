@@ -12,11 +12,7 @@ import Button from '../../atoms/Button/Button.styles';
 import { types } from '../../../state/enums';
 import ErrorMessage from '../../atoms/ErrorMessage/ErrorMessage.styles';
 import { Form, ButtonWrapper } from './AddAnnouncement.styles';
-
-interface Props {
-  toggleVisibility: () => void;
-  isVisible: boolean;
-}
+import { Props } from './AddAnnouncement.types';
 
 const AddAnnouncement: React.FC<Props> = ({ toggleVisibility, isVisible }) => {
   const currentUser = useUser();

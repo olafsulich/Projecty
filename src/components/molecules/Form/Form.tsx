@@ -5,11 +5,7 @@ import Input from '../../atoms/Input/Input.styles';
 import Button from '../../atoms/Button/Button.styles';
 import LabelInputWrapper from '../../atoms/LabelInputWrapper/LabelInputWrapper.styles';
 import { FormContainer, FormHeadingWrapper, FormWrapper, ButtonWrapper, Info, InfoButton } from './Form.styles';
-
-interface Props {
-  signup?: boolean;
-  newProject?: boolean;
-}
+import { Props } from './Form.types';
 
 const Form: React.FC<Props> = ({ signup, newProject }) => {
   return (

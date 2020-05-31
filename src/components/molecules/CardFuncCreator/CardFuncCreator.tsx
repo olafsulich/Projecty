@@ -1,10 +1,8 @@
 import React from 'react';
 import { types } from '../../../state/enums/index';
-import { Backlog, Announcement, Sprint } from '../../../types';
 import Card from '../../atoms/Card/Card';
 import { Link } from './CardFuncCreator.styles';
-
-type Collection = Backlog | Announcement | Sprint;
+import { Collection } from './CardFuncCreator.types';
 
 const cardFuncCreator = (cardType: string, collection: Collection[], collectionName: string) => {
   const { PROJECT_KEY } = types;

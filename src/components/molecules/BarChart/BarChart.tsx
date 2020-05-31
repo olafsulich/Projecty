@@ -5,10 +5,7 @@ import useSprints from '../../../hooks/useSprints';
 import usePageWidth from '../../../hooks/usePageWidth';
 import { Backlogs, Sprints, Backlog, Sprint } from '../../../types/index';
 import { BarChart } from './BarChart.styles';
-
-interface Props {
-  barType: string;
-}
+import { Props } from './BarChart.types';
 
 const BarDataChart: React.FC<Props> = ({ barType }) => {
   const pageWidth = usePageWidth();
