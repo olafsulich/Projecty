@@ -16,10 +16,7 @@ const SignIn: React.FC<RouteComponentProps> = () => (
   <Formik
     initialValues={{ email: '', password: '' }}
     validationSchema={SignInSchema}
-    onSubmit={({ email, password }, { setErrors }) => {
-      handleSignIn(email, password);
-      setErrors({});
-    }}
+    onSubmit={({ email, password }) => handleSignIn(email, password)}
   >
     {({ values: { email, password }, handleChange, handleBlur, handleSubmit, errors }) => {
       return (

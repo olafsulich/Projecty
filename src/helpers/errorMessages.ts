@@ -1,6 +1,7 @@
 const emailRequired = 'Email is required';
 const passwordRequired = 'Password is required';
+const nameRequired = 'Name is required';
 const invalidEmail = 'Invalid email address';
 const invalidPassword = 'Password should contain min. 6 characters and one number';
 
-export { emailRequired, passwordRequired, invalidEmail, invalidPassword };
+export { emailRequired, passwordRequired, invalidEmail, invalidPassword, nameRequired };

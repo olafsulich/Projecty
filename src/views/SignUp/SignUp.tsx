@@ -10,26 +10,13 @@ import LabelInputWrapper from '../../components/atoms/LabelInputWrapper/LabelInp
 import ErrorMessage from '../../components/atoms/ErrorMessage/ErrorMessage.styles';
 import { FormWrapper, FormHeadingWrapper, Form, ButtonWrapper, Info, InfoButton } from './SignUp.styles';
 import { handleSignUp } from '../../api/signUp';
+import { SignUpSchema } from './SignUp.validation';
 
 const SignUp: React.FC<RouteComponentProps> = () => {
   return (
     <Formik
       initialValues={{ email: '', password: '', name: '' }}
-      validate={({ email, password, name }) => {
-        const errors: Partial<{ email: string; password: string; name: string }> = {};
-        if (!name) {
-          errors.name = 'Name is required';
-        } else if (!email) {
-          errors.email = 'Email is required';
-        } else if (!password) {
-          errors.password = 'Password is required';
-        } else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(email)) {
-          errors.email = 'Invalid email address';
-        } else if (!/^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{6,}$/i.test(password)) {
-          errors.password = 'Password should contain min. 6 characters and one number';
-        }
-        return errors;
-      }}
+      validationSchema={SignUpSchema}
       onSubmit={({ email, password, name }) => handleSignUp(email, password, name)}
     >
       {({ values: { email, password, name }, handleChange, handleBlur, handleSubmit, errors }) => {
