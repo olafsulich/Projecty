@@ -11,22 +11,12 @@ import LabelInputWrapper from '../../components/atoms/LabelInputWrapper/LabelInp
 import ErrorMessage from '../../components/atoms/ErrorMessage/ErrorMessage.styles';
 import { FormWrapper, FormHeadingWrapper, Form, ButtonWrapper, Info, InfoButton } from './SignIn.styles';
 import { handleSignIn } from '../../api/signIn';
-
-const SignUpSchema = yup.object().shape({
-  password: yup
-    .string()
-    .matches(/^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{6,}$/, 'Password should contain min. 6 characters and one number')
-    .required('Password is required'),
-  email: yup
-    .string()
-    .email('Invalid email address')
-    .required('Email is required'),
-});
+import { SignInSchema } from './SignIn.validation';
 
 const SignIn: React.FC<RouteComponentProps> = () => (
   <Formik
     initialValues={{ email: '', password: '' }}
-    validationSchema={SignUpSchema}
+    validationSchema={SignInSchema}
     onSubmit={({ email, password }, { setErrors }) => {
       handleSignIn(email, password);
       setErrors({});
