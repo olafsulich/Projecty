@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import { BarChart as Chart } from 'recharts';
+import { media } from '../../../utils/media';
 
 const BarChart = styled(Chart)`
   background-color: #fff;
@@ -10,9 +11,9 @@ const BarChart = styled(Chart)`
   align-items: center;
   justify-content: center;
 
-  @media only screen and (min-width: 450px) {
+  ${media.xs`
     padding: 3rem 6rem;
-  }
+  `}
 `;
 
 export { BarChart };

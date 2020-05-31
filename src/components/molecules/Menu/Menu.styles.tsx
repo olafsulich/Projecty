@@ -1,5 +1,6 @@
 import styled, { css } from 'styled-components';
 import { Props } from './Menu.types';
+import { media } from '../../../utils/media';
 
 const Wrapper = styled.nav<Props>`
   position: absolute;
@@ -20,9 +21,9 @@ const Wrapper = styled.nav<Props>`
   transition: opacity 0.7s ease-in-out, transform 0.7s ease-in-out;
   background-color: #fff;
 
-  @media only screen and (min-width: 950px) {
+  ${media.sm`
     position: static;
-  }
+  `}
 `;
 
 const ButtonWrapper = styled.div`
@@ -79,17 +80,17 @@ const List = styled.ul<{ secondary?: boolean }>`
   justify-content: space-around;
   padding: 2rem;
 
-  @media only screen and (min-width: 950px) {
-    padding: 5rem 2rem;
-  }
+  ${media.sm`
+     padding: 5rem 2rem;
+  `}
 
   ${({ secondary }) =>
     secondary &&
     css`
       height: 20%;
-      @media only screen and (min-width: 950px) {
+      ${media.sm`
         padding-bottom: 0;
-      }
+      `}
     `};
 `;
 

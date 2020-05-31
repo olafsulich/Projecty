@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { media } from '../../../utils/media';
 
 const Label = styled.label`
   font-size: 1.4rem;
@@ -6,9 +7,9 @@ const Label = styled.label`
   font-weight: 700;
   margin-bottom: 1rem;
 
-  @media only screen and (min-width: 1150px) {
+  ${media.md`
     font-size: 1.5rem;
-  }
+  `}
 `;
 
 export default Label;

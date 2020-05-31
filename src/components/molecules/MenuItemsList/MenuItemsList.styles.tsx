@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import { Link } from '@reach/router';
+import { media } from '../../../utils/media';
 
 const MenuIcon = styled.div`
   width: 2rem;
@@ -11,22 +12,23 @@ const MenuIcon = styled.div`
     fill: ${({ theme }) => theme.svgIconActive};
   }
 
-  @media only screen and (min-width: 500px) {
+  ${media.xs`
     width: 2.6rem;
     height: 2.6rem;
-  }
+  `}
 `;
 
 const MenuText = styled.h3`
   font-size: 1.2rem;
   color: ${({ theme }) => theme.svgIconActive};
-  @media only screen and (min-width: 500px) {
-    font-size: 1.4rem;
-  }
 
-  @media only screen and (min-width: 950px) {
+  ${media.xs`
+    font-size: 1.4rem;
+  `}
+
+  ${media.sm`
     font-size: 1.5rem;
-  }
+  `}
 `;
 
 const Wrapper = styled.li<{ about?: boolean }>`

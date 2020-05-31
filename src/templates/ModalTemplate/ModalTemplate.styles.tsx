@@ -1,8 +1,8 @@
-import React from 'react';
 import styled from 'styled-components';
-import Heading from '../components/atoms/Heading/Heading.styles';
+import { media } from '../../utils/media';
+import Heading from '../../components/atoms/Heading/Heading.styles';
 
-const StyledModal = styled.div<{ modalTheme?: string }>`
+const Modal = styled.div<{ modalTheme?: string }>`
   position: absolute;
   background-color: #fff;
   z-index: 101;
@@ -13,16 +13,16 @@ const StyledModal = styled.div<{ modalTheme?: string }>`
   top: 0;
   left: 0;
 
-  @media only screen and (min-width: 550px) {
+  ${media.s`
     height: 68rem;
     width: 54rem;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-  }
+  `}
 `;
 
-const StyledWrapper = styled.div`
+const Wrapper = styled.div`
   width: 100%;
   height: 100%;
   display: flex;
@@ -32,7 +32,7 @@ const StyledWrapper = styled.div`
   padding: 5rem 4rem;
 `;
 
-const StyledButtonClose = styled.button`
+const ButtonClose = styled.button`
   width: 3rem;
   height: 2rem;
   display: flex;
@@ -73,7 +73,7 @@ const StyledButtonClose = styled.button`
   }
 `;
 
-const StyledHeadingWrapper = styled.section`
+const HeadingWrapper = styled.section`
   width: 100%;
   display: flex;
   align-items: center;
@@ -81,29 +81,8 @@ const StyledHeadingWrapper = styled.section`
   margin-top: 4rem;
 `;
 
-const StyledHeading = styled(Heading)`
+const ModalHeading = styled(Heading)`
   font-size: 3rem;
 `;
 
-interface Props {
-  toggleVisibility: () => void;
-  title: string;
-  modalTheme?: string;
-  isVisible: boolean;
-}
-
-const ModalTemplate: React.FC<Props> = ({ toggleVisibility, children, title, modalTheme, isVisible }) => {
-  return (
-    <StyledModal modalTheme={modalTheme} aria-hidden={!isVisible} aria-expanded={isVisible} tabIndex={isVisible ? 0 : -1}>
-      <StyledWrapper>
-        <StyledButtonClose role="img" aria-label="close modal" onClick={() => toggleVisibility()} />
-        <StyledHeadingWrapper>
-          <StyledHeading>{title}</StyledHeading>
-        </StyledHeadingWrapper>
-        {children}
-      </StyledWrapper>
-    </StyledModal>
-  );
-};
-
-export default ModalTemplate;
+export { Modal, Wrapper, ButtonClose, HeadingWrapper, ModalHeading };

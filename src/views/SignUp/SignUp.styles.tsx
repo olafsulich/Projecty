@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import { Link } from '@reach/router';
+import { media } from '../../utils/media';
 
 const FormWrapper = styled.main`
   width: 100%;
@@ -17,22 +18,25 @@ const FormHeadingWrapper = styled.section`
   justify-content: flex-start;
   flex-direction: column;
 
-  @media only screen and (min-width: 950px) {
+  ${media.sm`
     width: auto;
     min-width: 40rem;
     justify-content: center;
     height: 100%;
     padding-left: 3rem;
-  }
-  @media only screen and (min-width: 1200px) {
+  `}
+
+  ${media.md`
     min-width: 40rem;
-  }
-  @media only screen and (min-width: 1400px) {
+  `}
+
+  ${media.xl`
     min-width: 45rem;
-  }
-  @media only screen and (min-width: 1600px) {
+  `}
+
+  ${media.xxl`
     min-width: 50rem;
-  }
+  `}
 `;
 
 const Form = styled.form`
@@ -43,9 +47,9 @@ const Form = styled.form`
   justify-content: flex-start;
   flex-direction: column;
 
-  @media only screen and (min-width: 950px) {
+  ${media.sm`
     justify-content: center;
-  }
+  `}
 `;
 
 const ButtonWrapper = styled.div`
@@ -60,9 +64,10 @@ const Info = styled.p`
   width: 100%;
   text-align: center;
   font-size: 1.4rem;
-  @media only screen and (min-width: 950px) {
+
+  ${media.sm`
     display: none;
-  }
+  `}
 `;
 
 const InfoButton = styled(Link)`

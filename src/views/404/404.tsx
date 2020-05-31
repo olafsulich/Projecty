@@ -1,6 +1,6 @@
 import React from 'react';
 import { RouteComponentProps, navigate } from '@reach/router';
-import FormTemplate from '../../templates/FormTemplate';
+import FormTemplate from '../../templates/FormTemplate/FormTemplate';
 import Button from '../../components/atoms/Button/Button.styles';
 import { FormWrapper, FormHeadingWrapper, NotFoundHeading } from './404.styles';
 

@@ -1,4 +1,5 @@
 import styled, { css } from 'styled-components';
+import { media } from '../../../utils/media';
 
 const Select = styled.select<{ signup?: boolean; details?: boolean }>`
   background-color: ${({ theme }) => theme.inputBackgournd};
@@ -30,20 +31,19 @@ const Select = styled.select<{ signup?: boolean; details?: boolean }>`
     color: ${({ theme }) => theme.textSecondary};
   }
 
-  @media only screen and (min-width: 1150px) {
+  ${media.md`
     font-size: 1.4rem;
     height: 4.2rem;
-  }
-  @media only screen and (min-width: 1200px) {
     max-width: 50rem;
-  }
-  @media only screen and (min-width: 1400px) {
-    height: 4.6rem;
-  }
+  `}
 
-  @media only screen and (min-width: 1600px) {
+  ${media.xl`
+    height: 4.6rem;
+  `}
+
+  ${media.xxl`
     height: 4.8rem;
-  }
+  `}
 
   ${({ details }) =>
     details &&

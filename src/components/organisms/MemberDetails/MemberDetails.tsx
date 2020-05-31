@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { RouteComponentProps, useParams } from '@reach/router';
 import useTeam from '../../../hooks/useTeam';
-import CardDetailsTemplate from '../../../templates/CardDetailsTemplate';
+import CardDetailsTemplate from '../../../templates/CardDetailsTemplate/CardDetailsTemplate';
 import { Member } from '../../../types';
 import { Figure, RoleWrapper, Role } from './MemberDetails.styles';
 

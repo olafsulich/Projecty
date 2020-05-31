@@ -1,6 +1,7 @@
-import styled from 'styled-components';
 import { Link } from '@reach/router';
+import styled from 'styled-components';
 import { media } from '../../utils/media';
+import { Props } from './ProjectFormTemplate.types';
 
 const FormWrapper = styled.main`
   width: 100%;
@@ -12,11 +13,11 @@ const FormWrapper = styled.main`
   margin-bottom: 3rem;
 `;
 
-const FormHeadingWrapper = styled.div`
+const FormHeadingWrapper = styled.div<Props>`
   width: 100%;
   height: 100%;
   display: flex;
-  align-items: center;
+  align-items: ${({ projectsList }) => (projectsList ? 'flex-start' : 'center')};
   justify-content: flex-start;
   flex-direction: column;
 
@@ -100,16 +101,11 @@ const ButtonSecondary = styled(Link)`
   right: 4%;
   height: 4.3rem;
   width: 13rem;
-  background-color: ${({ theme }) => theme.greenSecondary};
-  color: ${({ theme }) => theme.greenPrimary};
+  background-color: ${({ theme }) => theme.pinkSecondary};
+  color: ${({ theme }) => theme.pinkPrimary};
   font-size: 1.6rem;
   font-weight: 700;
   border-radius: 10px;
-  display: none;
-
-  ${media.sm`
-    display: flex;
-  `}
 `;
 
 const Form = styled.form`
@@ -121,7 +117,7 @@ const Form = styled.form`
   flex-direction: column;
 
   ${media.sm`
-   justify-content: center;
+    justify-content: center;
   `}
 `;
 
@@ -147,7 +143,7 @@ const ButtonWrapper = styled.div`
   flex-direction: column;
 `;
 
-const Button = styled.button`
+const Button = styled.button<Props>`
   width: 100%;
   height: 4rem;
   font-size: 1.4rem;
@@ -157,12 +153,11 @@ const Button = styled.button`
   border-radius: 8px;
   max-width: 40rem;
   margin-bottom: 2rem;
-
   :focus {
     background-color: ${({ theme }) => theme.pinkSecondary};
     color: ${({ theme }) => theme.pinkPrimary};
   }
-
+  
   ${media.sm`
     width: 35%;
   `}
@@ -172,7 +167,7 @@ const Button = styled.button`
     width: 45%;
   `}
 
-  ${media.xl`
+  ${media.xxl`
     width: 55%;
   `}
 `;
@@ -181,13 +176,9 @@ const Info = styled.p`
   width: 100%;
   text-align: center;
   font-size: 1.4rem;
-
-  ${media.sm`
-    display: none;
-  `}
 `;
 
-const InfoButton = styled(Link)`
+const InfoButton = styled(Link)<Props>`
   text-decoration: none;
   position: relative;
   margin-left: 0.6rem;

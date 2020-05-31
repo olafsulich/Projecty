@@ -1,7 +1,7 @@
 import React from 'react';
 import { RouteComponentProps } from '@reach/router';
 import { Formik } from 'formik';
-import FormTemplate from '../../templates/FormTemplate';
+import FormTemplate from '../../templates/FormTemplate/FormTemplate';
 import Heading from '../../components/atoms/Heading/Heading.styles';
 import Label from '../../components/atoms/Label/Label.styles';
 import Input from '../../components/atoms/Input/Input.styles';

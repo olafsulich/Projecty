@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import Heading from '../../components/atoms/Heading/Heading.styles';
+import { media } from '../../utils/media';
 
 const FormWrapper = styled.main`
   width: 100%;
@@ -17,22 +18,25 @@ const FormHeadingWrapper = styled.section`
   justify-content: flex-start;
   flex-direction: column;
 
-  @media only screen and (min-width: 950px) {
+  ${media.sm`
     width: auto;
     min-width: 40rem;
     justify-content: center;
     height: 100%;
     padding-left: 3rem;
-  }
-  @media only screen and (min-width: 1200px) {
+  `}
+
+  ${media.md`
     min-width: 40rem;
-  }
-  @media only screen and (min-width: 1400px) {
+  `}
+
+  ${media.xl`
     min-width: 45rem;
-  }
-  @media only screen and (min-width: 1600px) {
+  `}
+
+  ${media.xxl`
     min-width: 50rem;
-  }
+  `}
 `;
 
 const NotFoundHeading = styled(Heading)`

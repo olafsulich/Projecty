@@ -7,7 +7,7 @@ import Logo from '../../components/atoms/Logo/Logo.styles';
 import { getProjectID } from '../../state/actions';
 import FoundersProjectsList from '../../components/molecules/FoundersProjectsList/FoundersProjectsList';
 import useProjects from '../../hooks/useProjects';
-import { FormWrapper, FormHeadingWrapper, Container, Wrapper, LogoWrapper, ButtonsWrapper, ButtonSecondary } from './Projects.style';
+import { FormWrapper, FormHeadingWrapper, Container, Wrapper, LogoWrapper, ButtonsWrapper, ButtonSecondary } from './Projects.styles';
 
 const Projects: React.FC<RouteComponentProps> = () => {
   const projects = useProjects();

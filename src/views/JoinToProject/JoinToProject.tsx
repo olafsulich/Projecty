@@ -27,7 +27,7 @@ import {
   Info,
   InfoButton,
 } from './JoinToProject.styles';
-import { Props, ChangeInputValue } from './JoinToProject.types';
+import { Props, ChangeInputValue, ErrorMessages } from './JoinToProject.types';
 
 const JoinProject: React.FC<Props> = () => {
   const [filteredProject, setFilteredProject] = useState<Project[]>();
@@ -40,6 +40,7 @@ const JoinProject: React.FC<Props> = () => {
   const team = useTypedSelector(state => state.team);
   const setProjectID = useDispatch();
   const { FETCH_TEAM, TEAM } = types;
+  const { WRONG_KEY, NO_KEY } = ErrorMessages;
 
   const filterProjects = (e: ChangeInputValue) => projects.filter((doc: Project) => doc.key === e.target.value);
 
@@ -51,14 +52,14 @@ const JoinProject: React.FC<Props> = () => {
       setTeam(fetchFactory(filterProjects(e)[0].id, FETCH_TEAM, TEAM));
     }
     if (!filterProjects(e)[0]) {
-      setErrorMessage('Please check your project key');
+      setErrorMessage(WRONG_KEY);
     }
   };
 
   const handleJoin = (e: React.MouseEvent<HTMLButtonElement, MouseEvent> | React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (!inputValue) {
-      setErrorMessage('Key is required');
+      setErrorMessage(NO_KEY);
       return;
     }
 

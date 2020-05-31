@@ -1,10 +1,8 @@
-import React from 'react';
 import styled from 'styled-components';
-import Layout from '../Layout/Layout';
-import { ReactComponent as Morphing } from '../assets/morphing.svg';
-import Navigation from '../components/molecules/Navigation/Navigation';
+import { ReactComponent as Morphing } from '../../assets/morphing.svg';
+import { media } from '../../utils/media';
 
-const StyledWrapper = styled.div`
+const Wrapper = styled.div`
   width: 100%;
   height: 100%;
   display: flex;
@@ -15,13 +13,13 @@ const StyledWrapper = styled.div`
   padding-top: 5rem;
   overflow-x: hidden;
 
-  @media only screen and (min-width: 950px) {
+  ${media.sm`
     padding-top: 10rem;
     position: relative;
-  }
+  `}
 `;
 
-const StyledContainer = styled.section`
+const Container = styled.section`
   width: 100%;
   height: 100vh;
   background-color: #fbfbfb;
@@ -29,24 +27,25 @@ const StyledContainer = styled.section`
   align-items: center;
   justify-content: space-around;
   flex-direction: column;
-  @media only screen and (min-width: 950px) {
+
+  ${media.sm`
     flex-direction: row;
-  }
+  `}
 `;
 
-const StyledMorph = styled(Morphing)`
+const Morph = styled(Morphing)`
   width: 10rem;
   height: 10rem;
   position: absolute;
   top: 0;
   left: 0;
 
-  @media only screen and (min-width: 950px) {
+  ${media.sm`
     display: none;
-  }
+  `}
 `;
 
-const StyledCard = styled.article`
+const Card = styled.article`
   width: 100%;
   max-width: 70rem;
   border-radius: 7px;
@@ -58,16 +57,4 @@ const StyledCard = styled.article`
   padding: 4rem 3rem;
 `;
 
-const CardDetailsTemplate: React.FC = ({ children }) => (
-  <Layout>
-    <StyledContainer>
-      <Navigation />
-      <StyledMorph />
-      <StyledWrapper>
-        <StyledCard>{children}</StyledCard>
-      </StyledWrapper>
-    </StyledContainer>
-  </Layout>
-);
-
-export default CardDetailsTemplate;
+export { Wrapper, Container, Morph, Card };

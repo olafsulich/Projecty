@@ -1,6 +1,6 @@
 import React from 'react';
 import { RouteComponentProps } from '@reach/router';
-import PageTemplate from '../../../templates/PageTemplate';
+import PageTemplate from '../../../templates/PageTemplate/PageTemplate';
 import Category from '../../molecules/Category/Category';
 import useBacklog from '../../../hooks/useBacklog';
 import { backlogsInfo } from '../../../data/projectPagesData';

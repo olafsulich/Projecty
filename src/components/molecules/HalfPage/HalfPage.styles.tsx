@@ -3,6 +3,7 @@ import { Link } from '@reach/router';
 import { ReactComponent as SignIn } from '../../../assets/login.svg';
 import { ReactComponent as SignUp } from '../../../assets/signup.svg';
 import { Props } from './HalfPage.types';
+import { media } from '../../../utils/media';
 
 const Wrapper = styled.section<Props>`
   width: 50%;
@@ -16,20 +17,21 @@ const Wrapper = styled.section<Props>`
   padding: 8rem 0 15rem 0;
   display: none;
 
-  @media only screen and (min-width: 950px) {
+  ${media.sm`
     display: flex;
-  }
+  `}
 
-  @media only screen and (min-width: 1200px) {
+  ${media.md`
     width: 40%;
-  }
-  @media only screen and (min-width: 1600px) {
-    width: 30%;
-  }
+  `}
 
-  @media only screen and (min-width: 1400px) {
+  ${media.xl`
     padding: 14rem 0 25rem 0;
-  }
+  `}
+
+  ${media.xxl`
+    width: 30%;
+  `}
 `;
 
 const LogoWrapper = styled(Link)`
@@ -57,20 +59,20 @@ const SignInSVG = styled(SignIn)`
   width: 28rem;
   height: 28rem;
 
-  @media only screen and (min-width: 1600px) {
+  ${media.xxl`
     width: 32rem;
     height: 32rem;
-  }
+  `}
 `;
 
 const SignUpSVG = styled(SignUp)`
   width: 28rem;
   height: 28rem;
 
-  @media only screen and (min-width: 1600px) {
+  ${media.xxl`
     width: 32rem;
     height: 32rem;
-  }
+  `}
 `;
 
 export { Wrapper, LogoWrapper, Logo, Heading, SignInSVG, SignUpSVG };

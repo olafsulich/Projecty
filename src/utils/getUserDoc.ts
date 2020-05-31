@@ -1,6 +1,5 @@
 import { firestore } from '../firebase/index';
 
-/* eslint-disable */
 export const getUserDoc = async (uid: string | undefined) => {
   if (!uid) return null;
   try {

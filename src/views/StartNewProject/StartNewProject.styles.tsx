@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import { Link } from '@reach/router';
+import { media } from '../../utils/media';
 
 const FormWrapper = styled.main`
   width: 100%;
@@ -19,22 +20,25 @@ const FormHeadingWrapper = styled.div`
   justify-content: flex-start;
   flex-direction: column;
 
-  @media only screen and (min-width: 950px) {
+  ${media.sm`
     width: auto;
     min-width: 40rem;
     justify-content: center;
     height: 100%;
     padding-left: 3rem;
-  }
-  @media only screen and (min-width: 1200px) {
+  `}
+
+  ${media.md`
     min-width: 40rem;
-  }
-  @media only screen and (min-width: 1400px) {
+  `}
+
+  ${media.xl`
     min-width: 45rem;
-  }
-  @media only screen and (min-width: 1600px) {
+  `}
+
+  ${media.xxl`
     min-width: 50rem;
-  }
+  `}
 `;
 
 const Container = styled.div`
@@ -47,9 +51,9 @@ const Container = styled.div`
   position: relative;
   overflow: hidden;
 
-  @media only screen and (min-width: 950px) {
+  ${media.sm`
     padding: 0;
-  }
+  `}
 `;
 
 const Wrapper = styled.section`
@@ -61,21 +65,23 @@ const Wrapper = styled.section`
   justify-content: space-around;
   flex-direction: column;
 
-  @media only screen and (min-width: 950px) {
+  ${media.sm`
     height: 100%;
     width: 50%;
     justify-content: center;
     padding: 3rem 2rem;
     max-width: 50%;
-  }
-  @media only screen and (min-width: 1200px) {
+  `}
+
+  ${media.md`
     width: 60%;
     max-width: 60%;
-  }
-  @media only screen and (min-width: 1600px) {
+  `}
+
+  ${media.xxl`
     width: 70%;
     max-width: 70%;
-  }
+  `}
 `;
 
 const LogoWrapper = styled(Link)`
@@ -106,9 +112,9 @@ const ButtonSecondary = styled(Link)`
     background-color: ${({ theme }) => theme.yellowPrimary};
   }
 
-  @media only screen and (min-width: 950px) {
+  ${media.sm`
     display: flex;
-  }
+  `}
 `;
 
 const Form = styled.form`
@@ -119,9 +125,9 @@ const Form = styled.form`
   justify-content: flex-start;
   flex-direction: column;
 
-  @media only screen and (min-width: 950px) {
+  ${media.sm`
     justify-content: center;
-  }
+  `}
 `;
 
 const LabelInputWrapper = styled.fieldset`
@@ -133,9 +139,9 @@ const LabelInputWrapper = styled.fieldset`
   margin-bottom: 5rem;
   border: none;
 
-  @media only screen and (min-width: 950px) {
+  ${media.sm`
     align-items: center;
-  }
+  `}
 `;
 
 const ButtonWrapper = styled.div`
@@ -162,25 +168,28 @@ const Button = styled.button`
     color: ${({ theme }) => theme.pinkPrimary};
   }
 
-  @media only screen and (min-width: 950px) {
+  ${media.sm`
     width: 35%;
-  }
-  @media only screen and (min-width: 1150px) {
+  `}
+
+  ${media.md`
     font-size: 1.5rem;
     width: 45%;
-  }
-  @media only screen and (min-width: 1400px) {
+  `}
+
+  ${media.xl`
     width: 55%;
-  }
+  `}
 `;
 
 const Info = styled.p`
   width: 100%;
   text-align: center;
   font-size: 1.4rem;
-  @media only screen and (min-width: 950px) {
+
+  ${media.sm`
     display: none;
-  }
+  `}
 `;
 
 const InfoButton = styled(Link)`

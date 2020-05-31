@@ -1,4 +1,5 @@
 import styled, { css } from 'styled-components';
+import { media } from '../../../utils/media';
 
 const Input = styled.input<{ signup?: boolean; newProject?: boolean; select?: boolean }>`
   border: none;
@@ -40,20 +41,19 @@ const Input = styled.input<{ signup?: boolean; newProject?: boolean; select?: bo
     color: ${({ theme }) => theme.textSecondary};
   }
 
-  @media only screen and (min-width: 1150px) {
+  ${media.md`
     font-size: 1.4rem;
-    height: 4.2rem;
-  }
-  @media only screen and (min-width: 1200px) {
+    height: 4.2rem;        
     max-width: 50rem;
-  }
-  @media only screen and (min-width: 1400px) {
-    height: 4.6rem;
-  }
+  `}
 
-  @media only screen and (min-width: 1600px) {
+  ${media.xl`
+    height: 4.6rem;
+  `}
+
+  ${media.xxl`
     height: 4.8rem;
-  }
+  `}
 
   ${({ newProject }) =>
     newProject &&

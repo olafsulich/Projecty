@@ -6,7 +6,7 @@ import Label from '../../atoms/Label/Label.styles';
 import Select from '../../atoms/Select/Select.styles';
 import Option from '../../atoms/Option/Option.styles';
 import useUser from '../../../hooks/useUser';
-import ModalTemplate from '../../../templates/ModalTemplate';
+import ModalTemplate from '../../../templates/ModalTemplate/ModalTemplate';
 import LabelInputWrapper from '../../atoms/LabelInputWrapper/LabelInputWrapper.styles';
 import Button from '../../atoms/Button/Button.styles';
 import { types } from '../../../state/enums';

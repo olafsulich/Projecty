@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { media } from '../../../utils/media';
 
 const LabelInputWrapper = styled.fieldset`
   width: 100%;
@@ -9,9 +10,9 @@ const LabelInputWrapper = styled.fieldset`
   margin-bottom: 5rem;
   border: none;
 
-  @media only screen and (min-width: 950px) {
-    align-items: center;
-  }
+  ${media.sm`
+    align-items: center;  
+  `}
 `;
 
 export default LabelInputWrapper;

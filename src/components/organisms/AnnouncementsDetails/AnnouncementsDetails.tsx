@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { RouteComponentProps, useParams, navigate } from '@reach/router';
-import CardDetailsTemplate from '../../../templates/CardDetailsTemplate';
+import CardDetailsTemplate from '../../../templates/CardDetailsTemplate/CardDetailsTemplate';
 import useAnnouncements from '../../../hooks/useAnnouncements';
 import { Announcement } from '../../../types';
 import Button from '../../atoms/Button/Button.styles';

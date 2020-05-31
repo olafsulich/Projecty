@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { media } from '../../../utils/media';
 
 const Container = styled.div`
   width: 100%;
@@ -7,12 +8,12 @@ const Container = styled.div`
   top: 0;
   left: 0;
 
-  @media only screen and (min-width: 950px) {
+  ${media.sm`
     width: 40%;
     max-width: 33rem;
     height: 100%;
     position: static;
-  }
+  `}
 `;
 
 const Wrapper = styled.div`

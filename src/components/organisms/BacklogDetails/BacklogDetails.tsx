@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { RouteComponentProps, useParams, navigate } from '@reach/router';
 import useBacklog from '../../../hooks/useBacklog';
-import CardDetailsTemplate from '../../../templates/CardDetailsTemplate';
+import CardDetailsTemplate from '../../../templates/CardDetailsTemplate/CardDetailsTemplate';
 import Select from '../../atoms/Select/Select.styles';
 import Option from '../../atoms/Option/Option.styles';
 import { firestore } from '../../../firebase/index';

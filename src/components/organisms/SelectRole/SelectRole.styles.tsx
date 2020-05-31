@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 import { Link } from '@reach/router';
 import Heading from '../../atoms/Heading/Heading.styles';
+import { media } from '../../../utils/media';
 
 const FormWrapper = styled.main`
   width: 100%;
@@ -20,22 +21,25 @@ const FormHeadingWrapper = styled.div`
   justify-content: flex-start;
   flex-direction: column;
 
-  @media only screen and (min-width: 950px) {
+  ${media.sm`
     width: auto;
     min-width: 55rem;
     justify-content: center;
     height: 100%;
     padding-left: 3rem;
-  }
-  @media only screen and (min-width: 1200px) {
+  `}
+
+  ${media.md`
     min-width: 65rem;
-  }
-  @media only screen and (min-width: 1400px) {
+  `}
+
+  ${media.xl`
     min-width: 75rem;
-  }
-  @media only screen and (min-width: 1600px) {
+  `}
+
+  ${media.xxl`
     min-width: 85rem;
-  }
+  `}
 `;
 
 const Container = styled.div`
@@ -57,21 +61,23 @@ const Wrapper = styled.section`
   justify-content: space-around;
   flex-direction: column;
 
-  @media only screen and (min-width: 950px) {
+  ${media.sm`
     height: 100%;
     width: 50%;
     justify-content: center;
     padding: 3rem 2rem;
     max-width: 50%;
-  }
-  @media only screen and (min-width: 1200px) {
+  `}
+
+  ${media.md`
     width: 60%;
     max-width: 60%;
-  }
-  @media only screen and (min-width: 1600px) {
+  `}
+
+  ${media.xxl`
     width: 70%;
     max-width: 70%;
-  }
+  `}
 `;
 
 const LogoWrapper = styled(Link)`

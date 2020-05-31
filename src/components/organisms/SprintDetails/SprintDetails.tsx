@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { RouteComponentProps, useParams, navigate } from '@reach/router';
-import CardDetailsTemplate from '../../../templates/CardDetailsTemplate';
+import CardDetailsTemplate from '../../../templates/CardDetailsTemplate/CardDetailsTemplate';
 import useSprints from '../../../hooks/useSprints';
 import Select from '../../atoms/Select/Select.styles';
 import Option from '../../atoms/Option/Option.styles';

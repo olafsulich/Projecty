@@ -1,5 +1,6 @@
 import React from 'react';
 import styled, { css } from 'styled-components';
+import { media } from '../utils/media';
 
 const StyledGrid = styled.div<Props>`
   width: 100%;
@@ -14,14 +15,15 @@ const StyledGrid = styled.div<Props>`
   padding: 0 2rem;
   position: relative;
 
-  @media only screen and (min-width: 570px) {
+  ${media.s`
     justify-items: flex-start;
     padding: 0 0 0 4rem;
-  }
-  @media only screen and (min-width: 950px) {
+  `}
+
+  ${media.sm`
     grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
     padding: 0 0 0 8rem;
-  }
+  `}
 
   ${({ statistics }) =>
     statistics &&

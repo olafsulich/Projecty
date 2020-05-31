@@ -4,7 +4,7 @@ import { firestore, storage } from '../../../firebase/index';
 import Input from '../../atoms/Input/Input.styles';
 import Label from '../../atoms/Label/Label.styles';
 import useUser from '../../../hooks/useUser';
-import ModalTemplate from '../../../templates/ModalTemplate';
+import ModalTemplate from '../../../templates/ModalTemplate/ModalTemplate';
 import LabelInputWrapper from '../../atoms/LabelInputWrapper/LabelInputWrapper.styles';
 import Button from '../../atoms/Button/Button.styles';
 import useTeam from '../../../hooks/useTeam';

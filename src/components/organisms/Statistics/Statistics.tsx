@@ -1,6 +1,6 @@
 import React from 'react';
 import { RouteComponentProps } from '@reach/router';
-import PageTemplate from '../../../templates/PageTemplate';
+import PageTemplate from '../../../templates/PageTemplate/PageTemplate';
 import TeamChart from '../../molecules/TeamChart/TeamChart';
 import BarDataChart from '../../molecules/BarChart/BarChart';
 

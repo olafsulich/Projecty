@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { media } from '../../../utils/media';
 
 const Button = styled.button<{ color: string }>`
   width: 100%;
@@ -55,16 +56,18 @@ const Button = styled.button<{ color: string }>`
     }};
   }
 
-  @media only screen and (min-width: 950px) {
+  ${media.sm`
     width: 35%;
-  }
-  @media only screen and (min-width: 1150px) {
+  `}
+
+  ${media.md`
     font-size: 1.5rem;
     width: 45%;
-  }
-  @media only screen and (min-width: 1400px) {
+  `}
+
+  ${media.xl`
     width: 55%;
-  }
+  `}
 `;
 
 export default Button;

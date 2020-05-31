@@ -1,6 +1,6 @@
 import React from 'react';
 import { RouteComponentProps } from '@reach/router';
-import PageTemplate from '../../../templates/PageTemplate';
+import PageTemplate from '../../../templates/PageTemplate/PageTemplate';
 import Card from '../../atoms/Card/Card';
 import Category from '../../molecules/Category/Category';
 import useTeam from '../../../hooks/useTeam';
