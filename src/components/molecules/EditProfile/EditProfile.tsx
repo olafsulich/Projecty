@@ -14,11 +14,7 @@ import useAnnouncements from '../../../hooks/useAnnouncements';
 import { DocumentFromCollection, Image, Collection, InputEvent } from '../../../types/index';
 import { types } from '../../../state/enums';
 import { Form, ButtonWrapper, InputFile } from './EditProfile.styles';
-
-interface Props {
-  toggleVisibility: () => void;
-  isVisible: boolean;
-}
+import { Props } from './EditProfile.types';
 
 const EditProfile: React.FC<Props> = ({ toggleVisibility, isVisible }) => {
   const currentUser = useUser();

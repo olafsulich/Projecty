@@ -1,12 +1,7 @@
 import React from 'react';
-import { RouteComponentProps } from '@reach/router';
 import SignIn from '../../../views/SignIn/SignIn';
 import useUser from '../../../hooks/useUser';
-
-interface Props {
-  as: React.ComponentType<RouteComponentProps>;
-  path: string;
-}
+import { Props } from './PrivateRoute.types';
 
 const PrivateRoute: React.FC<Props> = ({ as: Component, path }) => {
   const { uid } = useUser();

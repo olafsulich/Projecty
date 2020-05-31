@@ -1,13 +1,7 @@
 import React from 'react';
 import { truncateSentence } from '../../../utils/truncateSentence';
 import { CardWrapper, ImageWrapper, TextWrapper, CardHeading, Text } from './Card.styles';
-
-interface Props {
-  heading: string;
-  content?: string;
-  type?: string;
-  photoURL?: string;
-}
+import { Props } from './Card.types';
 
 const Card: React.FC<Props> = ({ heading, content, type, photoURL }) => {
   return (

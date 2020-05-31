@@ -4,11 +4,7 @@ import { ReactComponent as DeveloperSVG } from '../../../assets/rocket.svg';
 import { ReactComponent as DesignerSVG } from '../../../assets/paint.svg';
 import { ReactComponent as QASVG } from '../../../assets/checked.svg';
 import { Wrapper, CircularIcon, Heading, Text } from './TypeCard.styles';
-
-interface Props {
-  type: string;
-  handlePick: (e: React.SyntheticEvent<HTMLDivElement>) => void;
-}
+import { Props } from './TypeCard.types';
 
 const TypeCard: React.FC<Props> = ({ type, handlePick }) => {
   const switchTypeCard = (cardType: string) => {
