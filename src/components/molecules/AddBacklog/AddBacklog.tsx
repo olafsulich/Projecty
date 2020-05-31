@@ -13,6 +13,7 @@ import { types } from '../../../state/enums';
 import ErrorMessage from '../../atoms/ErrorMessage/ErrorMessage.styles';
 import { Form, ButtonWrapper } from './AddBacklog.styles';
 import { Props } from './AddBacklog.types';
+import { AddBacklogSchema } from './AddBacklog.validation';
 
 const AddBacklog: React.FC<Props> = ({ toggleVisibility, isVisible }) => {
   const currentUser = useUser();
@@ -43,13 +44,7 @@ const AddBacklog: React.FC<Props> = ({ toggleVisibility, isVisible }) => {
     <ModalTemplate isVisible={isVisible} toggleVisibility={toggleVisibility} title="Add Backlog">
       <Formik
         initialValues={{ content: '', selected: 'To do' }}
-        validate={({ content }) => {
-          const errors: Partial<{ content: string }> = {};
-          if (!content) {
-            errors.content = 'Content is required';
-          }
-          return errors;
-        }}
+        validationSchema={AddBacklogSchema}
         onSubmit={({ content, selected }) => handleCreate(content, selected)}
       >
         {({ values: { content, selected }, handleChange, handleBlur, handleSubmit, errors }) => {
