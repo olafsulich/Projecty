@@ -1,6 +1,7 @@
 import React from 'react';
 import { RouteComponentProps } from '@reach/router';
 import { Formik } from 'formik';
+import * as yup from 'yup';
 import FormTemplate from '../../templates/FormTemplate/FormTemplate';
 import Heading from '../../components/atoms/Heading/Heading.styles';
 import Label from '../../components/atoms/Label/Label.styles';
@@ -11,31 +12,33 @@ import ErrorMessage from '../../components/atoms/ErrorMessage/ErrorMessage.style
 import { FormWrapper, FormHeadingWrapper, Form, ButtonWrapper, Info, InfoButton } from './SignIn.styles';
 import { handleSignIn } from '../../api/signIn';
 
+const SignUpSchema = yup.object().shape({
+  password: yup
+    .string()
+    .matches(/^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{6,}$/, 'Password should contain min. 6 characters and one number')
+    .required('Password is required'),
+  email: yup
+    .string()
+    .email('Invalid email address')
+    .required('Email is required'),
+});
+
 const SignIn: React.FC<RouteComponentProps> = () => (
   <Formik
     initialValues={{ email: '', password: '' }}
-    validate={({ email, password }) => {
-      const errors: Partial<{ email: string; password: string }> = {};
-      if (!email) {
-        errors.email = 'Email is required';
-      } else if (!password) {
-        errors.password = 'Password is required';
-      } else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(email)) {
-        errors.email = 'Invalid email address';
-      } else if (!/^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{6,}$/i.test(password)) {
-        errors.password = 'Password should contain min. 6 characters and one number';
-      }
-      return errors;
+    validationSchema={SignUpSchema}
+    onSubmit={({ email, password }, { setErrors }) => {
+      handleSignIn(email, password);
+      setErrors({});
     }}
-    onSubmit={({ email, password }) => handleSignIn(email, password)}
   >
-    {({ values: { email, password }, handleChange, handleBlur, handleSubmit, errors }) => {
+    {({ values: { email, password }, handleChange, handleBlur, handleSubmit, errors, touched }) => {
       return (
         <FormTemplate>
           <FormWrapper>
             <FormHeadingWrapper>
               <Heading formHeading>Sign in to Projecty</Heading>
-              <Form onSubmit={handleSubmit}>
+              <Form onSubmit={handleSubmit} noValidate>
                 <LabelInputWrapper>
                   <Label htmlFor="email">Email Address</Label>
                   <Input
@@ -50,7 +53,7 @@ const SignIn: React.FC<RouteComponentProps> = () => (
                     aria-invalid={errors.email ? 'true' : 'false'}
                     autoComplete="new-password"
                   />
-                  {errors.email && <ErrorMessage>{errors.email}</ErrorMessage>}
+                  {errors.email && touched.email && <ErrorMessage>{errors.email}</ErrorMessage>}
                 </LabelInputWrapper>
                 <LabelInputWrapper>
                   <Label htmlFor="password">Password</Label>
