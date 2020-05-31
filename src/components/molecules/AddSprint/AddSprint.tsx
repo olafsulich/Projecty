@@ -13,6 +13,7 @@ import { types } from '../../../state/enums';
 import ErrorMessage from '../../atoms/ErrorMessage/ErrorMessage.styles';
 import { Form, ButtonWrapper } from './AddSprint.styles';
 import { Props } from './AddSprint.types';
+import { AddSprintSchema } from './AddSprint.validation';
 
 const AddSprint: React.FC<Props> = ({ toggleVisibility, isVisible }) => {
   const currentUser = useUser();
@@ -44,15 +45,7 @@ const AddSprint: React.FC<Props> = ({ toggleVisibility, isVisible }) => {
     <ModalTemplate isVisible={isVisible} toggleVisibility={toggleVisibility} title="Add Sprint" modalTheme="green">
       <Formik
         initialValues={{ content: '', selected: 'To do', days: '' }}
-        validate={({ content, days }) => {
-          const errors: Partial<{ content: string; days: string }> = {};
-          if (!content) {
-            errors.content = 'Content is required';
-          } else if (!days) {
-            errors.days = 'Specify sprint duration';
-          }
-          return errors;
-        }}
+        validationSchema={AddSprintSchema}
         onSubmit={({ content, selected, days }) => handleCreate(content, selected, days)}
       >
         {({ values: { content, selected, days }, handleChange, handleBlur, handleSubmit, errors }) => {
