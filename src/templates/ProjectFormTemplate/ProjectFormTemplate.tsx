@@ -34,8 +34,8 @@ const ProjectForm: React.FC<Props> = ({ newProject, projectsList }) => {
             <Heading formHeading>{newProject ? 'Start a new project' : 'Join to project'}</Heading>
             {projectsList ? (
               <>
-                <Card heading="Projecty" content="tool for project menagement" type="project" />
-                <Card heading="Projecty" content="tool for project menagement" type="project" />
+                <Card heading="Projecty" content="tool for project management" type="project" />
+                <Card heading="Projecty" content="tool for project management" type="project" />
               </>
             ) : (
               <Form>
