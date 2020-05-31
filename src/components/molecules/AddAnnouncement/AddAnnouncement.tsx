@@ -13,6 +13,7 @@ import { types } from '../../../state/enums';
 import ErrorMessage from '../../atoms/ErrorMessage/ErrorMessage.styles';
 import { Form, ButtonWrapper } from './AddAnnouncement.styles';
 import { Props } from './AddAnnouncement.types';
+import { AddAnnouncementSchema } from './AddAnnouncement.validation';
 
 const AddAnnouncement: React.FC<Props> = ({ toggleVisibility, isVisible }) => {
   const currentUser = useUser();
@@ -43,13 +44,7 @@ const AddAnnouncement: React.FC<Props> = ({ toggleVisibility, isVisible }) => {
     <ModalTemplate isVisible={isVisible} toggleVisibility={toggleVisibility} title="Add Announcement">
       <Formik
         initialValues={{ content: '', selected: 'Information' }}
-        validate={({ content }) => {
-          const errors: Partial<{ content: string }> = {};
-          if (!content) {
-            errors.content = 'Content is required';
-          }
-          return errors;
-        }}
+        validationSchema={AddAnnouncementSchema}
         onSubmit={({ content, selected }) => handleCreate(content, selected)}
       >
         {({ values: { content, selected }, handleChange, handleBlur, handleSubmit, errors }) => {
