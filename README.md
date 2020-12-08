@@ -2,9 +2,8 @@
 
 <br>
 
-<p align="center">
-<img src="https://i.ibb.co/1TrnMrw/TEam1.png"  alt="Logo">
-</p>
+
+ <img src="https://i.ibb.co/HK6CqNL/socialdev.png" width="100%" alt="Logo">
 
 <br>
 
