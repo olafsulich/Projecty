@@ -3,7 +3,7 @@
 <br>
 
 
- <img src="https://i.ibb.co/HK6CqNL/socialdev.png" width="100%" alt="Logo">
+ <img src="https://i.ibb.co/XVSzGHz/projecty-seo.png" width="100%" alt="Logo">
 
 <br>
 
